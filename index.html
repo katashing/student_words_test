@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>吴若飏词汇练习 Printable Vocabulary Practice</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #52606d;
+      --line: #d9e2ec;
+      --soft: #f7f9fb;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: #ffffff;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+    .wrap {
+      width: min(1060px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 24px 0;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 26px 0 10px;
+      font-size: 20px;
+    }
+    p { margin: 0; color: var(--muted); }
+    .flow {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+    .flow li { margin: 6px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .item {
+      border: 1px solid var(--line);
+      padding: 14px;
+      background: #fff;
+    }
+    .item h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+    .item a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .file {
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+    .note {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--muted);
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 24px; }
+    }
+    @media print {
+      .item a::after { content: " (" attr(href) ")"; color: var(--muted); font-weight: 400; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>吴若飏词汇练习 Printable Vocabulary Practice</h1>
+      <p>学生版用于练习，老师版用于批改。打开对应页面后可直接打印。</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <h2>孩子每日复习流程</h2>
+    <ol class="flow">
+      <li>先做 3 个错题集：英语需要默写错题、英语需要认识错题、数学需要认识错题。</li>
+      <li>批改错题集：已经过关的词移除，还没过关的继续保留。</li>
+      <li>再做当天新题：英语默写每天 5 个；英语认识每天 12 个；数学认识每天 12 个。</li>
+      <li>批改当天新题：没过关的词加入对应错题集。</li>
+      <li>第二天重复：先错题，再新题。</li>
+    </ol>
+    <div class="note">错题集只保留“已经测试过，但还没过关”的词。</div>
+
+    <h2>打印页面</h2>
+    <div class="grid">
+      <section class="item">
+        <h3><a href="printables/english_spelling_student.html">英语需要默写 学生版：16 个</a></h3>
+        <div class="file">english_spelling_student.html</div>
+      </section>
+      <section class="item">
+        <h3><a href="printables/english_spelling_teacher.html">英语需要默写 老师版：16 个</a></h3>
+        <div class="file">english_spelling_teacher.html</div>
+      </section>
+      <section class="item">
+        <h3><a href="printables/english_recognition_student.html">英语需要认识 学生版：168 个</a></h3>
+        <div class="file">english_recognition_student.html</div>
+      </section>
+      <section class="item">
+        <h3><a href="printables/english_recognition_teacher.html">英语需要认识 老师版：168 个</a></h3>
+        <div class="file">english_recognition_teacher.html</div>
+      </section>
+      <section class="item">
+        <h3><a href="printables/math_recognition_student.html">数学需要认识 学生版：111 个</a></h3>
+        <div class="file">math_recognition_student.html</div>
+      </section>
+      <section class="item">
+        <h3><a href="printables/math_recognition_teacher.html">数学需要认识 老师版：111 个</a></h3>
+        <div class="file">math_recognition_teacher.html</div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

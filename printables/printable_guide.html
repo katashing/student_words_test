@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>打印说明文档 Printable Guide</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: #1f2933;
+      background: #f7f9fb;
+    }
+    main {
+      width: min(720px, calc(100vw - 32px));
+      padding: 28px;
+      background: #fff;
+      border: 1px solid #d9e2ec;
+    }
+    h1 { margin: 0 0 8px; font-size: 24px; }
+    h2 { margin: 24px 0 8px; font-size: 18px; }
+    p { margin: 0 0 18px; color: #52606d; }
+    ol {
+      margin: 8px 0 0 22px;
+      padding: 0;
+      color: #1f2933;
+    }
+    li { margin: 7px 0; }
+    .note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #f7f9fb;
+      border: 1px solid #d9e2ec;
+      color: #52606d;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    th, td {
+      border: 1px solid #d9e2ec;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f7f9fb;
+    }
+    a {
+      color: #1f2933;
+      font-weight: 700;
+    }
+    .filename { color: #52606d; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>打印说明文档 Printable Guide</h1>
+    <p>这里统一放所有可打印练习文件。学生版用于给孩子做题，老师版用于家长批改；需要默写和需要认识已经分开。</p>
+    <h2>孩子每日复习流程</h2>
+    <ol>
+      <li>先做 3 个错题集：英语需要默写错题、英语需要认识错题、数学需要认识错题。</li>
+      <li>批改错题集：已经过关的词，从错题集中移除；还没过关的词，继续留在错题集中。</li>
+      <li>再做当天新题：英语默写每天 5 个；英语认识每天 12 个；数学认识每天 12 个。</li>
+      <li>批改当天新题：没过关的词，加入对应错题集。</li>
+      <li>第二天重复同样流程：先错题，再新题。</li>
+    </ol>
+    <div class="note">错题集只保留“已经测试过，但还没过关”的词。这样每天复习时先处理真正薄弱的词，再推进新词。</div>
+    <h2>打印文件</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>用途</th>
+          <th>英文文件名</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="english_spelling_student.html">英语需要默写 学生版：16 个</a></td>
+          <td class="filename">english_spelling_student.html</td>
+        </tr>
+        <tr>
+          <td><a href="english_spelling_teacher.html">英语需要默写 老师版：16 个</a></td>
+          <td class="filename">english_spelling_teacher.html</td>
+        </tr>
+        <tr>
+          <td><a href="english_recognition_student.html">英语需要认识 学生版：168 个</a></td>
+          <td class="filename">english_recognition_student.html</td>
+        </tr>
+        <tr>
+          <td><a href="english_recognition_teacher.html">英语需要认识 老师版：168 个</a></td>
+          <td class="filename">english_recognition_teacher.html</td>
+        </tr>
+        <tr>
+          <td><a href="math_recognition_student.html">数学需要认识 学生版：111 个</a></td>
+          <td class="filename">math_recognition_student.html</td>
+        </tr>
+        <tr>
+          <td><a href="math_recognition_teacher.html">数学需要认识 老师版：111 个</a></td>
+          <td class="filename">math_recognition_teacher.html</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
