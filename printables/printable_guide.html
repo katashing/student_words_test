@@ -53,6 +53,22 @@
       color: #1f2933;
       font-weight: 700;
     }
+    tr.pending-row a,
+    tr.pending-row .filename,
+    tr.pending-row .guide-summary {
+      color: #dc2626;
+    }
+    tr.passed-row a,
+    tr.passed-row .filename,
+    tr.passed-row .guide-summary {
+      color: #16a34a;
+    }
+    .guide-summary {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
     .filename { color: #52606d; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
   </style>
 </head>
@@ -72,29 +88,26 @@
       <thead>
         <tr>
           <th>页面说明</th>
-          <th>文件名</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><a href="daily_practice_student.html">今日练习（学生版）：孩子作答用，共 50 题</a></td>
-          <td class="filename">daily_practice_student.html</td>
+          <td><a href="daily_practice_student.html">今日练习（学生版）：孩子作答用，共 49 题</a></td>
         </tr>
         <tr>
-          <td><a href="daily_practice_teacher.html">今日练习（老师版）：批改答案用，共 50 题</a></td>
-          <td class="filename">daily_practice_teacher.html</td>
+          <td><a href="daily_practice_teacher.html">今日练习（老师版）：批改答案用，共 49 题</a></td>
         </tr>
-        <tr>
-          <td><a href="pending_review_words.html">待练错题库：按四类查看，共 134 项</a></td>
-          <td class="filename">pending_review_words.html</td>
+        <tr class="pending-row">
+          <td><a href="pending_review_words.html">待练错题库：按四类查看，共 120 项</a><span class="guide-summary">待练 120/134 项</span></td>
+        </tr>
+        <tr class="passed-row">
+          <td><a href="passed_words.html">已过关词库：按四类查看，共 14 项</a><span class="guide-summary">已过关 14/134 项</span></td>
         </tr>
         <tr>
           <td><a href="teacher_required_words.html">老师要求词库：按四类查看，共 134 项</a></td>
-          <td class="filename">teacher_required_words.html</td>
         </tr>
         <tr>
           <td><a href="teacher_supplement_words.html">总表（老师+补充建议）：按四类查看，共 355 项</a></td>
-          <td class="filename">teacher_supplement_words.html</td>
         </tr>
       </tbody>
     </table>
