@@ -66,33 +66,50 @@
       text-decoration: none;
     }
     .item.pending-card {
-      border-color: #991b1b;
-      background: #dc2626;
+      border: 2px solid #ef4444;
+      background: #fff5f5;
     }
     .item.passed-card {
-      border-color: #166534;
-      background: #16a34a;
+      border: 2px solid #22c55e;
+      background: #f3fbf5;
+    }
+    .item.daily-card {
+      border: 2px solid #f59e0b;
+      background: #fff8db;
+    }
+    .item.teacher-card {
+      border: 2px solid #94a3b8;
+      background: #f8fafc;
+    }
+    .item.total-card {
+      border: 2px solid #94a3b8;
+      background: #f8fafc;
+    }
+    .item.daily-card a,
+    .item.daily-card .card-summary {
+      color: #92400e;
+    }
+    .item.teacher-card a,
+    .item.teacher-card .card-summary {
+      color: #334155;
     }
     .item.pending-card a,
-    .item.pending-card .file,
-    .item.pending-card .card-summary,
+    .item.pending-card .card-summary {
+      color: #9f1239;
+    }
     .item.passed-card a,
-    .item.passed-card .file,
     .item.passed-card .card-summary {
-      color: #fff;
+      color: #166534;
+    }
+    .item.total-card a,
+    .item.total-card .card-summary {
+      color: #334155;
     }
     .card-summary {
       margin-top: 8px;
       color: var(--muted);
       font-size: 14px;
       font-weight: 700;
-    }
-    .file {
-      margin-top: 6px;
-      color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 13px;
-      overflow-wrap: anywhere;
     }
     .note {
       margin-top: 12px;
@@ -104,9 +121,6 @@
     @media (max-width: 720px) {
       .grid { grid-template-columns: 1fr; }
       h1 { font-size: 24px; }
-    }
-    @media print {
-      .item a::after { content: " (" attr(href) ")"; color: var(--muted); font-weight: 400; }
     }
   </style>
 </head>
@@ -128,11 +142,11 @@
 
     <h2>打印入口</h2>
     <div class="grid">
-      <section class="item">
+      <section class="item daily-card">
         <h3><a href="printables/daily_practice_student.html">今日练习（学生版）：孩子作答用，共 49 题</a></h3>
         
       </section>
-      <section class="item">
+      <section class="item daily-card">
         <h3><a href="printables/daily_practice_teacher.html">今日练习（老师版）：批改答案用，共 49 题</a></h3>
         
       </section>
@@ -144,11 +158,11 @@
         <h3><a href="printables/passed_words.html">已过关词库：按四类查看，共 14 项</a></h3>
         <div class="card-summary">已过关 14/134 项</div>
       </section>
-      <section class="item">
+      <section class="item teacher-card">
         <h3><a href="printables/teacher_required_words.html">老师要求词库：按四类查看，共 134 项</a></h3>
         
       </section>
-      <section class="item">
+      <section class="item total-card">
         <h3><a href="printables/teacher_supplement_words.html">总表（老师+补充建议）：按四类查看，共 355 项</a></h3>
         
       </section>
