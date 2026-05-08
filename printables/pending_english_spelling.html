@@ -18,6 +18,12 @@
       padding: 24px 0 40px;
     }
     h1 { margin: 0 0 6px; font-size: 26px; }
+    h2 {
+      margin: 24px 0 8px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #d9e2ec;
+      font-size: 19px;
+    }
     p { margin: 0 0 16px; color: #52606d; }
     table {
       width: 100%;
@@ -39,10 +45,18 @@
     .word { font-weight: 800; }
     .count { text-align: right; white-space: nowrap; }
     .example { min-width: 260px; }
+    .empty {
+      padding: 18px;
+      border: 1px solid #d9e2ec;
+      background: #fff;
+      color: #52606d;
+    }
     @media print {
       body { background: #fff; }
       main { width: auto; padding: 0; }
       th { position: static; }
+      h2 { page-break-after: avoid; }
+      table { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -50,12 +64,10 @@
   <main>
     <h1>待练错题库：英语默写</h1>
     <p>这份表收录英语默写中尚未做过，或已测试但还未掌握的词。 整理日期：2026-05-08</p>
+    <h2>noun 名词（13 项）</h2>
     <table>
       <thead>
         <tr>
-          <th>学科</th>
-          <th>要求</th>
-          <th>分类</th>
           <th>单词/词组</th>
           <th>中文意思</th>
           <th>简单例句/说明</th>
@@ -65,79 +77,6 @@
       </thead>
       <tbody>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>adjective 形容词</td>
-          <td class="word">famous</td>
-          <td>著名的</td>
-          <td class="example">This is a <strong>famous</strong> place.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>adjective 形容词</td>
-          <td class="word">friendly</td>
-          <td>友好的</td>
-          <td class="example">The teacher is <strong>friendly</strong>.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>conjunction/preposition 连词/介词</td>
-          <td class="word">as</td>
-          <td>像；正如</td>
-          <td class="example">Do <strong>as</strong> your teacher says.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>modal verb 情态动词</td>
-          <td class="word">must</td>
-          <td>必须</td>
-          <td class="example">You <strong>must</strong> finish your homework.</td>
-          <td>老师；课本</td>
-          <td class="count">37</td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>modal verb 情态动词</td>
-          <td class="word">mustn't</td>
-          <td>禁止；不准</td>
-          <td class="example">You <strong>mustn't</strong> run in the classroom.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun phrase 名词短语</td>
-          <td class="word">MTR station</td>
-          <td>地铁站</td>
-          <td class="example">The <strong>MTR station</strong> is near my home.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun phrase 名词短语</td>
-          <td class="word">primary student</td>
-          <td>小学生</td>
-          <td class="example">I am a <strong>primary student</strong>.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
           <td class="word">cream</td>
           <td>奶油</td>
           <td class="example">I like <strong>cream</strong> on my cake.</td>
@@ -145,9 +84,6 @@
           <td class="count">26</td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
           <td class="word">rule</td>
           <td>规则</td>
           <td class="example">We should follow the <strong>rules</strong>.</td>
@@ -155,9 +91,6 @@
           <td class="count">17</td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
           <td class="word">friend</td>
           <td>朋友</td>
           <td class="example">My <strong>friend</strong> is kind.</td>
@@ -165,9 +98,6 @@
           <td class="count">11</td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
           <td class="word">postcard</td>
           <td>明信片</td>
           <td class="example">I sent a <strong>postcard</strong> to my friend.</td>
@@ -175,59 +105,6 @@
           <td class="count">4</td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
-          <td class="word">birthday</td>
-          <td>生日</td>
-          <td class="example">My <strong>birthday</strong> is in May.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
-          <td class="word">gym</td>
-          <td>健身房</td>
-          <td class="example">We exercise in the <strong>gym</strong>.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
-          <td class="word">hotel</td>
-          <td>酒店</td>
-          <td class="example">We stayed in a <strong>hotel</strong>.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
-          <td class="word">library</td>
-          <td>图书馆</td>
-          <td class="example">I read books in the <strong>library</strong>.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
-          <td class="word">owner</td>
-          <td>主人</td>
-          <td class="example">The dog loves its <strong>owner</strong>.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
           <td class="word">parents</td>
           <td>父母</td>
           <td class="example">My <strong>parents</strong> love me.</td>
@@ -235,19 +112,20 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
-          <td class="word">playroom</td>
-          <td>游戏房</td>
-          <td class="example">The children are in the <strong>playroom</strong>.</td>
+          <td class="word">hotel</td>
+          <td>酒店</td>
+          <td class="example">We stayed in a <strong>hotel</strong>.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
+          <td class="word">birthday</td>
+          <td>生日</td>
+          <td class="example">My <strong>birthday</strong> is in May.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
           <td class="word">present</td>
           <td>礼物</td>
           <td class="example">I got a <strong>present</strong> from my mother.</td>
@@ -255,9 +133,27 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>noun 名词</td>
+          <td class="word">library</td>
+          <td>图书馆</td>
+          <td class="example">I read books in the <strong>library</strong>.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">playroom</td>
+          <td>游戏房</td>
+          <td class="example">The children are in the <strong>playroom</strong>.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">gym</td>
+          <td>健身房</td>
+          <td class="example">We exercise in the <strong>gym</strong>.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
           <td class="word">sign</td>
           <td>标志</td>
           <td class="example">Read the <strong>sign</strong> carefully.</td>
@@ -265,69 +161,27 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>phrase 短语</td>
-          <td class="word">between ... and ...</td>
-          <td>在……和……之间</td>
-          <td class="example">The park is <strong>between</strong> the bank and the school.</td>
+          <td class="word">owner</td>
+          <td>主人</td>
+          <td class="example">The dog loves its <strong>owner</strong>.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
+      </tbody>
+    </table>
+    <h2>verb 动词（3 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>phrase 短语</td>
-          <td class="word">take photo</td>
-          <td>照相</td>
-          <td class="example">I take a photo of my cat.</td>
-          <td>老师</td>
-          <td class="count"></td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>phrase 短语</td>
-          <td class="word">turn left</td>
-          <td>左转</td>
-          <td class="example"><strong>Turn left</strong> at the corner.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>phrase 短语</td>
-          <td class="word">turn right</td>
-          <td>右转</td>
-          <td class="example"><strong>Turn right</strong> after the shop.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>preposition 介词</td>
-          <td class="word">opposite</td>
-          <td>在......对面</td>
-          <td class="example">The library is <strong>opposite</strong> the school.</td>
-          <td>老师；课本</td>
-          <td class="count">19</td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>verb 动词</td>
-          <td class="word">feed</td>
-          <td>喂养</td>
-          <td class="example">I <strong>feed</strong> my fish every day.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>verb 动词</td>
           <td class="word">stay</td>
           <td>待在</td>
           <td class="example">I <strong>stay</strong> at home on rainy days.</td>
@@ -335,12 +189,184 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>英语</td>
-          <td>需要默写</td>
-          <td>verb 动词</td>
           <td class="word">touch</td>
           <td>触摸</td>
           <td class="example">Do not <strong>touch</strong> the hot cup.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">feed</td>
+          <td>喂养</td>
+          <td class="example">I <strong>feed</strong> my fish every day.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>preposition 介词（1 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">opposite</td>
+          <td>在......对面</td>
+          <td class="example">The library is <strong>opposite</strong> the school.</td>
+          <td>老师；课本</td>
+          <td class="count">19</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>phrase 短语（4 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">between ... and ...</td>
+          <td>在……和……之间</td>
+          <td class="example">The park is <strong>between</strong> the bank and the school.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">turn left</td>
+          <td>左转</td>
+          <td class="example"><strong>Turn left</strong> at the corner.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">turn right</td>
+          <td>右转</td>
+          <td class="example"><strong>Turn right</strong> after the shop.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">take photo</td>
+          <td>照相</td>
+          <td class="example">I take a photo of my cat.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>noun phrase 名词短语（2 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">primary student</td>
+          <td>小学生</td>
+          <td class="example">I am a <strong>primary student</strong>.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">MTR station</td>
+          <td>地铁站</td>
+          <td class="example">The <strong>MTR station</strong> is near my home.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>adjective 形容词（2 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">famous</td>
+          <td>著名的</td>
+          <td class="example">This is a <strong>famous</strong> place.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">friendly</td>
+          <td>友好的</td>
+          <td class="example">The teacher is <strong>friendly</strong>.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>modal verb 情态动词（2 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">must</td>
+          <td>必须</td>
+          <td class="example">You <strong>must</strong> finish your homework.</td>
+          <td>老师；课本</td>
+          <td class="count">37</td>
+        </tr>
+        <tr>
+          <td class="word">mustn't</td>
+          <td>禁止；不准</td>
+          <td class="example">You <strong>mustn't</strong> run in the classroom.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>conjunction/preposition 连词/介词（1 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">as</td>
+          <td>像；正如</td>
+          <td class="example">Do <strong>as</strong> your teacher says.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>

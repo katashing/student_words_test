@@ -18,6 +18,12 @@
       padding: 24px 0 40px;
     }
     h1 { margin: 0 0 6px; font-size: 26px; }
+    h2 {
+      margin: 24px 0 8px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #d9e2ec;
+      font-size: 19px;
+    }
     p { margin: 0 0 16px; color: #52606d; }
     table {
       width: 100%;
@@ -39,10 +45,18 @@
     .word { font-weight: 800; }
     .count { text-align: right; white-space: nowrap; }
     .example { min-width: 260px; }
+    .empty {
+      padding: 18px;
+      border: 1px solid #d9e2ec;
+      background: #fff;
+      color: #52606d;
+    }
     @media print {
       body { background: #fff; }
       main { width: auto; padding: 0; }
       th { position: static; }
+      h2 { page-break-after: avoid; }
+      table { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -50,12 +64,10 @@
   <main>
     <h1>老师要求词库：数学默写</h1>
     <p>这份表只保留老师明确要求默写的数学词和句型，作为每日数学默写的抽题来源。 整理日期：2026-05-08</p>
+    <h2>directions 方向（4 项）</h2>
     <table>
       <thead>
         <tr>
-          <th>学科</th>
-          <th>要求</th>
-          <th>分类</th>
           <th>单词/词组</th>
           <th>中文意思</th>
           <th>简单例句/说明</th>
@@ -65,9 +77,6 @@
       </thead>
       <tbody>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>directions 方向</td>
           <td class="word">north</td>
           <td>北</td>
           <td class="example"><strong>North</strong> is a direction.</td>
@@ -75,9 +84,6 @@
           <td class="count">28</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>directions 方向</td>
           <td class="word">south</td>
           <td>南</td>
           <td class="example"><strong>South</strong> is a direction.</td>
@@ -85,9 +91,6 @@
           <td class="count">28</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>directions 方向</td>
           <td class="word">east</td>
           <td>东</td>
           <td class="example">The sun rises in the <strong>east</strong>.</td>
@@ -95,159 +98,27 @@
           <td class="count">23</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>directions 方向</td>
           <td class="word">west</td>
           <td>西</td>
           <td class="example">The sun sets in the <strong>west</strong>.</td>
           <td>老师；课本；练习册</td>
           <td class="count">23</td>
         </tr>
+      </tbody>
+    </table>
+    <h2>time/date 时间日期（19 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>numbers 数字</td>
-          <td class="word">hundred</td>
-          <td>百</td>
-          <td class="example">One <strong>hundred</strong> is 100.</td>
-          <td>老师</td>
-          <td class="count"></td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>numbers 数字</td>
-          <td class="word">thousand</td>
-          <td>千</td>
-          <td class="example">One <strong>thousand</strong> is 1000.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">day</td>
-          <td>日</td>
-          <td class="example">A <strong>day</strong> has 24 hours.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">hour</td>
-          <td>时</td>
-          <td class="example">An <strong>hour</strong> has 60 minutes.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">minute</td>
-          <td>分</td>
-          <td class="example">A <strong>minute</strong> has 60 seconds.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">month</td>
-          <td>月</td>
-          <td class="example">A <strong>month</strong> has many days.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">second</td>
-          <td>秒</td>
-          <td class="example">A <strong>second</strong> is a short time.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">week</td>
-          <td>周</td>
-          <td class="example">A <strong>week</strong> has 7 days.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time unit 时间单位</td>
-          <td class="word">year</td>
-          <td>年</td>
-          <td class="example">A <strong>year</strong> has 12 months.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">April</td>
-          <td>四月</td>
-          <td class="example"><strong>April</strong> is the fourth month.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">August</td>
-          <td>八月</td>
-          <td class="example"><strong>August</strong> is the eighth month.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">December</td>
-          <td>十二月</td>
-          <td class="example"><strong>December</strong> is the twelfth month.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">February</td>
-          <td>二月</td>
-          <td class="example"><strong>February</strong> is the second month.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">Friday</td>
-          <td>星期五</td>
-          <td class="example"><strong>Friday</strong> is a weekday.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
           <td class="word">January</td>
           <td>一月</td>
           <td class="example"><strong>January</strong> is the first month.</td>
@@ -255,29 +126,13 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">July</td>
-          <td>七月</td>
-          <td class="example"><strong>July</strong> is the seventh month.</td>
+          <td class="word">February</td>
+          <td>二月</td>
+          <td class="example"><strong>February</strong> is the second month.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">June</td>
-          <td>六月</td>
-          <td class="example"><strong>June</strong> is the sixth month.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
           <td class="word">March</td>
           <td>三月</td>
           <td class="example"><strong>March</strong> is the third month.</td>
@@ -285,9 +140,13 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
+          <td class="word">April</td>
+          <td>四月</td>
+          <td class="example"><strong>April</strong> is the fourth month.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
           <td class="word">May</td>
           <td>五月</td>
           <td class="example"><strong>May</strong> is the fifth month.</td>
@@ -295,49 +154,27 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">Monday</td>
-          <td>星期一</td>
-          <td class="example"><strong>Monday</strong> is a weekday.</td>
+          <td class="word">June</td>
+          <td>六月</td>
+          <td class="example"><strong>June</strong> is the sixth month.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">November</td>
-          <td>十一月</td>
-          <td class="example"><strong>November</strong> is the eleventh month.</td>
+          <td class="word">July</td>
+          <td>七月</td>
+          <td class="example"><strong>July</strong> is the seventh month.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">October</td>
-          <td>十月</td>
-          <td class="example"><strong>October</strong> is the tenth month.</td>
+          <td class="word">August</td>
+          <td>八月</td>
+          <td class="example"><strong>August</strong> is the eighth month.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">Saturday</td>
-          <td>星期六</td>
-          <td class="example"><strong>Saturday</strong> is a weekend day.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
           <td class="word">September</td>
           <td>九月</td>
           <td class="example"><strong>September</strong> is the ninth month.</td>
@@ -345,29 +182,34 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">Sunday</td>
-          <td>星期日</td>
-          <td class="example"><strong>Sunday</strong> is a weekend day.</td>
+          <td class="word">October</td>
+          <td>十月</td>
+          <td class="example"><strong>October</strong> is the tenth month.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
-          <td class="word">Thursday</td>
-          <td>星期四</td>
-          <td class="example"><strong>Thursday</strong> is a weekday.</td>
+          <td class="word">November</td>
+          <td>十一月</td>
+          <td class="example"><strong>November</strong> is the eleventh month.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
+          <td class="word">December</td>
+          <td>十二月</td>
+          <td class="example"><strong>December</strong> is the twelfth month.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">Monday</td>
+          <td>星期一</td>
+          <td class="example"><strong>Monday</strong> is a weekday.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
           <td class="word">Tuesday</td>
           <td>星期二</td>
           <td class="example"><strong>Tuesday</strong> is a weekday.</td>
@@ -375,12 +217,128 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要默写</td>
-          <td>time/date 时间日期</td>
           <td class="word">Wednesday</td>
           <td>星期三</td>
           <td class="example"><strong>Wednesday</strong> is a weekday.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">Thursday</td>
+          <td>星期四</td>
+          <td class="example"><strong>Thursday</strong> is a weekday.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">Friday</td>
+          <td>星期五</td>
+          <td class="example"><strong>Friday</strong> is a weekday.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">Saturday</td>
+          <td>星期六</td>
+          <td class="example"><strong>Saturday</strong> is a weekend day.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">Sunday</td>
+          <td>星期日</td>
+          <td class="example"><strong>Sunday</strong> is a weekend day.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>time unit 时间单位（7 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">year</td>
+          <td>年</td>
+          <td class="example">A <strong>year</strong> has 12 months.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">month</td>
+          <td>月</td>
+          <td class="example">A <strong>month</strong> has many days.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">week</td>
+          <td>周</td>
+          <td class="example">A <strong>week</strong> has 7 days.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">day</td>
+          <td>日</td>
+          <td class="example">A <strong>day</strong> has 24 hours.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">hour</td>
+          <td>时</td>
+          <td class="example">An <strong>hour</strong> has 60 minutes.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">minute</td>
+          <td>分</td>
+          <td class="example">A <strong>minute</strong> has 60 seconds.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">second</td>
+          <td>秒</td>
+          <td class="example">A <strong>second</strong> is a short time.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>numbers 数字（2 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">hundred</td>
+          <td>百</td>
+          <td class="example">One <strong>hundred</strong> is 100.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">thousand</td>
+          <td>千</td>
+          <td class="example">One <strong>thousand</strong> is 1000.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>

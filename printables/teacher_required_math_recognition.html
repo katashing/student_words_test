@@ -18,6 +18,12 @@
       padding: 24px 0 40px;
     }
     h1 { margin: 0 0 6px; font-size: 26px; }
+    h2 {
+      margin: 24px 0 8px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #d9e2ec;
+      font-size: 19px;
+    }
     p { margin: 0 0 16px; color: #52606d; }
     table {
       width: 100%;
@@ -39,10 +45,18 @@
     .word { font-weight: 800; }
     .count { text-align: right; white-space: nowrap; }
     .example { min-width: 260px; }
+    .empty {
+      padding: 18px;
+      border: 1px solid #d9e2ec;
+      background: #fff;
+      color: #52606d;
+    }
     @media print {
       body { background: #fff; }
       main { width: auto; padding: 0; }
       th { position: static; }
+      h2 { page-break-after: avoid; }
+      table { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -50,12 +64,10 @@
   <main>
     <h1>老师要求词库：数学认读</h1>
     <p>这份表只保留老师明确要求认读的数学词和句型，作为每日数学认读的抽题来源。 整理日期：2026-05-08</p>
+    <h2>geometry 几何（8 项）</h2>
     <table>
       <thead>
         <tr>
-          <th>学科</th>
-          <th>要求</th>
-          <th>分类</th>
           <th>单词/词组</th>
           <th>中文意思</th>
           <th>简单例句/说明</th>
@@ -65,109 +77,6 @@
       </thead>
       <tbody>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>answer 答案</td>
-          <td class="word">answer</td>
-          <td>答案</td>
-          <td class="example">Write the <strong>answer</strong> in the box.</td>
-          <td>老师；课本；练习册</td>
-          <td class="count">73</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>answer 答案</td>
-          <td class="word">result</td>
-          <td>结果</td>
-          <td class="example">Check the <strong>result</strong> after you calculate.</td>
-          <td>老师；课本</td>
-          <td class="count">41</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>answer 答案</td>
-          <td class="word">correct</td>
-          <td>正确的</td>
-          <td class="example">Choose the <strong>correct</strong> answer.</td>
-          <td>老师；练习册</td>
-          <td class="count">9</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>comparison 比较</td>
-          <td class="word">less</td>
-          <td>更少的；小于</td>
-          <td class="example">8 is <strong>less</strong> than 10.</td>
-          <td>老师；课本；练习册</td>
-          <td class="count">1</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>comparison 比较</td>
-          <td class="word">fewer</td>
-          <td>更少</td>
-          <td class="example">There are <strong>fewer</strong> apples in this box.</td>
-          <td>老师；课本</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>comparison 比较</td>
-          <td class="word">more</td>
-          <td>更多</td>
-          <td class="example">8 is <strong>more</strong> than 5.</td>
-          <td>老师；课本</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>directions tool 方向工具</td>
-          <td class="word">compass</td>
-          <td>指南针</td>
-          <td class="example">A <strong>compass</strong> shows directions.</td>
-          <td>老师；课本</td>
-          <td class="count">19</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>directions 方向</td>
-          <td class="word">direction</td>
-          <td>方向</td>
-          <td class="example"><strong>Direction</strong> tells us where to go.</td>
-          <td>老师；课本；练习册</td>
-          <td class="count">49</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry tool 几何工具</td>
-          <td class="word">set square</td>
-          <td>三角尺</td>
-          <td class="example">A <strong>set square</strong> helps us draw angles.</td>
-          <td>老师；课本</td>
-          <td class="count">8</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry tool 几何工具</td>
-          <td class="word">geo-strip</td>
-          <td>几何条</td>
-          <td class="example">A <strong>geo-strip</strong> can help make shapes.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
           <td class="word">angle</td>
           <td>角；角度</td>
           <td class="example">An <strong>angle</strong> is made by two lines meeting.</td>
@@ -175,9 +84,6 @@
           <td class="count">314</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
           <td class="word">right angle</td>
           <td>直角</td>
           <td class="example">A <strong>right angle</strong> is 90 degrees.</td>
@@ -185,19 +91,6 @@
           <td class="count">93</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
-          <td class="word">perpendicular</td>
-          <td>垂直</td>
-          <td class="example"><strong>Perpendicular</strong> lines meet at a right angle.</td>
-          <td>老师；课本；练习册</td>
-          <td class="count">47</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
           <td class="word">perpendicular line</td>
           <td>垂直线</td>
           <td class="example"><strong>Perpendicular lines</strong> meet at a right angle.</td>
@@ -205,9 +98,13 @@
           <td class="count">47</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
+          <td class="word">perpendicular</td>
+          <td>垂直</td>
+          <td class="example"><strong>Perpendicular</strong> lines meet at a right angle.</td>
+          <td>老师；课本；练习册</td>
+          <td class="count">47</td>
+        </tr>
+        <tr>
           <td class="word">acute angle</td>
           <td>锐角</td>
           <td class="example">An <strong>acute angle</strong> is smaller than a right angle.</td>
@@ -215,9 +112,6 @@
           <td class="count">26</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
           <td class="word">obtuse angle</td>
           <td>钝角</td>
           <td class="example">An <strong>obtuse angle</strong> is larger than a right angle.</td>
@@ -225,9 +119,6 @@
           <td class="count">26</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
           <td class="word">grid</td>
           <td>网格</td>
           <td class="example">A <strong>grid</strong> helps us find positions.</td>
@@ -235,29 +126,118 @@
           <td class="count">14</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>geometry 几何</td>
           <td class="word">parallel</td>
           <td>平行</td>
           <td class="example"><strong>Parallel</strong> lines never meet.</td>
           <td>老师；课本</td>
           <td class="count"></td>
         </tr>
+      </tbody>
+    </table>
+    <h2>geometry tool 几何工具（2 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>numbers 数字</td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">set square</td>
+          <td>三角尺</td>
+          <td class="example">A <strong>set square</strong> helps us draw angles.</td>
+          <td>老师；课本</td>
+          <td class="count">8</td>
+        </tr>
+        <tr>
+          <td class="word">geo-strip</td>
+          <td>几何条</td>
+          <td class="example">A <strong>geo-strip</strong> can help make shapes.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>directions 方向（1 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">direction</td>
+          <td>方向</td>
+          <td class="example"><strong>Direction</strong> tells us where to go.</td>
+          <td>老师；课本；练习册</td>
+          <td class="count">49</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>directions tool 方向工具（1 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">compass</td>
+          <td>指南针</td>
+          <td class="example">A <strong>compass</strong> shows directions.</td>
+          <td>老师；课本</td>
+          <td class="count">19</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>numbers 数字（1 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td class="word">3-digit number</td>
           <td>三位数</td>
           <td class="example">A <strong>3-digit number</strong> has three digits.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
+      </tbody>
+    </table>
+    <h2>operations 运算（7 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td class="word">addition</td>
           <td>加法</td>
           <td class="example"><strong>Addition</strong> means putting numbers together.</td>
@@ -265,9 +245,6 @@
           <td class="count">57</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
           <td class="word">subtraction</td>
           <td>减法</td>
           <td class="example"><strong>Subtraction</strong> means taking away.</td>
@@ -275,9 +252,6 @@
           <td class="count">39</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
           <td class="word">total</td>
           <td>总共的</td>
           <td class="example">Find the <strong>total</strong> number of apples.</td>
@@ -285,9 +259,6 @@
           <td class="count">32</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
           <td class="word">altogether</td>
           <td>一起；总共</td>
           <td class="example">How many are there <strong>altogether</strong>?</td>
@@ -295,29 +266,6 @@
           <td class="count">29</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
-          <td class="word">be left</td>
-          <td>剩下的</td>
-          <td class="example">How many apples will <strong>be left</strong>?</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
-          <td class="word">borrowing</td>
-          <td>借位</td>
-          <td class="example"><strong>Borrowing</strong> helps when we subtract.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>operations 运算</td>
           <td class="word">carrying</td>
           <td>进位</td>
           <td class="example"><strong>Carrying</strong> helps when the ones make ten.</td>
@@ -325,29 +273,34 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>place value 位值</td>
-          <td class="word">tens</td>
-          <td>十位</td>
-          <td class="example">The digit is in the <strong>tens</strong> place.</td>
-          <td>老师；课本；练习册</td>
-          <td class="count">70</td>
+          <td class="word">borrowing</td>
+          <td>借位</td>
+          <td class="example"><strong>Borrowing</strong> helps when we subtract.</td>
+          <td>老师</td>
+          <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>place value 位值</td>
-          <td class="word">units</td>
-          <td>个位</td>
-          <td class="example">The digit is in the <strong>units</strong> place.</td>
-          <td>老师；练习册</td>
-          <td class="count">3</td>
+          <td class="word">be left</td>
+          <td>剩下的</td>
+          <td class="example">How many apples will <strong>be left</strong>?</td>
+          <td>老师</td>
+          <td class="count"></td>
         </tr>
+      </tbody>
+    </table>
+    <h2>question word 题目词（8 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td class="word">compare</td>
           <td>比较</td>
           <td class="example">We <strong>compare</strong> two numbers.</td>
@@ -355,9 +308,6 @@
           <td class="count">45</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
           <td class="word">calculate</td>
           <td>计算</td>
           <td class="example"><strong>Calculate</strong> the answer.</td>
@@ -365,9 +315,6 @@
           <td class="count">38</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
           <td class="word">estimate</td>
           <td>估计</td>
           <td class="example"><strong>Estimate</strong> the answer first.</td>
@@ -375,9 +322,6 @@
           <td class="count">25</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
           <td class="word">count</td>
           <td>数数</td>
           <td class="example"><strong>Count</strong> from 1 to 10.</td>
@@ -385,29 +329,6 @@
           <td class="count">15</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
-          <td class="word">backwards</td>
-          <td>向后；倒着</td>
-          <td class="example">Count <strong>backwards</strong> from 20.</td>
-          <td>老师；练习册</td>
-          <td class="count">3</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
-          <td class="word">match</td>
-          <td>匹配</td>
-          <td class="example"><strong>Match</strong> the number to the word.</td>
-          <td>老师；课本</td>
-          <td class="count">3</td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
           <td class="word">onwards</td>
           <td>向前；继续向前</td>
           <td class="example">Count <strong>onwards</strong> from 20.</td>
@@ -415,29 +336,160 @@
           <td class="count">3</td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>question word 题目词</td>
+          <td class="word">backwards</td>
+          <td>向后；倒着</td>
+          <td class="example">Count <strong>backwards</strong> from 20.</td>
+          <td>老师；练习册</td>
+          <td class="count">3</td>
+        </tr>
+        <tr>
+          <td class="word">match</td>
+          <td>匹配</td>
+          <td class="example"><strong>Match</strong> the number to the word.</td>
+          <td>老师；课本</td>
+          <td class="count">3</td>
+        </tr>
+        <tr>
           <td class="word">respectively</td>
           <td>分别地</td>
           <td class="example">Tom and Ben have 2 and 3 books <strong>respectively</strong>.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
+      </tbody>
+    </table>
+    <h2>shape 形状（1 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>shape 形状</td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td class="word">circle</td>
           <td>圈；圆</td>
           <td class="example">Draw a <strong>circle</strong> around the answer.</td>
           <td>老师；课本；练习册</td>
           <td class="count">29</td>
         </tr>
+      </tbody>
+    </table>
+    <h2>answer 答案（3 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>time/date 时间日期</td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">answer</td>
+          <td>答案</td>
+          <td class="example">Write the <strong>answer</strong> in the box.</td>
+          <td>老师；课本；练习册</td>
+          <td class="count">73</td>
+        </tr>
+        <tr>
+          <td class="word">result</td>
+          <td>结果</td>
+          <td class="example">Check the <strong>result</strong> after you calculate.</td>
+          <td>老师；课本</td>
+          <td class="count">41</td>
+        </tr>
+        <tr>
+          <td class="word">correct</td>
+          <td>正确的</td>
+          <td class="example">Choose the <strong>correct</strong> answer.</td>
+          <td>老师；练习册</td>
+          <td class="count">9</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>place value 位值（2 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">tens</td>
+          <td>十位</td>
+          <td class="example">The digit is in the <strong>tens</strong> place.</td>
+          <td>老师；课本；练习册</td>
+          <td class="count">70</td>
+        </tr>
+        <tr>
+          <td class="word">units</td>
+          <td>个位</td>
+          <td class="example">The digit is in the <strong>units</strong> place.</td>
+          <td>老师；练习册</td>
+          <td class="count">3</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>comparison 比较（3 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word">less</td>
+          <td>更少的；小于</td>
+          <td class="example">8 is <strong>less</strong> than 10.</td>
+          <td>老师；课本；练习册</td>
+          <td class="count">1</td>
+        </tr>
+        <tr>
+          <td class="word">more</td>
+          <td>更多</td>
+          <td class="example">8 is <strong>more</strong> than 5.</td>
+          <td>老师；课本</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">fewer</td>
+          <td>更少</td>
+          <td class="example">There are <strong>fewer</strong> apples in this box.</td>
+          <td>老师；课本</td>
+          <td class="count"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>time/date 时间日期（2 项）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td class="word">leap year</td>
           <td>闰年</td>
           <td class="example">A <strong>leap year</strong> has 366 days.</td>
@@ -445,59 +497,27 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>time/date 时间日期</td>
           <td class="word">non-leap year</td>
           <td>平年</td>
           <td class="example">A <strong>non-leap year</strong> has 365 days.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
+      </tbody>
+    </table>
+    <h2>句型结构（9 项）</h2>
+    <table>
+      <thead>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
-          <td class="word">... is to the east of ...</td>
-          <td>......位于......的东侧。</td>
-          <td class="example">The school is to the east of the park.</td>
-          <td>老师</td>
-          <td class="count"></td>
+          <th>单词/词组</th>
+          <th>中文意思</th>
+          <th>简单例句/说明</th>
+          <th>出现来源</th>
+          <th>频次</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
-          <td class="word">... is to the north of ...</td>
-          <td>......位于......的北侧。</td>
-          <td class="example">The playground is to the north of the hall.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
-          <td class="word">... is to the south of ...</td>
-          <td>......位于......的南侧。</td>
-          <td class="example">The library is to the south of the shop.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
-          <td class="word">... is to the west of ...</td>
-          <td>......位于......的西侧。</td>
-          <td class="example">The bank is to the west of the school.</td>
-          <td>老师</td>
-          <td class="count"></td>
-        </tr>
-        <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
           <td class="word">Angle ... is larger than Angle ...</td>
           <td>角......大于角......</td>
           <td class="example"><strong>Angle</strong> A is larger than <strong>Angle</strong> B.</td>
@@ -505,9 +525,6 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
           <td class="word">Angle ... is smaller than Angle ...</td>
           <td>角......小于角......</td>
           <td class="example"><strong>Angle</strong> A is smaller than <strong>Angle</strong> B.</td>
@@ -515,9 +532,6 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
           <td class="word">Angle ... is the largest.</td>
           <td>角......是最大的。</td>
           <td class="example"><strong>Angle</strong> A is the largest.</td>
@@ -525,9 +539,6 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
           <td class="word">Angle ... is the smallest.</td>
           <td>角......是最小的。</td>
           <td class="example"><strong>Angle</strong> B is the smallest.</td>
@@ -535,12 +546,37 @@
           <td class="count"></td>
         </tr>
         <tr>
-          <td>数学</td>
-          <td>需要认识</td>
-          <td>句型结构</td>
           <td class="word">The lines are perpendicular to each other.</td>
           <td>这些线彼此垂直。</td>
           <td class="example">The lines are perpendicular to each other.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">... is to the east of ...</td>
+          <td>......位于......的东侧。</td>
+          <td class="example">The school is to the east of the park.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">... is to the south of ...</td>
+          <td>......位于......的南侧。</td>
+          <td class="example">The library is to the south of the shop.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">... is to the west of ...</td>
+          <td>......位于......的西侧。</td>
+          <td class="example">The bank is to the west of the school.</td>
+          <td>老师</td>
+          <td class="count"></td>
+        </tr>
+        <tr>
+          <td class="word">... is to the north of ...</td>
+          <td>......位于......的北侧。</td>
+          <td class="example">The playground is to the north of the hall.</td>
           <td>老师</td>
           <td class="count"></td>
         </tr>
