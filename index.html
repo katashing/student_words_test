@@ -6,120 +6,205 @@
   <title>孙悟空词汇练习 Printable Vocabulary Practice</title>
   <style>
     :root {
-      --ink: #1f2933;
-      --muted: #52606d;
-      --line: #d9e2ec;
-      --soft: #f7f9fb;
-      --accent: #2563eb;
+      --ink: #17212b;
+      --muted: #5b6776;
+      --line: #d6dee8;
+      --paper: #ffffff;
+      --soft: #f5f7fa;
+      --accent: #1d4ed8;
+      --daily: #f59e0b;
+      --daily-soft: #fff7d6;
+      --pending: #dc2626;
+      --pending-soft: #fff1f1;
+      --passed: #16a34a;
+      --passed-soft: #effaf2;
+      --neutral: #64748b;
+      --neutral-soft: #f8fafc;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-      background: #ffffff;
+      background: var(--soft);
       font-size: 16px;
       line-height: 1.55;
     }
     header {
       border-bottom: 1px solid var(--line);
-      background: var(--soft);
+      background: var(--paper);
     }
     .wrap {
-      width: min(1060px, calc(100vw - 32px));
+      width: min(1120px, calc(100vw - 32px));
       margin: 0 auto;
-      padding: 24px 0;
+      padding: 26px 0;
     }
     h1 {
-      margin: 0 0 6px;
-      font-size: 28px;
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.2;
       letter-spacing: 0;
     }
     h2 {
-      margin: 26px 0 10px;
-      font-size: 20px;
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.3;
     }
     p { margin: 0; color: var(--muted); }
-    .flow {
-      margin: 12px 0 0;
-      padding-left: 22px;
+    .hero {
+      display: grid;
+      gap: 8px;
     }
-    .flow li { margin: 6px 0; }
+    .hero p {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .section {
+      margin-top: 22px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 8px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .section-copy {
+      margin: -4px 0 18px;
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 650;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .flow li {
+      min-height: 132px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+    }
+    .flow .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 900;
+      background: #fff;
+    }
     .flow strong {
+      display: block;
+      margin-bottom: 5px;
       font-weight: 900;
     }
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
+      gap: 14px;
+      margin-top: 10px;
     }
     .group-title {
       grid-column: 1 / -1;
-      margin: 10px 0 -2px;
+      margin: 16px 0 -2px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
       color: #1f2933;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 900;
+    }
+    .group-title:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
     }
     .upload-panel {
       display: block;
-      margin-top: 12px;
-      padding: 14px;
-      border: 2px solid #38bdf8;
+      padding: 18px 20px;
+      border: 2px solid #0ea5e9;
+      border-radius: 8px;
       background: #f0f9ff;
       color: #075985;
       text-decoration: none;
     }
     .upload-panel strong {
       display: block;
-      font-size: 17px;
+      font-size: 19px;
+      line-height: 1.3;
     }
     .upload-panel span {
       display: block;
       margin-top: 8px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
     }
     .item {
-      border: 1px solid var(--line);
-      padding: 14px;
-      background: #fff;
+      position: relative;
+      min-height: 112px;
+      padding: 18px 20px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
     }
     .item.full-row {
       grid-column: 1 / -1;
     }
     .item h3 {
-      margin: 0 0 6px;
-      font-size: 17px;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.35;
     }
     .item a {
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 900;
       text-decoration: none;
     }
+    .item a::after {
+      content: ">";
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      color: currentColor;
+      font-weight: 900;
+    }
     .item.pending-card {
-      border: 2px solid #ef4444;
-      background: #fff5f5;
+      border-color: var(--pending);
+      background: var(--pending-soft);
     }
     .item.passed-card {
-      border: 2px solid #22c55e;
-      background: #f3fbf5;
+      border-color: var(--passed);
+      background: var(--passed-soft);
     }
     .item.daily-card {
-      border: 2px solid #f59e0b;
-      background: #fff8db;
+      border-color: var(--daily);
+      background: var(--daily-soft);
     }
     .item.teacher-card {
-      border: 2px solid #94a3b8;
-      background: #f8fafc;
+      border-color: var(--neutral);
+      background: var(--neutral-soft);
     }
     .item.total-card {
-      border: 2px solid #94a3b8;
-      background: #f8fafc;
+      border-color: var(--neutral);
+      background: var(--neutral-soft);
     }
     .item.history-card {
-      border: 2px solid #94a3b8;
-      background: #f8fafc;
+      border-color: var(--neutral);
+      background: var(--neutral-soft);
     }
     .item.daily-card a,
     .item.daily-card .card-summary {
@@ -146,28 +231,31 @@
     .card-summary {
       margin-top: 8px;
       color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 800;
     }
     .entry-updated {
-      margin-left: 12px;
+      white-space: nowrap;
       color: var(--muted);
       font-size: 13px;
-      font-weight: 600;
-      vertical-align: middle;
+      font-weight: 800;
     }
     .print-warning {
+      display: block;
+      margin-top: 8px;
       color: #dc2626;
       font-weight: 800;
     }
-    .note {
-      margin-top: 12px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      color: var(--muted);
+    .accent-label {
+      color: var(--ink);
+      font-weight: 900;
     }
     @media (max-width: 720px) {
+      .wrap { width: min(100vw - 24px, 1120px); padding: 18px 0; }
+      .section { padding: 18px; }
+      .section-head { display: block; }
+      .entry-updated { display: block; margin-top: 6px; }
+      .flow,
       .grid { grid-template-columns: 1fr; }
       h1 { font-size: 24px; }
     }
@@ -176,22 +264,33 @@
 <body>
   <header>
     <div class="wrap">
-      <h1>孙悟空词汇练习 Printable Vocabulary Practice</h1>
+      <div class="hero">
+        <h1>孙悟空词汇练习</h1>
+        <p>每日练习、已过关复习、错题库和老师上传入口</p>
+      </div>
     </div>
   </header>
   <main class="wrap">
-    <h2>一、孩子每日单词测试流程</h2>
-    <ol class="flow">
-      <li><strong>今日练习：</strong>从待练错题库随机抽取当天任务，覆盖英语默写、英语认读、数学默写和数学认读。</li>
-      <li><strong>今日复习：</strong>从已过关词库随机抽取复习题，优先四类均衡抽取，不足时从其他已过关词补足。</li>
-      <li><strong>作答批改：</strong>学生版给孩子作答，老师版给孩子学习、家长或老师批改。</li>
-      <li><strong>更新入库：</strong>老师批改后拍照或贴图上传；系统根据批改结果更新词库，过关的进入已过关词库，没过关的继续保留在待练错题库，新题加入老师要求词库、总表和待练错题库。</li>
-    </ol>
+    <section class="section">
+      <div class="section-head">
+        <h2>一、孩子每日单词测试流程</h2>
+      </div>
+      <ol class="flow">
+        <li><span class="step-number">1</span><strong>今日练习</strong>从待练错题库随机抽取当天任务，覆盖英语默写、英语认读、数学默写和数学认读。</li>
+        <li><span class="step-number">2</span><strong>今日复习</strong>从已过关词库随机抽取复习题，优先四类均衡抽取，不足时从其他已过关词补足。</li>
+        <li><span class="step-number">3</span><strong>作答批改</strong>学生版给孩子作答，老师版给孩子学习、家长或老师批改。</li>
+        <li><span class="step-number">4</span><strong>更新入库</strong>老师批改后拍照或贴图上传；系统根据批改结果更新词库。</li>
+      </ol>
+    </section>
 
-    <h2>二、老师打印入口<span class="entry-updated">最近更新：2026-05-09 14:18</span></h2>
-    <p>学生版给孩子作答，老师版给孩子学习、家长或老师批改。今日练习来自待练错题库，今日复习来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
-    <div class="grid">
-      <div class="group-title">1. 今日</div>
+    <section class="section">
+      <div class="section-head">
+        <h2>二、老师打印入口</h2>
+        <span class="entry-updated">最近更新：2026-05-09 14:39</span>
+      </div>
+      <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
+      <div class="grid">
+      <div class="group-title">1. 今日打印</div>
       <section class="item daily-card">
         <h3><a href="printables/daily_practice_student.html">今日练习（学生版）：孩子作答用，共 49 题</a></h3>
         
@@ -208,12 +307,12 @@
         <h3><a href="printables/passed_review_teacher.html">今日复习（老师版）：批改答案用，共 20 题</a></h3>
         
       </section>
-      <div class="group-title">2. 历史</div>
+      <div class="group-title">2. 历史练习</div>
       <section class="item history-card full-row">
         <h3><a href="history/index.html">历史练习：按日期查看，共 1 天</a></h3>
         
       </section>
-      <div class="group-title">3. 词库</div>
+      <div class="group-title">3. 词库查看</div>
       <section class="item pending-card">
         <h3><a href="printables/pending_review_words.html">待练错题库：按四类查看，共 99 项</a></h3>
         <div class="card-summary">待练 99/138 项</div>
@@ -230,13 +329,18 @@
         <h3><a href="printables/teacher_supplement_words.html">总表（老师 + 补充建议）：按四类查看，共 365 项</a></h3>
         
       </section>
-    </div>
+      </div>
+    </section>
 
-    <h2>三、老师上传入口</h2>
-    <a class="upload-panel" href="https://docs.qq.com/doc/DZVhRV1ZzaHB4eGNu">
-      <strong>作业批改和新词表</strong>
-      <span>腾讯共享文档，贴图上传：新增单词照片（注明分类，如：英语默写），已批改作业照片。</span>
-    </a>
+    <section class="section">
+      <div class="section-head">
+        <h2>三、老师上传入口</h2>
+      </div>
+      <a class="upload-panel" href="https://docs.qq.com/doc/DZVhRV1ZzaHB4eGNu">
+        <strong>作业批改和新词表</strong>
+        <span>腾讯共享文档，贴图上传：新增单词照片（注明分类，如：英语默写），已批改作业照片。</span>
+      </a>
+    </section>
   </main>
 </body>
 </html>
