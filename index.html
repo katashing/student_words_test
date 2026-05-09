@@ -8,31 +8,34 @@
     :root {
       --ink: #17212b;
       --muted: #5b6776;
-      --line: #d6dee8;
-      --paper: #ffffff;
-      --soft: #f5f7fa;
+      --line: rgba(116, 139, 166, 0.28);
+      --paper: rgba(255, 255, 255, 0.72);
+      --soft: #eef5f7;
       --accent: #1d4ed8;
       --daily: #f59e0b;
-      --daily-soft: #fff7d6;
+      --daily-soft: rgba(255, 247, 214, 0.74);
       --pending: #dc2626;
-      --pending-soft: #fff1f1;
+      --pending-soft: rgba(255, 241, 241, 0.74);
       --passed: #16a34a;
-      --passed-soft: #effaf2;
+      --passed-soft: rgba(239, 250, 242, 0.74);
       --neutral: #64748b;
-      --neutral-soft: #f8fafc;
+      --neutral-soft: rgba(248, 250, 252, 0.74);
+      --shadow: 0 18px 44px rgba(30, 41, 59, 0.11);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-      background: var(--soft);
+      background:
+        linear-gradient(135deg, #eef6ff 0%, #f6fbf5 46%, #fff7e8 100%);
       font-size: 16px;
       line-height: 1.55;
     }
     header {
       border-bottom: 1px solid var(--line);
-      background: var(--paper);
+      background: rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(18px);
     }
     .wrap {
       width: min(1120px, calc(100vw - 32px));
@@ -52,12 +55,7 @@
     }
     p { margin: 0; color: var(--muted); }
     .hero {
-      display: grid;
-      gap: 8px;
-    }
-    .hero p {
-      font-size: 15px;
-      font-weight: 700;
+      padding: 6px 0;
     }
     .section {
       margin-top: 22px;
@@ -65,6 +63,8 @@
       border: 1px solid var(--line);
       background: var(--paper);
       border-radius: 8px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
     }
     .section-head {
       display: flex;
@@ -93,7 +93,8 @@
       padding: 16px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #fbfcfe;
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: 0 10px 24px rgba(30, 41, 59, 0.06);
     }
     .flow .step-number {
       display: inline-grid;
@@ -106,7 +107,7 @@
       color: #334155;
       font-size: 14px;
       font-weight: 900;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.72);
     }
     .flow strong {
       display: block;
@@ -136,11 +137,12 @@
     .upload-panel {
       display: block;
       padding: 18px 20px;
-      border: 2px solid #0ea5e9;
+      border: 1px solid rgba(14, 165, 233, 0.42);
       border-radius: 8px;
-      background: #f0f9ff;
+      background: linear-gradient(135deg, rgba(240, 249, 255, 0.84), rgba(236, 253, 245, 0.7));
       color: #075985;
       text-decoration: none;
+      box-shadow: 0 12px 30px rgba(14, 116, 144, 0.08);
     }
     .upload-panel strong {
       display: block;
@@ -157,9 +159,10 @@
       position: relative;
       min-height: 112px;
       padding: 18px 20px;
-      border: 2px solid var(--line);
+      border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--paper);
+      box-shadow: 0 12px 30px rgba(30, 41, 59, 0.07);
     }
     .item.full-row {
       grid-column: 1 / -1;
@@ -184,27 +187,27 @@
     }
     .item.pending-card {
       border-color: var(--pending);
-      background: var(--pending-soft);
+      background: linear-gradient(135deg, rgba(255, 241, 241, 0.88), rgba(255, 255, 255, 0.62));
     }
     .item.passed-card {
       border-color: var(--passed);
-      background: var(--passed-soft);
+      background: linear-gradient(135deg, rgba(239, 250, 242, 0.9), rgba(255, 255, 255, 0.62));
     }
     .item.daily-card {
       border-color: var(--daily);
-      background: var(--daily-soft);
+      background: linear-gradient(135deg, rgba(255, 247, 214, 0.92), rgba(255, 255, 255, 0.62));
     }
     .item.teacher-card {
       border-color: var(--neutral);
-      background: var(--neutral-soft);
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.92), rgba(255, 255, 255, 0.62));
     }
     .item.total-card {
       border-color: var(--neutral);
-      background: var(--neutral-soft);
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.92), rgba(255, 255, 255, 0.62));
     }
     .item.history-card {
       border-color: var(--neutral);
-      background: var(--neutral-soft);
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.92), rgba(255, 255, 255, 0.62));
     }
     .item.daily-card a,
     .item.daily-card .card-summary {
@@ -266,7 +269,6 @@
     <div class="wrap">
       <div class="hero">
         <h1>孙悟空词汇练习</h1>
-        <p>每日练习、已过关复习、错题库和老师上传入口</p>
       </div>
     </div>
   </header>
@@ -286,7 +288,7 @@
     <section class="section">
       <div class="section-head">
         <h2>二、老师打印入口</h2>
-        <span class="entry-updated">最近更新：2026-05-09 14:39</span>
+        <span class="entry-updated">最近更新：2026-05-09 17:14</span>
       </div>
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
       <div class="grid">
