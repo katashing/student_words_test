@@ -20,7 +20,7 @@
       --passed-soft: rgba(239, 250, 242, 0.74);
       --neutral: #64748b;
       --neutral-soft: rgba(248, 250, 252, 0.74);
-      --shadow: 0 18px 44px rgba(30, 41, 59, 0.11);
+      --shadow: 0 10px 24px rgba(30, 41, 59, 0.08);
     }
     * { box-sizing: border-box; }
     body {
@@ -29,8 +29,8 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       background:
         linear-gradient(135deg, #eef6ff 0%, #f6fbf5 46%, #fff7e8 100%);
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.35;
     }
     header {
       border-bottom: 1px solid var(--line);
@@ -40,26 +40,26 @@
     .wrap {
       width: min(1120px, calc(100vw - 32px));
       margin: 0 auto;
-      padding: 26px 0;
+      padding: 10px 0;
     }
     h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 24px;
       line-height: 1.2;
       letter-spacing: 0;
     }
     h2 {
       margin: 0;
-      font-size: 22px;
+      font-size: 19px;
       line-height: 1.3;
     }
     p { margin: 0; color: var(--muted); }
     .hero {
-      padding: 6px 0;
+      padding: 2px 0;
     }
     .section {
-      margin-top: 22px;
-      padding: 24px;
+      margin-top: 10px;
+      padding: 14px 18px;
       border: 1px solid var(--line);
       background: var(--paper);
       border-radius: 8px;
@@ -70,63 +70,67 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 8px;
     }
     .section-copy {
-      margin: -4px 0 18px;
-      max-width: 920px;
+      margin: -2px 0 8px;
+      max-width: 980px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 650;
     }
     .flow {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 12px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
     .flow li {
-      min-height: 132px;
-      padding: 16px;
+      min-height: 0;
+      padding: 9px 11px 9px 42px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.56);
-      box-shadow: 0 10px 24px rgba(30, 41, 59, 0.06);
+      box-shadow: 0 8px 18px rgba(30, 41, 59, 0.05);
+      position: relative;
     }
     .flow .step-number {
-      display: inline-grid;
+      display: grid;
       place-items: center;
-      width: 28px;
-      height: 28px;
-      margin-bottom: 12px;
+      width: 22px;
+      height: 22px;
+      margin-bottom: 0;
+      position: absolute;
+      left: 11px;
+      top: 11px;
       border: 1px solid #cbd5e1;
       border-radius: 999px;
       color: #334155;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 900;
       background: rgba(255, 255, 255, 0.72);
     }
     .flow strong {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 1px;
       font-weight: 900;
     }
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 10px;
+      gap: 8px;
+      margin-top: 6px;
     }
     .group-title {
       grid-column: 1 / -1;
-      margin: 16px 0 -2px;
-      padding-top: 8px;
+      margin: 8px 0 -2px;
+      padding-top: 5px;
       border-top: 1px solid var(--line);
       color: #1f2933;
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 900;
     }
     .group-title:first-child {
@@ -136,7 +140,7 @@
     }
     .upload-panel {
       display: block;
-      padding: 18px 20px;
+      padding: 10px 14px;
       border: 1px solid rgba(14, 165, 233, 0.42);
       border-radius: 8px;
       background: linear-gradient(135deg, rgba(240, 249, 255, 0.84), rgba(236, 253, 245, 0.7));
@@ -146,19 +150,19 @@
     }
     .upload-panel strong {
       display: block;
-      font-size: 19px;
+      font-size: 16px;
       line-height: 1.3;
     }
     .upload-panel span {
       display: block;
-      margin-top: 8px;
-      font-size: 15px;
+      margin-top: 3px;
+      font-size: 13px;
       font-weight: 700;
     }
     .item {
       position: relative;
-      min-height: 112px;
-      padding: 18px 20px;
+      min-height: 58px;
+      padding: 11px 16px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--paper);
@@ -169,7 +173,7 @@
     }
     .item h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.35;
     }
     .item a {
@@ -180,8 +184,8 @@
     .item a::after {
       content: ">";
       position: absolute;
-      right: 18px;
-      top: 18px;
+      right: 14px;
+      top: 11px;
       color: currentColor;
       font-weight: 900;
     }
@@ -232,20 +236,20 @@
       color: #334155;
     }
     .card-summary {
-      margin-top: 8px;
+      margin-top: 2px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 800;
     }
     .entry-updated {
       white-space: nowrap;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
     }
     .print-warning {
       display: block;
-      margin-top: 8px;
+      margin-top: 3px;
       color: #dc2626;
       font-weight: 800;
     }
@@ -254,8 +258,8 @@
       font-weight: 900;
     }
     @media (max-width: 720px) {
-      .wrap { width: min(100vw - 24px, 1120px); padding: 18px 0; }
-      .section { padding: 18px; }
+      .wrap { width: min(100vw - 24px, 1120px); padding: 10px 0; }
+      .section { padding: 14px; }
       .section-head { display: block; }
       .entry-updated { display: block; margin-top: 6px; }
       .flow,
@@ -288,7 +292,7 @@
     <section class="section">
       <div class="section-head">
         <h2>二、老师打印入口</h2>
-        <span class="entry-updated">最近更新：2026-05-09 17:14</span>
+        <span class="entry-updated">最近更新：2026-05-09 17:49</span>
       </div>
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
       <div class="grid">
