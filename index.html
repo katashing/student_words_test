@@ -104,6 +104,10 @@
       border: 2px solid #94a3b8;
       background: #f8fafc;
     }
+    .item.history-card {
+      border: 2px solid #94a3b8;
+      background: #f8fafc;
+    }
     .item.daily-card a,
     .item.daily-card .card-summary {
       color: #92400e;
@@ -121,7 +125,9 @@
       color: #166534;
     }
     .item.total-card a,
-    .item.total-card .card-summary {
+    .item.total-card .card-summary,
+    .item.history-card a,
+    .item.history-card .card-summary {
       color: #334155;
     }
     .card-summary {
@@ -165,7 +171,7 @@
       <li>错题入库更新：过关的从错题集中移除；没过关的继续保留；新题没过关的加入对应错题集。</li>
     </ol>
 
-    <h2>老师打印入口<span class="entry-updated">最近更新：2026-05-09 02:01</span></h2>
+    <h2>老师打印入口<span class="entry-updated">最近更新：2026-05-09 12:59</span></h2>
     <p>学生版给孩子作答，老师版给孩子学习、家长或老师批改。浏览器打开对应页面后可直接打印（Ctrl + P）。</p>
     <div class="grid">
       <section class="item daily-card">
@@ -175,6 +181,10 @@
       <section class="item daily-card">
         <h3><a href="printables/daily_practice_teacher.html">今日练习（老师版）：批改答案用，共 49 题</a></h3>
         
+      </section>
+      <section class="item history-card">
+        <h3><a href="history/">历史练习：按日期查看，共 1 天</a></h3>
+        <div class="card-summary">保留每次更新生成的练习页面。</div>
       </section>
       <section class="item pending-card">
         <h3><a href="printables/pending_review_words.html">待练错题库：按四类查看，共 120 项</a></h3>
