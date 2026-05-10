@@ -93,13 +93,14 @@
       display: flex;
       flex: 1 1 auto;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
     .flow li {
-      flex: 1 1 0;
+      flex: 1 1 230px;
       min-height: 0;
       padding: 7px 10px 7px 36px;
       border: 1px solid var(--line);
@@ -107,7 +108,6 @@
       background: rgba(255, 255, 255, 0.56);
       box-shadow: 0 8px 18px rgba(30, 41, 59, 0.05);
       position: relative;
-      white-space: nowrap;
     }
     .flow .step-number {
       display: grid;
@@ -150,6 +150,32 @@
       margin-top: 0;
       padding-top: 0;
       border-top: 0;
+    }
+    .today-row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 140px repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 8px;
+      border: 1px solid rgba(116, 139, 166, 0.24);
+      border-radius: 8px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.38);
+      box-shadow: 0 10px 22px rgba(30, 41, 59, 0.04);
+    }
+    .today-row-title {
+      display: grid;
+      align-items: center;
+      padding: 0 10px;
+      color: #1f2933;
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .today-row .item {
+      min-height: 52px;
+    }
+    .today-row .item a {
+      font-size: 17px;
     }
     .upload-panel {
       display: block;
@@ -254,6 +280,13 @@
       font-size: 13px;
       font-weight: 800;
     }
+    .card-meta {
+      display: inline;
+      margin-left: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
     .entry-updated {
       white-space: nowrap;
       color: var(--muted);
@@ -261,8 +294,8 @@
       font-weight: 800;
     }
     .print-warning {
-      display: block;
-      margin-top: 3px;
+      display: inline;
+      margin-left: 4px;
       color: #dc2626;
       font-weight: 800;
     }
@@ -282,7 +315,7 @@
         grid-template-columns: 1fr;
       }
       .grid { grid-template-columns: 1fr; }
-      .flow li { white-space: normal; }
+      .today-row { grid-template-columns: 1fr; }
       h1 { font-size: 24px; }
     }
   </style>
@@ -316,34 +349,40 @@
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
       <div class="grid">
       <div class="group-title">1. 今日打印</div>
-      <section class="item daily-card">
-        <h3><a href="printables/daily_practice_student.html">今日练习（学生版）：孩子作答用，共 36 题</a></h3>
-      </section>
-      <section class="item daily-card">
-        <h3><a href="printables/daily_practice_teacher.html">今日练习（老师版）：批改答案用，共 36 题</a></h3>
-      </section>
-      <section class="item passed-card">
-        <h3><a href="printables/passed_review_student.html">今日复习（学生版）：孩子作答用，共 20 题</a></h3>
-      </section>
-      <section class="item passed-card">
-        <h3><a href="printables/passed_review_teacher.html">今日复习（老师版）：批改答案用，共 20 题</a></h3>
-      </section>
+      <div class="today-row">
+        <div class="today-row-title">今日练习</div>
+        <section class="item daily-card">
+          <h3><a href="printables/daily_practice_student.html">学生版<span class="card-meta">共 36 题</span></a></h3>
+        </section>
+        <section class="item daily-card">
+          <h3><a href="printables/daily_practice_teacher.html">老师版<span class="card-meta">共 36 题</span></a></h3>
+        </section>
+      </div>
+      <div class="today-row">
+        <div class="today-row-title">今日复习</div>
+        <section class="item passed-card">
+          <h3><a href="printables/passed_review_student.html">学生版<span class="card-meta">共 20 题</span></a></h3>
+        </section>
+        <section class="item passed-card">
+          <h3><a href="printables/passed_review_teacher.html">老师版<span class="card-meta">共 20 题</span></a></h3>
+        </section>
+      </div>
       <div class="group-title">2. 历史练习</div>
       <section class="item history-card full-row">
-        <h3><a href="history/index.html">历史练习：2026-05-08 至 2026-05-09，共 2 天</a></h3>
+        <h3><a href="history/index.html">历史练习<span class="card-meta">2026-05-08 至 2026-05-09，共 2 天</span></a></h3>
       </section>
-      <div class="group-title">3. 词库查看</div>
+      <div class="group-title">3. 词库查看（分四类）</div>
       <section class="item pending-card">
-        <h3><a href="printables/pending_review_words.html">待练错题库：按四类查看，共 67 项（待练 67/138 项）</a></h3>
+        <h3><a href="printables/pending_review_words.html">待练错题库：共 67 项（待练 67/138 项）</a></h3>
       </section>
       <section class="item passed-card">
-        <h3><a href="printables/passed_words.html">已过关词库：按四类查看，共 71 项（已过关 71/138 项）</a></h3>
+        <h3><a href="printables/passed_words.html">已过关词库：共 71 项（已过关 71/138 项）</a></h3>
       </section>
       <section class="item teacher-card">
-        <h3><a href="printables/teacher_required_words.html">老师要求词库：按四类查看，共 138 项</a></h3>
+        <h3><a href="printables/teacher_required_words.html">老师要求词库：共 138 项</a></h3>
       </section>
       <section class="item total-card">
-        <h3><a href="printables/teacher_supplement_words.html">总表（老师 + 补充建议）：按四类查看，共 365 项</a></h3>
+        <h3><a href="printables/teacher_supplement_words.html">总表（老师 + 补充建议）：共 365 项</a></h3>
       </section>
       </div>
     </section>
