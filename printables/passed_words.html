@@ -89,12 +89,26 @@
       font-size: 14px;
       font-weight: 800;
     }
+    .inline-summary {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
     a.pending-link .summary { color: #be123c; }
+    a.pending-link .inline-summary { color: #be123c; }
     a.passed-link .summary { color: #15803d; }
+    a.passed-link .inline-summary { color: #15803d; }
     a.teacher-link .summary {
       color: #475569;
     }
+    a.teacher-link .inline-summary {
+      color: #475569;
+    }
     a.total-link .summary {
+      color: #475569;
+    }
+    a.total-link .inline-summary {
       color: #475569;
     }
     @media (max-width: 720px) {
@@ -108,10 +122,10 @@
     <h1>已过关词库：71/138 项</h1>
     <p>这里按练习类型拆成四个已过关入口，收录已经测试通过的词。已过关 71/138 项。</p>
     <div class="grid">
-      <a class="passed-link" href="passed_english_spelling.html">英语默写：已过关 27/28 项</a>
-      <a class="passed-link" href="passed_english_recognition.html">英语认读：已过关 13/26 项</a>
-      <a class="passed-link" href="passed_math_spelling.html">数学默写：已过关 7/32 项</a>
-      <a class="passed-link" href="passed_math_recognition.html">数学认读：已过关 24/52 项</a>
+      <a class="passed-link" href="passed_english_spelling.html">英语默写：<span class="inline-summary">已过关 27/28 项</span></a>
+      <a class="passed-link" href="passed_english_recognition.html">英语认读：<span class="inline-summary">已过关 13/26 项</span></a>
+      <a class="passed-link" href="passed_math_spelling.html">数学默写：<span class="inline-summary">已过关 7/32 项</span></a>
+      <a class="passed-link" href="passed_math_recognition.html">数学认读：<span class="inline-summary">已过关 24/52 项</span></a>
     </div>
   </main>
 </body>
