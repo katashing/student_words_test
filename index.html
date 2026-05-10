@@ -73,6 +73,15 @@
       gap: 12px;
       margin-bottom: 8px;
     }
+    .flow-section {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .flow-section .section-head {
+      margin-bottom: 0;
+      flex: 0 0 auto;
+    }
     .section-copy {
       margin: -2px 0 8px;
       max-width: 980px;
@@ -81,21 +90,24 @@
       font-weight: 650;
     }
     .flow {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 12px;
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      gap: 8px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
     .flow li {
+      flex: 1 1 0;
       min-height: 0;
-      padding: 8px 11px 8px 42px;
+      padding: 7px 10px 7px 36px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.56);
       box-shadow: 0 8px 18px rgba(30, 41, 59, 0.05);
       position: relative;
+      white-space: nowrap;
     }
     .flow .step-number {
       display: grid;
@@ -104,8 +116,9 @@
       height: 22px;
       margin-bottom: 0;
       position: absolute;
-      left: 11px;
-      top: 11px;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
       border: 1px solid #cbd5e1;
       border-radius: 999px;
       color: #334155;
@@ -261,9 +274,15 @@
       .wrap { width: min(100vw - 24px, 1120px); padding: 10px 0; }
       .section { padding: 14px; }
       .section-head { display: block; }
+      .flow-section { display: block; }
+      .flow-section .section-head { margin-bottom: 8px; }
       .entry-updated { display: block; margin-top: 6px; }
-      .flow,
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
       .grid { grid-template-columns: 1fr; }
+      .flow li { white-space: normal; }
       h1 { font-size: 24px; }
     }
   </style>
@@ -277,7 +296,7 @@
     </div>
   </header>
   <main class="wrap">
-    <section class="section">
+    <section class="section flow-section">
       <div class="section-head">
         <h2>一、孩子每日单词测试流程</h2>
       </div>
@@ -334,8 +353,7 @@
         <h2>三、老师上传入口</h2>
       </div>
       <a class="upload-panel" href="https://docs.qq.com/doc/DZVhRV1ZzaHB4eGNu">
-        <strong>作业批改和新词表</strong>
-        <span>腾讯共享文档，贴图上传：新增单词照片（注明分类，如：英语默写），已批改作业照片。</span>
+        <strong>作业批改和新词表：腾讯共享文档贴图上传，新增单词照片（注明分类，如：英语默写），和已批改作业照片。</strong>
       </a>
     </section>
   </main>
