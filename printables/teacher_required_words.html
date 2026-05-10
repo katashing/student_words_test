@@ -89,12 +89,26 @@
       font-size: 14px;
       font-weight: 800;
     }
+    .inline-summary {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
     a.pending-link .summary { color: #be123c; }
+    a.pending-link .inline-summary { color: #be123c; }
     a.passed-link .summary { color: #15803d; }
+    a.passed-link .inline-summary { color: #15803d; }
     a.teacher-link .summary {
       color: #475569;
     }
+    a.teacher-link .inline-summary {
+      color: #475569;
+    }
     a.total-link .summary {
+      color: #475569;
+    }
+    a.total-link .inline-summary {
       color: #475569;
     }
     @media (max-width: 720px) {
@@ -108,10 +122,10 @@
     <h1>老师要求词库：共 138 项</h1>
     <p>这里按练习类型拆成四个词库入口，方便老师分别查看英语默写、英语认读、数学默写和数学认读。</p>
     <div class="grid">
-      <a class="teacher-link" href="teacher_required_english_spelling.html">英语默写：28 项</a>
-      <a class="teacher-link" href="teacher_required_english_recognition.html">英语认读：26 项</a>
-      <a class="teacher-link" href="teacher_required_math_spelling.html">数学默写：32 项</a>
-      <a class="teacher-link" href="teacher_required_math_recognition.html">数学认读：52 项</a>
+      <a class="teacher-link" href="teacher_required_english_spelling.html">英语默写：<span class="inline-summary">28 项</span></a>
+      <a class="teacher-link" href="teacher_required_english_recognition.html">英语认读：<span class="inline-summary">26 项</span></a>
+      <a class="teacher-link" href="teacher_required_math_spelling.html">数学默写：<span class="inline-summary">32 项</span></a>
+      <a class="teacher-link" href="teacher_required_math_recognition.html">数学认读：<span class="inline-summary">52 项</span></a>
     </div>
   </main>
 </body>
