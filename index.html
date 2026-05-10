@@ -84,10 +84,11 @@
     }
     .section-copy {
       margin: -2px 0 8px;
-      max-width: 980px;
+      max-width: none;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 650;
+      white-space: nowrap;
     }
     .flow {
       display: flex;
@@ -154,7 +155,7 @@
     .today-row {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: 140px repeat(2, minmax(0, 1fr));
+      grid-template-columns: 190px repeat(2, minmax(180px, 0.6fr));
       align-items: stretch;
       gap: 8px;
       border: 1px solid rgba(116, 139, 166, 0.24);
@@ -168,7 +169,7 @@
       align-items: center;
       padding: 0 10px;
       color: #1f2933;
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 900;
     }
     .today-row .item {
@@ -307,6 +308,7 @@
       .wrap { width: min(100vw - 24px, 1120px); padding: 10px 0; }
       .section { padding: 14px; }
       .section-head { display: block; }
+      .section-copy { white-space: normal; }
       .flow-section { display: block; }
       .flow-section .section-head { margin-bottom: 8px; }
       .entry-updated { display: block; margin-top: 6px; }
