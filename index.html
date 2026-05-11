@@ -250,6 +250,10 @@
       border-color: var(--neutral);
       background: linear-gradient(135deg, rgba(248, 250, 252, 0.92), rgba(255, 255, 255, 0.62));
     }
+    .item.interview-card {
+      border-color: #0ea5e9;
+      background: linear-gradient(135deg, rgba(240, 249, 255, 0.9), rgba(255, 255, 255, 0.62));
+    }
     .item.daily-card a,
     .item.daily-card .card-summary {
       color: #92400e;
@@ -271,6 +275,10 @@
     .item.history-card a,
     .item.history-card .card-summary {
       color: #334155;
+    }
+    .item.interview-card a,
+    .item.interview-card .card-summary {
+      color: #075985;
     }
     .card-summary {
       margin-top: 2px;
@@ -341,7 +349,7 @@
     <section class="section">
       <div class="section-head">
         <h2>二、老师打印入口</h2>
-        <span class="entry-updated">最近更新：2026-05-09 23:44</span>
+        <span class="entry-updated">最近更新：2026-05-11 23:21</span>
       </div>
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
       <div class="grid">
@@ -349,37 +357,44 @@
       <div class="today-row">
         <div class="today-row-title">今日练习</div>
         <section class="item daily-card">
-          <h3><a href="printables/daily_practice_student.html">学生版<span class="card-meta">共 36 题</span></a></h3>
+          <h3><a href="printables/daily_practice_student.html">学生版</a></h3>
         </section>
         <section class="item daily-card">
-          <h3><a href="printables/daily_practice_teacher.html">老师版<span class="card-meta">共 36 题</span></a></h3>
+          <h3><a href="printables/daily_practice_teacher.html">老师版</a></h3>
         </section>
       </div>
       <div class="today-row">
         <div class="today-row-title">今日复习</div>
         <section class="item passed-card">
-          <h3><a href="printables/passed_review_student.html">学生版<span class="card-meta">共 20 题</span></a></h3>
+          <h3><a href="printables/passed_review_student.html">学生版</a></h3>
         </section>
         <section class="item passed-card">
-          <h3><a href="printables/passed_review_teacher.html">老师版<span class="card-meta">共 20 题</span></a></h3>
+          <h3><a href="printables/passed_review_teacher.html">老师版</a></h3>
         </section>
       </div>
       <div class="group-title">2. 历史练习</div>
       <section class="item history-card full-row">
-        <h3><a href="history/index.html">历史练习<span class="card-meta">2026-05-08 至 2026-05-09，共 2 天</span></a></h3>
+          <h3><a href="history/index.html">历史练习<span class="card-meta">2026-05-08 至 2026-05-11，共 3 天</span></a></h3>
       </section>
       <div class="group-title">3. 词库查看（分四类）</div>
       <section class="item pending-card">
-        <h3><a href="printables/pending_review_words.html">待练错题库<span class="card-meta">共 67 项（待练 67/138 项）</span></a></h3>
+          <h3><a href="printables/pending_review_words.html">待练错题库<span class="card-meta">共 46 项（待练 46/138 项）</span></a></h3>
       </section>
       <section class="item passed-card">
-        <h3><a href="printables/passed_words.html">已过关词库<span class="card-meta">共 71 项（已过关 71/138 项）</span></a></h3>
+          <h3><a href="printables/passed_words.html">已过关词库<span class="card-meta">共 92 项（已过关 92/138 项）</span></a></h3>
       </section>
       <section class="item teacher-card">
-        <h3><a href="printables/teacher_required_words.html">老师要求词库<span class="card-meta">共 138 项</span></a></h3>
+          <h3><a href="printables/teacher_required_words.html">老师要求词库<span class="card-meta">共 138 项</span></a></h3>
       </section>
       <section class="item total-card">
-        <h3><a href="printables/teacher_supplement_words.html">总表（老师 + 补充建议）<span class="card-meta">共 365 项</span></a></h3>
+          <h3><a href="printables/teacher_supplement_words.html">总表（老师 + 补充建议）<span class="card-meta">共 365 项</span></a></h3>
+      </section>
+      <div class="group-title">4. 面试问题</div>
+      <section class="item interview-card">
+          <h3><a href="printables/interview_english.html">英文面试问题<span class="card-meta">老师题目 + 孩子作答 + 建议表达</span></a></h3>
+      </section>
+      <section class="item interview-card">
+          <h3><a href="printables/interview_chinese.html">中文面试问题<span class="card-meta">待整理</span></a></h3>
       </section>
       </div>
     </section>
