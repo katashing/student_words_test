@@ -269,6 +269,16 @@
       font-size: 13px;
       font-weight: 700;
     }
+    .upload-links {
+      display: grid;
+      gap: 8px;
+    }
+    .upload-panel.secondary {
+      border-color: rgba(100, 116, 139, 0.42);
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(255, 255, 255, 0.72));
+      color: #334155;
+      box-shadow: 0 12px 30px rgba(30, 41, 59, 0.06);
+    }
     .item {
       position: relative;
       min-height: 58px;
@@ -437,7 +447,7 @@
     <section class="section">
       <div class="section-head">
         <h2>二、老师打印入口</h2>
-        <span class="entry-updated">最近更新：2026-05-12 20:33</span>
+        <span class="entry-updated">最近更新：2026-05-12 20:54</span>
       </div>
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
       <div class="dashboard-tools" id="dashboardTools">
@@ -516,9 +526,14 @@
       <div class="section-head">
         <h2>三、老师上传入口</h2>
       </div>
-      <a class="upload-panel" href="https://docs.qq.com/doc/DZVhRV1ZzaHB4eGNu">
-        <strong>作业批改和新词表：</strong><span>腾讯共享文档贴图上传，新增单词照片（注明分类，如：英语默写），和已批改作业照片。</span>
-      </a>
+      <div class="upload-links">
+        <a class="upload-panel" href="upload.html">
+          <strong>网页上传（推荐）：</strong><span>直接上传图片到你的服务器接口，支持分类和备注。</span>
+        </a>
+        <a class="upload-panel secondary" href="https://docs.qq.com/doc/DZVhRV1ZzaHB4eGNu">
+          <strong>腾讯文档贴图（备用）：</strong><span>继续在共享文档中粘贴新词表与批改图片。</span>
+        </a>
+      </div>
     </section>
   </main>
   <script>

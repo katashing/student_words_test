@@ -98,6 +98,18 @@
       font-weight: 900;
       text-decoration: none;
     }
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .file-info {
+      margin-top: -4px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -105,6 +117,11 @@
     <h1>老师上传入口</h1>
     <p>请选择分类并上传图片。支持一次选择多张图片。</p>
     <form id="uploadForm">
+      <label>
+        上传接口地址
+        <input name="endpoint" id="endpoint" type="url" required />
+      </label>
+      <div class="hint">可填写你自己的服务器地址（例如 `https://your-domain/upload`）。系统会记住这个地址。</div>
       <label>
         上传密码
         <input name="password" type="password" autocomplete="current-password" required />
@@ -126,29 +143,54 @@
       </label>
       <label>
         图片
-        <input name="files" type="file" accept="image/*" multiple required />
+        <input name="files" id="files" type="file" accept="image/*" multiple required />
       </label>
+      <div id="fileInfo" class="file-info">未选择文件</div>
       <button type="submit">上传</button>
       <div id="status" class="status"></div>
     </form>
     <a class="back" href="index.html">返回首页</a>
   </main>
   <script>
-    const WORKER_URL = "https://teacher-upload.43.128.89.2.sslip.io/upload";
+    const DEFAULT_ENDPOINT = "https://teacher-upload.43.128.89.2.sslip.io/upload";
+    const ENDPOINT_KEY = "teacher_upload_endpoint";
     const form = document.getElementById("uploadForm");
     const statusEl = document.getElementById("status");
+    const endpointEl = document.getElementById("endpoint");
+    const filesEl = document.getElementById("files");
+    const fileInfoEl = document.getElementById("fileInfo");
+
+    endpointEl.value = localStorage.getItem(ENDPOINT_KEY) || DEFAULT_ENDPOINT;
+
+    filesEl.addEventListener("change", () => {
+      const files = Array.from(filesEl.files || []);
+      if (!files.length) {
+        fileInfoEl.textContent = "未选择文件";
+        return;
+      }
+      const total = files.reduce((sum, file) => sum + (file.size || 0), 0);
+      const names = files.slice(0, 3).map((file) => file.name).join("、");
+      const more = files.length > 3 ? ` 等 ${files.length} 张` : "";
+      fileInfoEl.textContent = `已选 ${files.length} 张，约 ${(total / 1024 / 1024).toFixed(2)} MB：${names}${more}`;
+    });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const button = form.querySelector("button");
       const formData = new FormData(form);
+      const endpoint = String(formData.get("endpoint") || "").trim();
+      if (!endpoint) {
+        statusEl.className = "status error";
+        statusEl.textContent = "请填写上传接口地址";
+        return;
+      }
       button.disabled = true;
       statusEl.className = "status";
       statusEl.textContent = "正在上传...";
       try {
         const password = String(formData.get("password") || "");
-        formData.delete("password");
-        const response = await fetch(WORKER_URL, {
+        localStorage.setItem(ENDPOINT_KEY, endpoint);
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "x-upload-password": password
@@ -161,7 +203,10 @@
         }
         statusEl.className = "status ok";
         statusEl.textContent = `上传成功：${result.count || 0} 个文件`;
+        const savedEndpoint = endpointEl.value;
         form.reset();
+        endpointEl.value = savedEndpoint;
+        fileInfoEl.textContent = "未选择文件";
       } catch (error) {
         statusEl.className = "status error";
         statusEl.textContent = error.message || "上传失败";
