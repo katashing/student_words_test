@@ -111,6 +111,55 @@
       font-weight: 700;
       line-height: 1.45;
     }
+    .uploaded {
+      display: none;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid rgba(21, 128, 61, 0.24);
+      border-radius: 8px;
+      background: rgba(240, 253, 244, 0.72);
+    }
+    .uploaded.active {
+      display: grid;
+    }
+    .uploaded-title {
+      color: var(--ok);
+      font-weight: 900;
+    }
+    .uploaded-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(116, 139, 166, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+    .uploaded-name {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .uploaded-state {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .delete-file {
+      width: auto;
+      min-width: 58px;
+      padding: 7px 10px;
+      border-color: rgba(185, 28, 28, 0.28);
+      background: rgba(254, 242, 242, 0.92);
+      color: var(--danger);
+      font-size: 12px;
+    }
+    .delete-file:disabled {
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
@@ -143,6 +192,7 @@
       <div id="fileInfo" class="file-info">未选择文件</div>
       <button type="submit">上传</button>
       <div id="status" class="status"></div>
+      <section id="uploadedList" class="uploaded" aria-live="polite"></section>
     </form>
     <a class="back" href="index.html">返回首页</a>
   </main>
@@ -152,6 +202,8 @@
     const statusEl = document.getElementById("status");
     const filesEl = document.getElementById("files");
     const fileInfoEl = document.getElementById("fileInfo");
+    const uploadedListEl = document.getElementById("uploadedList");
+    let deletePassword = "";
 
     filesEl.addEventListener("change", () => {
       const files = Array.from(filesEl.files || []);
@@ -161,8 +213,8 @@
       }
       const total = files.reduce((sum, file) => sum + (file.size || 0), 0);
       const names = files.slice(0, 3).map((file) => file.name).join("、");
-      const more = files.length > 3 ? ` 等 ${files.length} 张` : "";
-      fileInfoEl.textContent = `已选 ${files.length} 张，约 ${(total / 1024 / 1024).toFixed(2)} MB：${names}${more}`;
+      const more = files.length > 3 ? ` 等 ${files.length} 份` : "";
+      fileInfoEl.textContent = `已选 ${files.length} 份，约 ${(total / 1024 / 1024).toFixed(2)} MB：${names}${more}`;
     });
 
     form.addEventListener("submit", async (event) => {
@@ -185,8 +237,10 @@
         if (!response.ok) {
           throw new Error(result.error || "上传失败");
         }
+        deletePassword = password;
         statusEl.className = "status ok";
         statusEl.textContent = `上传成功：${result.count || 0} 个文件`;
+        renderUploadedFiles(result.files || []);
         form.reset();
         fileInfoEl.textContent = "未选择文件";
       } catch (error) {
@@ -196,6 +250,68 @@
         button.disabled = false;
       }
     });
+
+    function renderUploadedFiles(files) {
+      if (!files.length) {
+        uploadedListEl.className = "uploaded";
+        uploadedListEl.innerHTML = "";
+        return;
+      }
+      uploadedListEl.className = "uploaded active";
+      uploadedListEl.innerHTML = [
+        '<div class="uploaded-title">本次上传文件（仅可删除今天上传的文件）</div>',
+        ...files.map((file, index) => {
+          const label = escapeHtml(file.originalName || file.name || `文件 ${index + 1}`);
+          const path = escapeHtml(file.deletePath || "");
+          return `<div class="uploaded-item" data-delete-path="${path}">
+            <div>
+              <div class="uploaded-name">${label}</div>
+              <div class="uploaded-state">已上传</div>
+            </div>
+            <button class="delete-file" type="button">删除</button>
+          </div>`;
+        })
+      ].join("");
+    }
+
+    uploadedListEl.addEventListener("click", async (event) => {
+      const button = event.target.closest(".delete-file");
+      if (!button) return;
+      const item = button.closest(".uploaded-item");
+      const deletePath = item ? item.dataset.deletePath : "";
+      const stateEl = item ? item.querySelector(".uploaded-state") : null;
+      if (!deletePath) return;
+
+      button.disabled = true;
+      if (stateEl) stateEl.textContent = "正在删除...";
+      try {
+        const response = await fetch(UPLOAD_URL, {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+            "x-upload-password": deletePassword
+          },
+          body: JSON.stringify({ path: deletePath })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(result.error || "删除失败");
+        }
+        if (stateEl) stateEl.textContent = "已删除";
+        button.textContent = "已删";
+      } catch (error) {
+        if (stateEl) stateEl.textContent = error.message || "删除失败";
+        button.disabled = false;
+      }
+    });
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
   </script>
 </body>
 </html>
