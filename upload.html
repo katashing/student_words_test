@@ -298,7 +298,8 @@
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
           const pendingOnly = file.pendingOnly || !file.deletePath;
-          const state = pendingOnly ? "已上传（待服务器返回删除信息）" : "已上传";
+          const timeText = formatUploadTime(file.uploadedAt);
+          const state = pendingOnly ? "已上传（待服务器返回删除信息）" : `${timeText ? `${timeText} ` : ""}已上传`;
           return `<div class="uploaded-item" data-delete-path="${path}">
             <div>
               <div class="uploaded-name">${label}</div>
@@ -358,6 +359,17 @@
       } catch {
         return raw;
       }
+    }
+
+    function formatUploadTime(value) {
+      if (!value) return "";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return "";
+      return date.toLocaleTimeString("zh-CN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      });
     }
   </script>
 </body>
