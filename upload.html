@@ -98,30 +98,26 @@
       font-weight: 900;
       text-decoration: none;
     }
-    .hint {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-      line-height: 1.45;
-    }
     .file-info {
       margin-top: -4px;
       font-size: 12px;
       color: var(--muted);
       font-weight: 700;
     }
+    .file-types {
+      margin-top: -8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body>
   <main>
     <h1>老师上传入口</h1>
-    <p>请选择分类并上传图片。支持一次选择多张图片。</p>
+    <p>选择分类，上传文件。</p>
     <form id="uploadForm">
-      <label>
-        上传接口地址
-        <input name="endpoint" id="endpoint" type="url" required />
-      </label>
-      <div class="hint">可填写你自己的服务器地址（例如 `https://your-domain/upload`）。系统会记住这个地址。</div>
       <label>
         上传密码
         <input name="password" type="password" autocomplete="current-password" required />
@@ -129,22 +125,21 @@
       <label>
         分类
         <select name="category" required>
-          <option value="english_spelling">英语默写</option>
-          <option value="english_recognition">英语认读</option>
-          <option value="math_spelling">数学默写</option>
-          <option value="math_recognition">数学认读</option>
-          <option value="daily_corrections">已批改作业</option>
-          <option value="other">其他</option>
+          <option value="english_homework">英语作业</option>
+          <option value="math_homework">数学作业</option>
+          <option value="english_words">英语单词</option>
+          <option value="math_words">数学单词</option>
         </select>
       </label>
       <label>
         备注
-        <textarea name="note" placeholder="可写日期、学生情况或补充说明"></textarea>
+        <textarea name="note" placeholder="如文件中无法识别具体分类，可补充具体分类，或其他备注信息。"></textarea>
       </label>
       <label>
-        图片
-        <input name="files" id="files" type="file" accept="image/*" multiple required />
+        文件
+        <input name="files" id="files" type="file" accept=".doc,.docx,.xls,.xlsx,.csv,.pdf,.txt,.jpg,.jpeg,.png,.webp,.gif,.bmp,.tif,.tiff,.heic,.heif,image/*" multiple required />
       </label>
+      <div class="file-types">支持文件类型：Word、Excel、PDF、txt、图片；可一次选择多份。</div>
       <div id="fileInfo" class="file-info">未选择文件</div>
       <button type="submit">上传</button>
       <div id="status" class="status"></div>
@@ -152,15 +147,11 @@
     <a class="back" href="index.html">返回首页</a>
   </main>
   <script>
-    const DEFAULT_ENDPOINT = "https://teacher-upload.43.128.89.2.sslip.io/upload";
-    const ENDPOINT_KEY = "teacher_upload_endpoint";
+    const UPLOAD_URL = "https://teacher-upload.43.128.89.2.sslip.io/upload";
     const form = document.getElementById("uploadForm");
     const statusEl = document.getElementById("status");
-    const endpointEl = document.getElementById("endpoint");
     const filesEl = document.getElementById("files");
     const fileInfoEl = document.getElementById("fileInfo");
-
-    endpointEl.value = localStorage.getItem(ENDPOINT_KEY) || DEFAULT_ENDPOINT;
 
     filesEl.addEventListener("change", () => {
       const files = Array.from(filesEl.files || []);
@@ -178,19 +169,12 @@
       event.preventDefault();
       const button = form.querySelector("button");
       const formData = new FormData(form);
-      const endpoint = String(formData.get("endpoint") || "").trim();
-      if (!endpoint) {
-        statusEl.className = "status error";
-        statusEl.textContent = "请填写上传接口地址";
-        return;
-      }
       button.disabled = true;
       statusEl.className = "status";
       statusEl.textContent = "正在上传...";
       try {
         const password = String(formData.get("password") || "");
-        localStorage.setItem(ENDPOINT_KEY, endpoint);
-        const response = await fetch(endpoint, {
+        const response = await fetch(UPLOAD_URL, {
           method: "POST",
           headers: {
             "x-upload-password": password
@@ -203,9 +187,7 @@
         }
         statusEl.className = "status ok";
         statusEl.textContent = `上传成功：${result.count || 0} 个文件`;
-        const savedEndpoint = endpointEl.value;
         form.reset();
-        endpointEl.value = savedEndpoint;
         fileInfoEl.textContent = "未选择文件";
       } catch (error) {
         statusEl.className = "status error";
