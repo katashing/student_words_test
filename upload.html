@@ -273,7 +273,7 @@
         const response = await fetch(UPLOAD_URL, { method: "GET" });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "读取已上传文件失败");
-        renderUploadedFiles(result.files || [], { showEmpty: true });
+        renderUploadedFiles(result.files || [], { showEmpty: true, day: result.day });
         return true;
       } catch {
         return false;
@@ -281,10 +281,11 @@
     }
 
     function renderUploadedFiles(files, options = {}) {
+      const dayText = escapeHtml(options.day || todayDateText());
       if (!files.length) {
         if (options.showEmpty) {
           uploadedListEl.className = "uploaded active";
-          uploadedListEl.innerHTML = '<div class="uploaded-title">今天已上传文件（所有老师可见）</div><div class="uploaded-empty">今天还没有上传文件。</div>';
+          uploadedListEl.innerHTML = `<div class="uploaded-title">今天已上传文件（所有老师可见，可删除） ${dayText}</div><div class="uploaded-empty">今天还没有上传文件。</div>`;
         } else {
           uploadedListEl.className = "uploaded";
           uploadedListEl.innerHTML = "";
@@ -293,7 +294,7 @@
       }
       uploadedListEl.className = "uploaded active";
       uploadedListEl.innerHTML = [
-        '<div class="uploaded-title">今天已上传文件（所有老师可见，仅可删除今天上传的文件）</div>',
+        `<div class="uploaded-title">今天已上传文件（所有老师可见，可删除） ${dayText}</div>`,
         ...files.map((file, index) => {
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
@@ -370,6 +371,14 @@
         minute: "2-digit",
         hour12: false
       });
+    }
+
+    function todayDateText() {
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
     }
   </script>
 </body>
