@@ -123,8 +123,14 @@
       display: grid;
     }
     .uploaded-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
       color: var(--ok);
       font-weight: 900;
+    }
+    .uploaded-date {
+      white-space: nowrap;
     }
     .uploaded-empty {
       color: var(--muted);
@@ -170,7 +176,6 @@
 <body>
   <main>
     <h1>老师上传入口</h1>
-    <p>选择分类，上传文件。</p>
     <form id="uploadForm">
       <label>
         分类
@@ -179,7 +184,7 @@
           <option value="math_homework">数学作业</option>
           <option value="english_words">英语单词</option>
           <option value="math_words">数学单词</option>
-          <option value="mixed">混合分类</option>
+          <option value="mixed">混合分类（多种种类合并，需标注清楚类别）</option>
         </select>
       </label>
       <label>
@@ -285,7 +290,7 @@
       if (!files.length) {
         if (options.showEmpty) {
           uploadedListEl.className = "uploaded active";
-          uploadedListEl.innerHTML = `<div class="uploaded-title">今天已上传文件（所有老师可见，可删除） ${dayText}</div><div class="uploaded-empty">今天还没有上传文件。</div>`;
+          uploadedListEl.innerHTML = `<div class="uploaded-title"><span>今日已上传文件（所有老师可见，可删除）</span><span class="uploaded-date">${dayText}</span></div><div class="uploaded-empty">今天还没有上传文件。</div>`;
         } else {
           uploadedListEl.className = "uploaded";
           uploadedListEl.innerHTML = "";
@@ -294,7 +299,7 @@
       }
       uploadedListEl.className = "uploaded active";
       uploadedListEl.innerHTML = [
-        `<div class="uploaded-title">今天已上传文件（所有老师可见，可删除） ${dayText}</div>`,
+        `<div class="uploaded-title"><span>今日已上传文件（所有老师可见，可删除）</span><span class="uploaded-date">${dayText}</span></div>`,
         ...files.map((file, index) => {
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
