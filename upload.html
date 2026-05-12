@@ -351,10 +351,10 @@
 
     function readableFilename(value) {
       const raw = String(value || "");
-      if (!/[ÃÂ]/.test(raw)) return raw;
       try {
         const bytes = Uint8Array.from(raw, (char) => char.charCodeAt(0) & 255);
-        return new TextDecoder("utf-8", { fatal: false }).decode(bytes) || raw;
+        const decoded = new TextDecoder("utf-8", { fatal: false }).decode(bytes);
+        return /[\u3400-\u9fff]/.test(decoded) ? decoded : raw;
       } catch {
         return raw;
       }
