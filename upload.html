@@ -125,12 +125,16 @@
     .uploaded-title {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
       gap: 12px;
       color: var(--ok);
       font-weight: 900;
     }
-    .uploaded-date {
+    .uploaded-meta {
       white-space: nowrap;
+      font-size: 12px;
+      color: rgba(21, 128, 61, 0.78);
+      font-weight: 800;
     }
     .uploaded-empty {
       color: var(--muted);
@@ -286,11 +290,11 @@
     }
 
     function renderUploadedFiles(files, options = {}) {
-      const dayText = escapeHtml(options.day || todayDateText());
+      const updatedText = escapeHtml(latestUpdateText(files, options.day));
       if (!files.length) {
         if (options.showEmpty) {
           uploadedListEl.className = "uploaded active";
-          uploadedListEl.innerHTML = `<div class="uploaded-title"><span>今日已上传文件（所有老师可见，可删除）</span><span class="uploaded-date">${dayText}</span></div><div class="uploaded-empty">今天还没有上传文件。</div>`;
+          uploadedListEl.innerHTML = `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除）${updatedText}</span></div><div class="uploaded-empty">今天还没有上传文件。</div>`;
         } else {
           uploadedListEl.className = "uploaded";
           uploadedListEl.innerHTML = "";
@@ -299,7 +303,7 @@
       }
       uploadedListEl.className = "uploaded active";
       uploadedListEl.innerHTML = [
-        `<div class="uploaded-title"><span>今日已上传文件（所有老师可见，可删除）</span><span class="uploaded-date">${dayText}</span></div>`,
+        `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除）${updatedText}</span></div>`,
         ...files.map((file, index) => {
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
@@ -384,6 +388,25 @@
       const month = String(date.getMonth() + 1).padStart(2, "0");
       const day = String(date.getDate()).padStart(2, "0");
       return `${year}-${month}-${day}`;
+    }
+
+    function latestUpdateText(files, fallbackDay) {
+      const timestamps = files
+        .map((file) => new Date(file.uploadedAt || "").getTime())
+        .filter((time) => !Number.isNaN(time));
+      if (timestamps.length) {
+        return `最近更新：${formatDateTime(new Date(Math.max(...timestamps)))}`;
+      }
+      return `最近更新：${fallbackDay || todayDateText()}`;
+    }
+
+    function formatDateTime(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      const hours = String(date.getHours()).padStart(2, "0");
+      const minutes = String(date.getMinutes()).padStart(2, "0");
+      return `${year}-${month}-${day} ${hours}:${minutes}`;
     }
   </script>
 </body>
