@@ -135,6 +135,60 @@
       gap: 8px;
       margin-top: 6px;
     }
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .quick-action {
+      min-width: 0;
+      min-height: 72px;
+      padding: 10px 12px;
+      border: 1px solid rgba(116, 139, 166, 0.34);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+      color: #1f2933;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(30, 41, 59, 0.06);
+    }
+    .quick-action.primary {
+      border-color: rgba(245, 158, 11, 0.64);
+      background: linear-gradient(135deg, rgba(255, 247, 214, 0.96), rgba(255, 255, 255, 0.72));
+      color: #92400e;
+    }
+    .quick-action.review {
+      border-color: rgba(22, 163, 74, 0.52);
+      background: linear-gradient(135deg, rgba(239, 250, 242, 0.96), rgba(255, 255, 255, 0.72));
+      color: #166534;
+    }
+    .quick-action.upload {
+      border-color: rgba(14, 165, 233, 0.52);
+      background: linear-gradient(135deg, rgba(240, 249, 255, 0.96), rgba(236, 253, 245, 0.72));
+      color: #075985;
+    }
+    .quick-kicker {
+      display: block;
+      margin-bottom: 4px;
+      color: currentColor;
+      font-size: 12px;
+      font-weight: 800;
+      opacity: 0.8;
+    }
+    .quick-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 950;
+      line-height: 1.25;
+    }
+    .quick-meta {
+      display: block;
+      margin-top: 4px;
+      color: currentColor;
+      font-size: 12px;
+      font-weight: 800;
+      opacity: 0.78;
+    }
     .dashboard-tools {
       margin: 8px 0 4px;
       padding: 8px 10px;
@@ -301,6 +355,11 @@
       font-weight: 900;
       text-decoration: none;
     }
+    .item a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
     .item a::after {
       content: ">";
       position: absolute;
@@ -413,6 +472,8 @@
       .section-copy { white-space: normal; }
       .entry-updated { display: block; margin-top: 6px; }
       .tool-stat { margin-left: 0; }
+      .quick-actions { grid-template-columns: 1fr; }
+      .quick-action { min-height: 60px; }
       .flow {
         display: grid;
         grid-template-columns: 1fr;
@@ -447,7 +508,34 @@
     <section class="section">
       <div class="section-head">
         <h2>二、老师打印入口</h2>
-        <span class="entry-updated">最近更新：2026-05-12 22:05</span>
+        <span class="entry-updated">最近更新：2026-05-12 22:07</span>
+      </div>
+      <div class="quick-actions" aria-label="常用操作">
+        <a class="quick-action primary" href="printables/daily_practice_student.html">
+          <span class="quick-kicker">先打印</span>
+          <span class="quick-label">今日练习学生版</span>
+          <span class="quick-meta">共 49 题</span>
+        </a>
+        <a class="quick-action primary" href="printables/daily_practice_teacher.html">
+          <span class="quick-kicker">再准备</span>
+          <span class="quick-label">今日练习老师版</span>
+          <span class="quick-meta">共 49 题</span>
+        </a>
+        <a class="quick-action review" href="printables/passed_review_student.html">
+          <span class="quick-kicker">复习巩固</span>
+          <span class="quick-label">今日复习学生版</span>
+          <span class="quick-meta">共 20 题</span>
+        </a>
+        <a class="quick-action review" href="printables/passed_review_teacher.html">
+          <span class="quick-kicker">批改答案</span>
+          <span class="quick-label">今日复习老师版</span>
+          <span class="quick-meta">共 20 题</span>
+        </a>
+        <a class="quick-action upload" href="upload.html">
+          <span class="quick-kicker">完成后</span>
+          <span class="quick-label">上传批改和新词表</span>
+          <span class="quick-meta">拍照上传</span>
+        </a>
       </div>
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
       <div class="dashboard-tools" id="dashboardTools">
