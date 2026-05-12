@@ -135,6 +135,79 @@
       gap: 8px;
       margin-top: 6px;
     }
+    .dashboard-tools {
+      margin: 8px 0 4px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 8px 20px rgba(30, 41, 59, 0.05);
+    }
+    .tool-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tool-chip {
+      border: 1px solid rgba(116, 139, 166, 0.36);
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.86);
+      color: #334155;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .tool-chip.active {
+      border-color: #1d4ed8;
+      background: rgba(29, 78, 216, 0.12);
+      color: #1e3a8a;
+    }
+    .tool-search {
+      flex: 1 1 220px;
+      min-width: 180px;
+      border: 1px solid rgba(116, 139, 166, 0.4);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #0f172a;
+      background: rgba(255, 255, 255, 0.92);
+    }
+    .tool-search:focus {
+      outline: 2px solid rgba(29, 78, 216, 0.22);
+      outline-offset: 1px;
+      border-color: #1d4ed8;
+    }
+    .tool-reset {
+      border: 1px solid rgba(29, 78, 216, 0.35);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: rgba(239, 246, 255, 0.92);
+      color: #1e3a8a;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .tool-stat {
+      margin-left: auto;
+      color: #475569;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .empty-state {
+      display: none;
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      padding: 12px;
+      border: 1px dashed rgba(116, 139, 166, 0.46);
+      border-radius: 8px;
+      color: #475569;
+      font-weight: 700;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.62);
+    }
     .group-title {
       grid-column: 1 / -1;
       margin: 8px 0 -2px;
@@ -309,12 +382,27 @@
       color: var(--ink);
       font-weight: 900;
     }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .grid .item,
+    .grid .today-row {
+      animation: fadeUp 220ms ease-out both;
+    }
     @media (max-width: 720px) {
       .wrap { width: min(100vw - 24px, 1120px); padding: 10px 0; }
       .section { padding: 14px; }
       .section-head { display: block; }
       .section-copy { white-space: normal; }
       .entry-updated { display: block; margin-top: 6px; }
+      .tool-stat { margin-left: 0; }
       .flow {
         display: grid;
         grid-template-columns: 1fr;
@@ -349,65 +437,78 @@
     <section class="section">
       <div class="section-head">
         <h2>二、老师打印入口</h2>
-        <span class="entry-updated">最近更新：2026-05-12 00:04</span>
+        <span class="entry-updated">最近更新：2026-05-12 20:33</span>
       </div>
       <p class="section-copy"><span class="accent-label">【学生版】</span>给孩子作答，<span class="accent-label">【老师版】</span>给孩子学习、家长或老师批改。<span class="accent-label">【今日练习】</span>来自待练错题库，<span class="accent-label">【今日复习】</span>来自已过关词库。<span class="print-warning">浏览器打开对应页面后可直接打印（Ctrl + P）。</span></p>
+      <div class="dashboard-tools" id="dashboardTools">
+        <div class="tool-row">
+          <button class="tool-chip active" type="button" data-filter="all">全部</button>
+          <button class="tool-chip" type="button" data-filter="today">今日打印</button>
+          <button class="tool-chip" type="button" data-filter="history">历史练习</button>
+          <button class="tool-chip" type="button" data-filter="library">词库查看</button>
+          <button class="tool-chip" type="button" data-filter="interview">面试问题</button>
+          <input class="tool-search" id="dashboardSearch" type="search" placeholder="搜索：学生版 / 今日复习 / 词库..." />
+          <button class="tool-reset" type="button" id="dashboardReset">重置</button>
+          <span class="tool-stat" id="dashboardStat">可见卡片 0 项</span>
+        </div>
+      </div>
       <div class="grid">
-      <div class="group-title">1. 今日打印</div>
-      <div class="today-row">
+      <div class="group-title" data-group="today">1. 今日打印</div>
+      <div class="today-row" data-group="today" data-row-title="今日练习">
         <div class="today-row-title">今日练习</div>
-        <section class="item daily-card">
+        <section class="item daily-card" data-group="today" data-title="今日练习（学生版）：孩子作答用，共 29 题">
           <h3><a href="printables/daily_practice_student.html">学生版</a></h3>
         </section>
-        <section class="item daily-card">
+        <section class="item daily-card" data-group="today" data-title="今日练习（老师版）：批改答案用，共 29 题">
           <h3><a href="printables/daily_practice_teacher.html">老师版</a></h3>
         </section>
       </div>
-      <div class="today-row">
+      <div class="today-row" data-group="today" data-row-title="今日复习">
         <div class="today-row-title">今日复习</div>
-        <section class="item passed-card">
+        <section class="item passed-card" data-group="today" data-title="今日复习（学生版）：孩子作答用，共 20 题">
           <h3><a href="printables/passed_review_student.html">学生版</a></h3>
         </section>
-        <section class="item passed-card">
+        <section class="item passed-card" data-group="today" data-title="今日复习（老师版）：批改答案用，共 20 题">
           <h3><a href="printables/passed_review_teacher.html">老师版</a></h3>
         </section>
       </div>
-      <div class="group-title">2. 历史练习</div>
-      <section class="item history-card full-row">
-          <h3><a href="history/index.html">历史练习<span class="card-meta">2026-05-08 至 2026-05-11，共 3 天</span></a></h3>
+      <div class="group-title" data-group="history">2. 历史练习</div>
+      <section class="item history-card full-row" data-group="history" data-title="历史练习">
+          <h3><a href="history/index.html">历史练习<span class="card-meta">2026-05-08 至 2026-05-12，共 4 天</span></a></h3>
       </section>
-      <div class="group-title">3. 词库查看（分四类）</div>
-      <section class="item pending-card">
+      <div class="group-title" data-group="library">3. 词库查看（分四类）</div>
+      <section class="item pending-card" data-group="library" data-title="待练错题库">
           <h3><a href="printables/pending_review_words.html">待练错题库<span class="card-meta">共 46 项（待练 46/138 项）</span></a></h3>
       </section>
-      <section class="item passed-card">
+      <section class="item passed-card" data-group="library" data-title="已过关词库">
           <h3><a href="printables/passed_words.html">已过关词库<span class="card-meta">共 92 项（已过关 92/138 项）</span></a></h3>
       </section>
-      <section class="item teacher-card">
+      <section class="item teacher-card" data-group="library" data-title="老师要求词库">
           <h3><a href="printables/teacher_required_words.html">老师要求词库<span class="card-meta">共 138 项</span></a></h3>
       </section>
-      <section class="item total-card">
+      <section class="item total-card" data-group="library" data-title="总表（老师 + 补充建议）">
           <h3><a href="printables/teacher_supplement_words.html">总表（老师 + 补充建议）<span class="card-meta">共 365 项</span></a></h3>
       </section>
-      <div class="group-title">4. 面试问题</div>
-      <div class="today-row">
+      <div class="group-title" data-group="interview">4. 面试问题</div>
+      <div class="today-row" data-group="interview" data-row-title="英文面试">
         <div class="today-row-title">英文面试</div>
-        <section class="item interview-card">
+        <section class="item interview-card" data-group="interview" data-title="英文面试问题（学生版）">
           <h3><a href="printables/interview_english_student.html">学生版</a></h3>
         </section>
-        <section class="item interview-card">
+        <section class="item interview-card" data-group="interview" data-title="英文面试问题（老师版）">
           <h3><a href="printables/interview_english_teacher.html">老师版</a></h3>
         </section>
       </div>
-      <div class="today-row">
+      <div class="today-row" data-group="interview" data-row-title="中文面试">
         <div class="today-row-title">中文面试</div>
-        <section class="item interview-card">
+        <section class="item interview-card" data-group="interview" data-title="中文面试问题（学生版）">
           <h3><a href="printables/interview_chinese_student.html">学生版</a></h3>
         </section>
-        <section class="item interview-card">
+        <section class="item interview-card" data-group="interview" data-title="中文面试问题（老师版）">
           <h3><a href="printables/interview_chinese_teacher.html">老师版</a></h3>
         </section>
       </div>
+        <div class="empty-state" id="dashboardEmptyState">没有匹配项，请换一个筛选条件或关键词。</div>
       </div>
     </section>
 
@@ -420,5 +521,114 @@
       </a>
     </section>
   </main>
+  <script>
+    (function() {
+      const grid = document.querySelector(".grid");
+      if (!grid) return;
+      const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+      const searchInput = document.getElementById("dashboardSearch");
+      const resetBtn = document.getElementById("dashboardReset");
+      const statEl = document.getElementById("dashboardStat");
+      const emptyEl = document.getElementById("dashboardEmptyState");
+      const state = { filter: "all", query: "" };
+
+      const blocks = [];
+      let currentBlock = null;
+      for (const child of Array.from(grid.children)) {
+        if (child.classList.contains("group-title")) {
+          currentBlock = {
+            key: child.dataset.group || "library",
+            title: child,
+            content: [],
+          };
+          blocks.push(currentBlock);
+          continue;
+        }
+        if (child.id === "dashboardEmptyState") continue;
+        if (currentBlock) currentBlock.content.push(child);
+      }
+
+      function matchCard(card, query) {
+        if (!query) return true;
+        const raw = card.textContent || "";
+        return raw.toLowerCase().includes(query);
+      }
+
+      function updateFilterUI() {
+        for (const btn of filterButtons) {
+          btn.classList.toggle("active", btn.dataset.filter === state.filter);
+        }
+      }
+
+      function applyFilters() {
+        const query = state.query.trim().toLowerCase();
+        let visibleCards = 0;
+        for (const block of blocks) {
+          const groupVisible = state.filter === "all" || block.key === state.filter;
+          let blockVisible = false;
+          for (const el of block.content) {
+            if (el.classList.contains("today-row")) {
+              let rowVisible = false;
+              const cards = Array.from(el.querySelectorAll(".item"));
+              for (const card of cards) {
+                const showCard = groupVisible && matchCard(card, query);
+                card.style.display = showCard ? "" : "none";
+                if (showCard) {
+                  rowVisible = true;
+                  visibleCards += 1;
+                }
+              }
+              el.style.display = rowVisible ? "" : "none";
+              if (rowVisible) blockVisible = true;
+              continue;
+            }
+            if (el.classList.contains("item")) {
+              const showItem = groupVisible && matchCard(el, query);
+              el.style.display = showItem ? "" : "none";
+              if (showItem) {
+                blockVisible = true;
+                visibleCards += 1;
+              }
+              continue;
+            }
+            const showGeneric = groupVisible;
+            el.style.display = showGeneric ? "" : "none";
+            if (showGeneric) blockVisible = true;
+          }
+          block.title.style.display = blockVisible ? "" : "none";
+        }
+        if (statEl) statEl.textContent = "可见卡片 " + String(visibleCards) + " 项";
+        if (emptyEl) emptyEl.style.display = visibleCards === 0 ? "" : "none";
+      }
+
+      for (const btn of filterButtons) {
+        btn.addEventListener("click", function() {
+          state.filter = btn.dataset.filter || "all";
+          updateFilterUI();
+          applyFilters();
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener("input", function() {
+          state.query = searchInput.value || "";
+          applyFilters();
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", function() {
+          state.filter = "all";
+          state.query = "";
+          if (searchInput) searchInput.value = "";
+          updateFilterUI();
+          applyFilters();
+        });
+      }
+
+      updateFilterUI();
+      applyFilters();
+    })();
+  </script>
 </body>
 </html>
