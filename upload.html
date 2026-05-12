@@ -126,6 +126,11 @@
       color: var(--ok);
       font-weight: 900;
     }
+    .uploaded-empty {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
     .uploaded-item {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -168,10 +173,6 @@
     <p>选择分类，上传文件。</p>
     <form id="uploadForm">
       <label>
-        上传密码
-        <input name="password" type="password" autocomplete="current-password" required />
-      </label>
-      <label>
         分类
         <select name="category" required>
           <option value="english_homework">英语作业</option>
@@ -204,7 +205,8 @@
     const filesEl = document.getElementById("files");
     const fileInfoEl = document.getElementById("fileInfo");
     const uploadedListEl = document.getElementById("uploadedList");
-    let deletePassword = "";
+
+    loadTodayUploads();
 
     filesEl.addEventListener("change", () => {
       const files = Array.from(filesEl.files || []);
@@ -222,26 +224,26 @@
       event.preventDefault();
       const button = form.querySelector("button");
       const formData = new FormData(form);
+      const selectedFiles = Array.from(filesEl.files || []).map((file) => ({
+        originalName: file.name,
+        size: file.size || 0
+      }));
       button.disabled = true;
       statusEl.className = "status";
       statusEl.textContent = "正在上传...";
       try {
-        const password = String(formData.get("password") || "");
         const response = await fetch(UPLOAD_URL, {
           method: "POST",
-          headers: {
-            "x-upload-password": password
-          },
           body: formData
         });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) {
           throw new Error(result.error || "上传失败");
         }
-        deletePassword = password;
         statusEl.className = "status ok";
         statusEl.textContent = `上传成功：${result.count || 0} 个文件`;
-        renderUploadedFiles(result.files || []);
+        const refreshed = await loadTodayUploads();
+        if (!refreshed) renderUploadedFiles(mergeUploadedFiles(result.files || [], selectedFiles));
         form.reset();
         fileInfoEl.textContent = "未选择文件";
       } catch (error) {
@@ -252,24 +254,57 @@
       }
     });
 
-    function renderUploadedFiles(files) {
+    function mergeUploadedFiles(uploadedFiles, selectedFiles) {
+      const merged = [...uploadedFiles];
+      const seen = new Set(uploadedFiles.map((file) => readableFilename(file.originalName || file.name || "")));
+      for (const selected of selectedFiles) {
+        if (seen.has(selected.originalName)) continue;
+        merged.push({
+          originalName: selected.originalName,
+          size: selected.size,
+          pendingOnly: true
+        });
+      }
+      return merged;
+    }
+
+    async function loadTodayUploads() {
+      try {
+        const response = await fetch(UPLOAD_URL, { method: "GET" });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "读取已上传文件失败");
+        renderUploadedFiles(result.files || [], { showEmpty: true });
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function renderUploadedFiles(files, options = {}) {
       if (!files.length) {
-        uploadedListEl.className = "uploaded";
-        uploadedListEl.innerHTML = "";
+        if (options.showEmpty) {
+          uploadedListEl.className = "uploaded active";
+          uploadedListEl.innerHTML = '<div class="uploaded-title">今天已上传文件（所有老师可见）</div><div class="uploaded-empty">今天还没有上传文件。</div>';
+        } else {
+          uploadedListEl.className = "uploaded";
+          uploadedListEl.innerHTML = "";
+        }
         return;
       }
       uploadedListEl.className = "uploaded active";
       uploadedListEl.innerHTML = [
-        '<div class="uploaded-title">本次上传文件（仅可删除今天上传的文件）</div>',
+        '<div class="uploaded-title">今天已上传文件（所有老师可见，仅可删除今天上传的文件）</div>',
         ...files.map((file, index) => {
-          const label = escapeHtml(file.originalName || file.name || `文件 ${index + 1}`);
+          const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
+          const pendingOnly = file.pendingOnly || !file.deletePath;
+          const state = pendingOnly ? "已上传（待服务器返回删除信息）" : "已上传";
           return `<div class="uploaded-item" data-delete-path="${path}">
             <div>
               <div class="uploaded-name">${label}</div>
-              <div class="uploaded-state">已上传</div>
+              <div class="uploaded-state">${state}</div>
             </div>
-            <button class="delete-file" type="button">删除</button>
+            <button class="delete-file" type="button"${pendingOnly ? " disabled" : ""}>删除</button>
           </div>`;
         })
       ].join("");
@@ -289,8 +324,7 @@
         const response = await fetch(UPLOAD_URL, {
           method: "DELETE",
           headers: {
-            "content-type": "application/json",
-            "x-upload-password": deletePassword
+            "content-type": "application/json"
           },
           body: JSON.stringify({ path: deletePath })
         });
@@ -300,6 +334,7 @@
         }
         if (stateEl) stateEl.textContent = "已删除";
         button.textContent = "已删";
+        await loadTodayUploads();
       } catch (error) {
         if (stateEl) stateEl.textContent = error.message || "删除失败";
         button.disabled = false;
@@ -312,6 +347,17 @@
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;");
+    }
+
+    function readableFilename(value) {
+      const raw = String(value || "");
+      if (!/[ÃÂ]/.test(raw)) return raw;
+      try {
+        const bytes = Uint8Array.from(raw, (char) => char.charCodeAt(0) & 255);
+        return new TextDecoder("utf-8", { fatal: false }).decode(bytes) || raw;
+      } catch {
+        return raw;
+      }
     }
   </script>
 </body>
