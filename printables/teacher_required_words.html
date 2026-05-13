@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>老师要求词库：共 192 项</title>
+  <title>老师要求词库：共 208 项</title>
   <style>
     :root {
       --ink: #17212b;
@@ -74,12 +74,12 @@
     a.pending-link {
       border-color: var(--pending);
       background: linear-gradient(135deg, rgba(255, 241, 241, 0.88), rgba(255, 255, 255, 0.62));
-      color: #9f1239;
+      color: var(--ink);
     }
     a.passed-link {
       border-color: var(--passed);
       background: linear-gradient(135deg, rgba(239, 250, 242, 0.9), rgba(255, 255, 255, 0.62));
-      color: #166534;
+      color: var(--ink);
     }
     a.teacher-link {
       border-color: var(--neutral);
@@ -107,10 +107,15 @@
       font-weight: 800;
       white-space: nowrap;
     }
-    a.pending-link .summary { color: #be123c; }
-    a.pending-link .inline-summary { color: #be123c; }
-    a.passed-link .summary { color: #15803d; }
-    a.passed-link .inline-summary { color: #15803d; }
+    .status-number {
+      font-weight: 950;
+    }
+    .status-number.pending {
+      color: #be123c;
+    }
+    .status-number.passed {
+      color: #15803d;
+    }
     a.teacher-link .summary {
       color: #475569;
     }
@@ -131,11 +136,11 @@
 </head>
 <body>
   <main>
-    <h1>老师要求词库：<span class="title-count">共 192 项</span></h1>
+    <h1>老师要求词库：<span class="title-count">共 208 项</span></h1>
     <p>这里按练习类型拆成四个词库入口，方便老师分别查看英语默写、英语认读、数学默写和数学认读。</p>
     <div class="grid">
-      <a class="teacher-link" href="teacher_required_english_spelling.html">英语默写：<span class="inline-summary">41 项</span></a>
-      <a class="teacher-link" href="teacher_required_english_recognition.html">英语认读：<span class="inline-summary">33 项</span></a>
+      <a class="teacher-link" href="teacher_required_english_spelling.html">英语默写：<span class="inline-summary">51 项</span></a>
+      <a class="teacher-link" href="teacher_required_english_recognition.html">英语认读：<span class="inline-summary">39 项</span></a>
       <a class="teacher-link" href="teacher_required_math_spelling.html">数学默写：<span class="inline-summary">59 项</span></a>
       <a class="teacher-link" href="teacher_required_math_recognition.html">数学认读：<span class="inline-summary">59 项</span></a>
     </div>
