@@ -11,47 +11,84 @@
       --line: rgba(116, 139, 166, 0.28);
       --paper: rgba(255, 255, 255, 0.78);
       --accent: #1d4ed8;
+      --accent-soft: rgba(14, 165, 233, 0.12);
       --danger: #b91c1c;
       --ok: #15803d;
+      --shadow: 0 14px 32px rgba(30, 41, 59, 0.08);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
+      min-height: 100vh;
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.5;
       background: linear-gradient(135deg, #eef6ff 0%, #f6fbf5 52%, #fff7e8 100%);
-      min-height: 100vh;
     }
     main {
-      width: min(720px, calc(100vw - 28px));
+      width: min(980px, calc(100vw - 28px));
       margin: 0 auto;
-      padding: 28px 0;
+      padding: 24px 0 34px;
+    }
+    .hero {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 0 14px;
     }
     h1 {
-      margin: 0 0 8px;
-      font-size: 26px;
-      line-height: 1.25;
+      margin: 0 0 4px;
+      font-size: 28px;
+      line-height: 1.2;
     }
-    p {
-      margin: 0 0 18px;
+    .hero-copy {
+      margin: 0;
       color: var(--muted);
-      line-height: 1.5;
-      font-weight: 650;
+      font-size: 13px;
+      font-weight: 750;
     }
-    form {
-      display: grid;
-      gap: 14px;
+    .back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid rgba(29, 78, 216, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .panel {
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--paper);
-      box-shadow: 0 12px 28px rgba(30, 41, 59, 0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    form {
+      display: grid;
+      gap: 14px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+      gap: 12px;
     }
     label {
       display: grid;
       gap: 7px;
+      color: #1f2933;
       font-size: 14px;
-      font-weight: 900;
+      font-weight: 950;
+    }
+    .wide {
+      grid-column: 1 / -1;
     }
     input,
     select,
@@ -66,18 +103,24 @@
     select,
     textarea {
       padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.88);
     }
     textarea {
-      min-height: 88px;
+      min-height: 78px;
       resize: vertical;
+    }
+    .submit-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      align-items: center;
+      gap: 12px;
     }
     button {
       padding: 12px 14px;
       border-color: var(--accent);
       background: var(--accent);
       color: #fff;
-      font-weight: 900;
+      font-weight: 950;
       cursor: pointer;
     }
     button:disabled {
@@ -87,34 +130,27 @@
     .status {
       min-height: 22px;
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 850;
     }
     .status.ok { color: var(--ok); }
     .status.error { color: var(--danger); }
-    .back {
-      display: inline-block;
-      margin-top: 16px;
-      color: var(--accent);
-      font-weight: 900;
-      text-decoration: none;
-    }
     .file-info {
       margin-top: -4px;
       font-size: 12px;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 750;
     }
     .file-types {
       margin-top: -8px;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 750;
       line-height: 1.45;
     }
     .uploaded {
       display: none;
       gap: 8px;
-      padding: 12px;
+      padding: 14px;
       border: 1px solid rgba(21, 128, 61, 0.24);
       border-radius: 8px;
       background: rgba(240, 253, 244, 0.72);
@@ -128,59 +164,106 @@
       align-items: baseline;
       gap: 12px;
       color: var(--ok);
-      font-weight: 900;
+      font-size: 18px;
+      font-weight: 950;
     }
     .uploaded-meta {
       white-space: nowrap;
       font-size: 12px;
       color: rgba(21, 128, 61, 0.78);
-      font-weight: 800;
+      font-weight: 850;
     }
     .uploaded-empty {
       color: var(--muted);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 850;
     }
     .uploaded-item {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 8px;
-      padding: 8px;
+      gap: 10px;
+      padding: 10px;
       border: 1px solid rgba(116, 139, 166, 0.24);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 8px 20px rgba(30, 41, 59, 0.04);
     }
     .uploaded-name {
       min-width: 0;
       overflow-wrap: anywhere;
-      font-size: 13px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 900;
     }
     .uploaded-state {
       margin-top: 2px;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 750;
+    }
+    .uploaded-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .view-file,
+    .delete-file {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      min-width: 72px;
+      min-height: 34px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+    .view-file {
+      border: 1px solid rgba(29, 78, 216, 0.24);
+      background: rgba(239, 246, 255, 0.92);
+      color: var(--accent);
+    }
+    .view-file.disabled {
+      opacity: 0.45;
+      pointer-events: none;
     }
     .delete-file {
-      width: auto;
-      min-width: 58px;
-      padding: 7px 10px;
       border-color: rgba(185, 28, 28, 0.28);
       background: rgba(254, 242, 242, 0.92);
       color: var(--danger);
-      font-size: 12px;
     }
     .delete-file:disabled {
       cursor: not-allowed;
+    }
+    @media (max-width: 720px) {
+      main { width: min(100% - 18px, 980px); padding-top: 12px; }
+      .hero { align-items: stretch; flex-direction: column; }
+      .back { align-self: flex-start; }
+      .panel { padding: 12px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .submit-row { grid-template-columns: 1fr; }
+      .uploaded-title { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .uploaded-meta { white-space: normal; }
+      .uploaded-item { grid-template-columns: 1fr; }
+      .uploaded-actions { justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>老师上传入口</h1>
+    <header class="hero">
+      <div>
+        <h1>老师上传入口</h1>
+        <p class="hero-copy">上传作业批改、新词表或面试题，今日文件所有老师可见。</p>
+      </div>
+      <a class="back" href="index.html">返回首页</a>
+    </header>
+    <section class="panel">
     <form id="uploadForm">
+      <div class="form-grid">
       <label>
         分类
         <select name="category" required>
@@ -197,17 +280,20 @@
         备注
         <textarea name="note" placeholder="如文件中无法识别具体分类，可补充具体分类，或其他备注信息。"></textarea>
       </label>
-      <label>
+      <label class="wide">
         文件
         <input name="files" id="files" type="file" accept=".doc,.docx,.xls,.xlsx,.csv,.pdf,.txt,.jpg,.jpeg,.png,.webp,.gif,.bmp,.tif,.tiff,.heic,.heif,image/*" multiple required />
       </label>
+      </div>
       <div class="file-types">可一次选择多份。支持文件类型：Word（.doc/.docx）、Excel/表格（.xls/.xlsx/.csv）、PDF（.pdf）、文本（.txt）、图片（.jpg/.jpeg/.png/.webp/.gif/.bmp/.tif/.tiff/.heic/.heif）。</div>
       <div id="fileInfo" class="file-info">未选择文件</div>
-      <button type="submit">上传</button>
-      <div id="status" class="status"></div>
+      <div class="submit-row">
+        <div id="status" class="status"></div>
+        <button type="submit">上传</button>
+      </div>
       <section id="uploadedList" class="uploaded" aria-live="polite"></section>
     </form>
-    <a class="back" href="index.html">返回首页</a>
+    </section>
   </main>
   <script>
     const UPLOAD_URL = "https://teacher-upload.43.128.89.2.sslip.io/upload";
@@ -310,6 +396,10 @@
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
           const pendingOnly = file.pendingOnly || !file.deletePath;
+          const viewHref = fileDownloadHref(file);
+          const viewLink = viewHref
+            ? `<a class="view-file" href="${escapeHtml(viewHref)}" target="_blank" rel="noopener">下载查看</a>`
+            : `<span class="view-file disabled">下载查看</span>`;
           const timeText = formatUploadTime(file.uploadedAt);
           const state = pendingOnly ? "已上传（待服务器返回删除信息）" : `${timeText ? `${timeText} ` : ""}已上传`;
           return `<div class="uploaded-item" data-delete-path="${path}">
@@ -317,10 +407,20 @@
               <div class="uploaded-name">${label}</div>
               <div class="uploaded-state">${state}</div>
             </div>
-            <button class="delete-file" type="button"${pendingOnly ? " disabled" : ""}>删除</button>
+            <div class="uploaded-actions">
+              ${viewLink}
+              <button class="delete-file" type="button"${pendingOnly ? " disabled" : ""}>删除</button>
+            </div>
           </div>`;
         })
       ].join("");
+    }
+
+    function fileDownloadHref(file) {
+      if (file.downloadUrl) return file.downloadUrl;
+      const path = file.downloadPath || file.deletePath;
+      if (!path) return "";
+      return `${UPLOAD_URL}/file?path=${encodeURIComponent(path)}`;
     }
 
     uploadedListEl.addEventListener("click", async (event) => {
