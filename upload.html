@@ -140,6 +140,10 @@
       color: var(--muted);
       font-weight: 750;
     }
+    .file-info.error {
+      color: var(--danger);
+      font-weight: 900;
+    }
     .file-types {
       margin-top: -8px;
       color: var(--muted);
@@ -286,7 +290,7 @@
       </label>
       </div>
       <div class="file-types">可一次选择多份。<br />支持文件类型：Word（.doc/.docx）、Excel/表格（.xls/.xlsx/.csv）、PDF（.pdf）、文本（.txt）、图片（.jpg/.jpeg/.png/.webp/.gif/.bmp/.tif/.tiff/.heic/.heif）。</div>
-      <div id="fileInfo" class="file-info">未选择文件</div>
+      <div id="fileInfo" class="file-info error">！未选择文件</div>
       <div class="submit-row">
         <div id="status" class="status"></div>
         <button type="submit">上传</button>
@@ -308,12 +312,14 @@
     filesEl.addEventListener("change", () => {
       const files = Array.from(filesEl.files || []);
       if (!files.length) {
-        fileInfoEl.textContent = "未选择文件";
+        fileInfoEl.className = "file-info error";
+        fileInfoEl.textContent = "！未选择文件";
         return;
       }
       const total = files.reduce((sum, file) => sum + (file.size || 0), 0);
       const names = files.slice(0, 3).map((file) => file.name).join("、");
       const more = files.length > 3 ? ` 等 ${files.length} 份` : "";
+      fileInfoEl.className = "file-info";
       fileInfoEl.textContent = `已选 ${files.length} 份，约 ${(total / 1024 / 1024).toFixed(2)} MB：${names}${more}`;
     });
 
@@ -342,7 +348,8 @@
         const refreshed = await loadTodayUploads();
         if (!refreshed) renderUploadedFiles(mergeUploadedFiles(result.files || [], selectedFiles));
         form.reset();
-        fileInfoEl.textContent = "未选择文件";
+        fileInfoEl.className = "file-info error";
+        fileInfoEl.textContent = "！未选择文件";
       } catch (error) {
         statusEl.className = "status error";
         statusEl.textContent = error.message || "上传失败";
