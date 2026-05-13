@@ -35,6 +35,13 @@
       backdrop-filter: blur(18px);
     }
     h1 { margin: 0 0 8px; font-size: 30px; line-height: 1.2; }
+    .title-count {
+      margin-left: 8px;
+      color: var(--ink);
+      font-size: 0.72em;
+      font-weight: 900;
+      white-space: nowrap;
+    }
     p { margin: 0 0 22px; color: var(--muted); font-weight: 650; }
     .grid {
       display: grid;
@@ -124,7 +131,7 @@
 </head>
 <body>
   <main>
-    <h1>总表（老师 + 补充建议）：共 418 项</h1>
+    <h1>总表（老师 + 补充建议）：<span class="title-count">共 418 项</span></h1>
     <p>这里按练习类型拆成四个总表入口，包含老师要求词、课本、练习册和写作材料中的补充建议词。</p>
     <div class="grid">
       <a class="total-link" href="total_english_spelling.html">英语默写：<span class="inline-summary">41 项</span></a>
