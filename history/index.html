@@ -5,46 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>历史练习</title>
   <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5b6776;
+      --line: rgba(116, 139, 166, 0.28);
+      --paper: rgba(255, 255, 255, 0.72);
+      --accent: #1d4ed8;
+      --neutral: #64748b;
+      --shadow: 0 10px 24px rgba(30, 41, 59, 0.08);
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      color: #1f2933;
-      background: #f7f9fb;
+      color: var(--ink);
+      background: linear-gradient(135deg, #eef6ff 0%, #f6fbf5 46%, #fff7e8 100%);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.35;
     }
     main {
-      width: min(820px, calc(100vw - 32px));
-      margin: 40px auto;
-      padding: 28px;
-      background: #fff;
-      border: 1px solid #d9e2ec;
+      width: min(1120px, calc(100vw - 32px));
+      margin: 24px auto;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
     }
-    h1 { margin: 0 0 8px; font-size: 28px; }
-    p { margin: 0 0 18px; color: #52606d; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    a {
-      display: block;
-      padding: 14px;
-      border: 2px solid #94a3b8;
-      background: #f8fafc;
-      color: #334155;
-      font-weight: 800;
+    .hero {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .back-link {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 850;
       text-decoration: none;
     }
-    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .date-card {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border: 1px solid rgba(116, 139, 166, 0.5);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.96), rgba(255, 255, 255, 0.72));
+      color: #334155;
+      box-shadow: 0 10px 22px rgba(30, 41, 59, 0.06);
+      font-size: 17px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+    .date-card.latest {
+      border-color: rgba(29, 78, 216, 0.42);
+      background: linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(255, 255, 255, 0.72));
+    }
+    .latest-date {
+      color: var(--accent);
+      font-weight: 950;
+    }
+    .empty {
+      margin: 0;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+    @media (max-width: 720px) {
+      main { margin: 14px auto; padding: 14px; }
+      .hero { align-items: flex-start; flex-direction: column; }
+      .grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>历史练习</h1>
-    <p>按日期归档每次生成的今日练习和今日复习。进入对应日期文件夹查看学生版和老师版。</p>
+    <div class="hero">
+      <div>
+        <h1>历史练习</h1>
+        <p>按日期归档每次生成的今日练习和今日复习，进入后查看学生作答和老师答案。</p>
+      </div>
+      <a class="back-link" href="../index.html">返回首页</a>
+    </div>
     <div class="grid">
-      <a href="2026-05-13/index.html">2026-05-13</a>
-      <a href="2026-05-12/index.html">2026-05-12</a>
-      <a href="2026-05-11/index.html">2026-05-11</a>
-      <a href="2026-05-09/index.html">2026-05-09</a>
-      <a href="2026-05-08/index.html">2026-05-08</a>
+      <a class="date-card latest" href="2026-05-13/index.html"><span class="latest-date">2026-05-13</span></a>
+      <a class="date-card" href="2026-05-12/index.html">2026-05-12</a>
+      <a class="date-card" href="2026-05-11/index.html">2026-05-11</a>
+      <a class="date-card" href="2026-05-09/index.html">2026-05-09</a>
+      <a class="date-card" href="2026-05-08/index.html">2026-05-08</a>
     </div>
   </main>
 </body>
