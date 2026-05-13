@@ -65,12 +65,12 @@
     a.pending-link {
       border-color: var(--pending);
       background: linear-gradient(135deg, rgba(255, 241, 241, 0.88), rgba(255, 255, 255, 0.62));
-      color: #9f1239;
+      color: var(--ink);
     }
     a.passed-link {
       border-color: var(--passed);
       background: linear-gradient(135deg, rgba(239, 250, 242, 0.9), rgba(255, 255, 255, 0.62));
-      color: #166534;
+      color: var(--ink);
     }
     a.teacher-link {
       border-color: var(--neutral);
@@ -95,10 +95,15 @@
       font-size: 14px;
       font-weight: 800;
     }
-    a.pending-link .summary { color: #be123c; }
-    a.pending-link .inline-summary { color: #be123c; }
-    a.passed-link .summary { color: #15803d; }
-    a.passed-link .inline-summary { color: #15803d; }
+    .status-number {
+      font-weight: 950;
+    }
+    .status-number.pending {
+      color: #be123c;
+    }
+    .status-number.passed {
+      color: #15803d;
+    }
     a.teacher-link .summary {
       color: #475569;
     }
@@ -122,10 +127,10 @@
     <h1>待练错题库：92/192 项</h1>
     <p>这里按练习类型拆成四个待练入口，收录尚未做过或已测试但还未掌握的老师要求词。待练 92/192 项。</p>
     <div class="grid">
-      <a class="pending-link" href="pending_english_spelling.html">英语默写：<span class="inline-summary">待练 15/41 项</span></a>
-      <a class="pending-link" href="pending_english_recognition.html">英语认读：<span class="inline-summary">待练 9/33 项</span></a>
-      <a class="pending-link" href="pending_math_spelling.html">数学默写：<span class="inline-summary">待练 46/59 项</span></a>
-      <a class="pending-link" href="pending_math_recognition.html">数学认读：<span class="inline-summary">待练 22/59 项</span></a>
+      <a class="pending-link" href="pending_english_spelling.html">英语默写：<span class="inline-summary">待练 <span class="status-number pending">15</span>/41 项</span></a>
+      <a class="pending-link" href="pending_english_recognition.html">英语认读：<span class="inline-summary">待练 <span class="status-number pending">9</span>/33 项</span></a>
+      <a class="pending-link" href="pending_math_spelling.html">数学默写：<span class="inline-summary">待练 <span class="status-number pending">46</span>/59 项</span></a>
+      <a class="pending-link" href="pending_math_recognition.html">数学认读：<span class="inline-summary">待练 <span class="status-number pending">22</span>/59 项</span></a>
     </div>
   </main>
 </body>
