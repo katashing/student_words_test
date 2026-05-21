@@ -289,7 +289,7 @@
         <input name="files" id="files" type="file" accept=".doc,.docx,.xls,.xlsx,.csv,.pdf,.txt,.jpg,.jpeg,.png,.webp,.gif,.bmp,.tif,.tiff,.heic,.heif,image/*" multiple required />
       </label>
       </div>
-      <div class="file-types">可一次选择多份。<br />支持文件类型：Word（.doc/.docx）、Excel/表格（.xls/.xlsx/.csv）、PDF（.pdf）、文本（.txt）、图片（.jpg/.jpeg/.png/.webp/.gif/.bmp/.tif/.tiff/.heic/.heif）。</div>
+      <div class="file-types">可一次选择多份。<br />支持文件类型：Word（.doc/.docx）、Excel/表格（.xls/.xlsx/.csv）、PDF（.pdf）、文本（.txt）、图片（.jpg/.jpeg/.png/.webp/.gif/.bmp/.tif/.tiff/.heic/.heif）。JPG/PNG/WebP 图片会自动压缩后上传。</div>
       <div id="fileInfo" class="file-info error">！未选择文件</div>
       <div class="submit-row">
         <div id="status" class="status"></div>
@@ -326,15 +326,30 @@
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const button = form.querySelector("button");
-      const formData = new FormData(form);
-      const selectedFiles = Array.from(filesEl.files || []).map((file) => ({
+      const originalFiles = Array.from(filesEl.files || []);
+      const selectedFiles = originalFiles.map((file) => ({
         originalName: file.name,
         size: file.size || 0
       }));
       button.disabled = true;
       statusEl.className = "status";
-      statusEl.textContent = "正在上传...";
+      statusEl.textContent = "正在准备文件...";
       try {
+        const preparedFiles = await prepareFilesForUpload(originalFiles, (message) => {
+          statusEl.textContent = message;
+        });
+        const formData = new FormData();
+        formData.append("category", form.elements.category.value);
+        formData.append("note", form.elements.note.value || "");
+        for (const file of preparedFiles) {
+          formData.append("files", file, file.name);
+        }
+        const originalTotal = originalFiles.reduce((sum, file) => sum + (file.size || 0), 0);
+        const uploadTotal = preparedFiles.reduce((sum, file) => sum + (file.size || 0), 0);
+        const saved = originalTotal - uploadTotal;
+        statusEl.textContent = saved > 256 * 1024
+          ? `已压缩 ${(saved / 1024 / 1024).toFixed(1)} MB，正在上传...`
+          : "正在上传...";
         const response = await fetch(UPLOAD_URL, {
           method: "POST",
           body: formData
@@ -357,6 +372,55 @@
         button.disabled = false;
       }
     });
+
+    async function prepareFilesForUpload(files, updateStatus) {
+      const prepared = [];
+      for (let index = 0; index < files.length; index += 1) {
+        const file = files[index];
+        updateStatus(`正在准备 ${index + 1}/${files.length}：${file.name}`);
+        prepared.push(await compressImageIfUseful(file));
+      }
+      return prepared;
+    }
+
+    async function compressImageIfUseful(file) {
+      if (!shouldCompressImage(file)) return file;
+      try {
+        const bitmap = await createImageBitmap(file);
+        const maxSide = 1600;
+        const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
+        if (scale >= 1 && file.size < 900 * 1024) {
+          bitmap.close();
+          return file;
+        }
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+        canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+        const context = canvas.getContext("2d", { alpha: false });
+        context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        bitmap.close();
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.82));
+        if (!blob || blob.size >= file.size * 0.92) return file;
+        return new File([blob], jpgName(file.name), {
+          type: "image/jpeg",
+          lastModified: file.lastModified || Date.now()
+        });
+      } catch {
+        return file;
+      }
+    }
+
+    function shouldCompressImage(file) {
+      const type = String(file.type || "").toLowerCase();
+      const name = String(file.name || "").toLowerCase();
+      if (type === "image/jpeg" || type === "image/png" || type === "image/webp") return true;
+      return /\.(jpe?g|png|webp)$/i.test(name);
+    }
+
+    function jpgName(name) {
+      const clean = String(name || "image").replace(/\.[^.]+$/, "");
+      return `${clean || "image"}.jpg`;
+    }
 
     function mergeUploadedFiles(uploadedFiles, selectedFiles) {
       const merged = [...uploadedFiles];
