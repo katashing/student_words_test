@@ -200,6 +200,11 @@
     .quick-links:empty {
       display: none;
     }
+    .quick-link-pair {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
     .quick-link {
       display: inline-flex;
       align-items: center;
@@ -217,6 +222,8 @@
       border-color: rgba(220, 38, 38, 0.34);
       background: rgba(255, 241, 241, 0.86);
       color: #991b1b;
+      padding-left: 7px;
+      padding-right: 7px;
     }
     .dashboard-tools {
       margin: 8px 0 4px;
@@ -549,7 +556,7 @@
     <div class="wrap">
       <div class="hero">
         <h1>孙悟空词汇练习</h1>
-        <span class="entry-updated">最近更新：2026-05-22 21:33</span>
+        <span class="entry-updated">最近更新：2026-05-22 21:36</span>
       </div>
     </div>
   </header>
@@ -567,10 +574,8 @@
           <span class="quick-meta">从待练错题库抽题，共 11 题</span>
           
           <span class="quick-links">
-            <a class="quick-link" href="printables/daily_practice_student.html">学生作答</a>
-            <a class="quick-link" href="printables/daily_practice_teacher.html">老师答案</a>
-            <a class="quick-link pdf-link" href="printables/daily_practice_student_2026-05-22.pdf">学生PDF</a>
-            <a class="quick-link pdf-link" href="printables/daily_practice_teacher_2026-05-22.pdf">老师PDF</a>
+            <span class="quick-link-pair"><a class="quick-link" href="printables/daily_practice_student.html">学生作答</a><a class="quick-link pdf-link" href="printables/daily_practice_student_2026-05-22.pdf">PDF</a></span>
+            <span class="quick-link-pair"><a class="quick-link" href="printables/daily_practice_teacher.html">老师答案</a><a class="quick-link pdf-link" href="printables/daily_practice_teacher_2026-05-22.pdf">PDF</a></span>
           </span>
         </section>
         <section class="quick-action review">
@@ -579,10 +584,8 @@
           <span class="quick-meta">从已过关词库抽题，共 20 题</span>
           
           <span class="quick-links">
-            <a class="quick-link" href="printables/passed_review_student.html">学生作答</a>
-            <a class="quick-link" href="printables/passed_review_teacher.html">老师答案</a>
-            <a class="quick-link pdf-link" href="printables/passed_review_student_2026-05-22.pdf">学生PDF</a>
-            <a class="quick-link pdf-link" href="printables/passed_review_teacher_2026-05-22.pdf">老师PDF</a>
+            <span class="quick-link-pair"><a class="quick-link" href="printables/passed_review_student.html">学生作答</a><a class="quick-link pdf-link" href="printables/passed_review_student_2026-05-22.pdf">PDF</a></span>
+            <span class="quick-link-pair"><a class="quick-link" href="printables/passed_review_teacher.html">老师答案</a><a class="quick-link pdf-link" href="printables/passed_review_teacher_2026-05-22.pdf">PDF</a></span>
           </span>
         </section>
         <section class="quick-action check">
