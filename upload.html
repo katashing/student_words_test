@@ -71,6 +71,56 @@
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
     }
+    .settings-panel {
+      margin-bottom: 14px;
+    }
+    .settings-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: end;
+      gap: 12px;
+    }
+    .settings-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .settings-group {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 12px;
+      border: 1px solid rgba(116, 139, 166, 0.26);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.56);
+    }
+    .settings-group legend {
+      padding: 0 6px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 950;
+    }
+    .settings-actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      align-items: center;
+      gap: 12px;
+    }
+    .settings-help {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+    .settings-status {
+      min-height: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+    .settings-status.ok { color: var(--ok); }
+    .settings-status.error { color: var(--danger); }
     form {
       display: grid;
       gap: 14px;
@@ -247,6 +297,10 @@
       .hero { align-items: stretch; flex-direction: column; }
       .back { align-self: flex-start; }
       .panel { padding: 12px; }
+      .settings-form { grid-template-columns: 1fr; }
+      .settings-groups { grid-template-columns: 1fr; }
+      .settings-group { grid-template-columns: 1fr; }
+      .settings-actions { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .submit-row { grid-template-columns: 1fr; }
       .uploaded-title { align-items: flex-start; flex-direction: column; gap: 2px; }
@@ -265,6 +319,55 @@
       </div>
       <a class="back" href="index.html">返回首页</a>
     </header>
+    <section class="panel settings-panel">
+      <p class="settings-help">出题数量设置：老师可随时修改，保存后下一次生成练习页会按新数量出题。测试和复习分别设置四类题量。</p>
+      <form id="settingsForm" class="settings-form">
+        <div class="settings-groups">
+          <fieldset class="settings-group">
+            <legend>今日测试/练习</legend>
+            <label>
+              英语默写
+              <input name="dailyEnglishSpelling" type="number" min="0" max="200" step="1" value="15" required />
+            </label>
+            <label>
+              英语认读
+              <input name="dailyEnglishRecognition" type="number" min="0" max="200" step="1" value="30" required />
+            </label>
+            <label>
+              数学默写
+              <input name="dailyMathSpelling" type="number" min="0" max="200" step="1" value="15" required />
+            </label>
+            <label>
+              数学认读
+              <input name="dailyMathRecognition" type="number" min="0" max="200" step="1" value="10" required />
+            </label>
+          </fieldset>
+          <fieldset class="settings-group">
+            <legend>今日复习</legend>
+            <label>
+              英语默写
+              <input name="reviewEnglishSpelling" type="number" min="0" max="200" step="1" value="5" required />
+            </label>
+            <label>
+              英语认读
+              <input name="reviewEnglishRecognition" type="number" min="0" max="200" step="1" value="5" required />
+            </label>
+            <label>
+              数学默写
+              <input name="reviewMathSpelling" type="number" min="0" max="200" step="1" value="5" required />
+            </label>
+            <label>
+              数学认读
+              <input name="reviewMathRecognition" type="number" min="0" max="200" step="1" value="5" required />
+            </label>
+          </fieldset>
+        </div>
+        <div class="settings-actions">
+          <div id="settingsStatus" class="settings-status"></div>
+          <button type="submit">保存数量</button>
+        </div>
+      </form>
+    </section>
     <section class="panel">
     <form id="uploadForm">
       <div class="form-grid">
@@ -302,12 +405,15 @@
   <script>
     const UPLOAD_URL = "https://teacher-upload.43.128.89.2.sslip.io/upload";
     const form = document.getElementById("uploadForm");
+    const settingsForm = document.getElementById("settingsForm");
     const statusEl = document.getElementById("status");
+    const settingsStatusEl = document.getElementById("settingsStatus");
     const filesEl = document.getElementById("files");
     const fileInfoEl = document.getElementById("fileInfo");
     const uploadedListEl = document.getElementById("uploadedList");
 
     loadTodayUploads();
+    loadPracticeSettings();
 
     filesEl.addEventListener("change", () => {
       const files = Array.from(filesEl.files || []);
@@ -372,6 +478,153 @@
         button.disabled = false;
       }
     });
+
+    settingsForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const button = settingsForm.querySelector("button");
+      button.disabled = true;
+      settingsStatusEl.className = "settings-status";
+      settingsStatusEl.textContent = "正在保存数量设置...";
+      try {
+        const settings = readSettingsForm();
+        const response = await fetch(settingsUrl(), {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({ practiceSettings: settings })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(result.error || "保存数量设置失败");
+        }
+        applyPracticeSettings(result.practiceSettings || settings);
+        settingsStatusEl.className = "settings-status ok";
+        settingsStatusEl.textContent = settingsSummaryText(result.practiceSettings || settings, "已保存");
+      } catch (error) {
+        settingsStatusEl.className = "settings-status error";
+        settingsStatusEl.textContent = error.message || "保存数量设置失败";
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    function settingsUrl() {
+      return `${UPLOAD_URL}/settings`;
+    }
+
+    function settingNumber(value, fallback) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return fallback;
+      return Math.max(0, Math.min(200, Math.round(number)));
+    }
+
+    function readSettingsForm() {
+      return {
+        dailyTargets: {
+          englishSpelling: settingNumber(settingsForm.elements.dailyEnglishSpelling.value, 15),
+          englishRecognition: settingNumber(settingsForm.elements.dailyEnglishRecognition.value, 30),
+          mathSpelling: settingNumber(settingsForm.elements.dailyMathSpelling.value, 15),
+          mathRecognition: settingNumber(settingsForm.elements.dailyMathRecognition.value, 10)
+        },
+        passedReviewTargets: {
+          englishSpelling: settingNumber(settingsForm.elements.reviewEnglishSpelling.value, 5),
+          englishRecognition: settingNumber(settingsForm.elements.reviewEnglishRecognition.value, 5),
+          mathSpelling: settingNumber(settingsForm.elements.reviewMathSpelling.value, 5),
+          mathRecognition: settingNumber(settingsForm.elements.reviewMathRecognition.value, 5)
+        }
+      };
+    }
+
+    function applyPracticeSettings(settings) {
+      const normalized = normalizePracticeSettings(settings || {});
+      const daily = normalized.dailyTargets;
+      const review = normalized.passedReviewTargets;
+      settingsForm.elements.dailyEnglishSpelling.value = String(daily.englishSpelling);
+      settingsForm.elements.dailyEnglishRecognition.value = String(daily.englishRecognition);
+      settingsForm.elements.dailyMathSpelling.value = String(daily.mathSpelling);
+      settingsForm.elements.dailyMathRecognition.value = String(daily.mathRecognition);
+      settingsForm.elements.reviewEnglishSpelling.value = String(review.englishSpelling);
+      settingsForm.elements.reviewEnglishRecognition.value = String(review.englishRecognition);
+      settingsForm.elements.reviewMathSpelling.value = String(review.mathSpelling);
+      settingsForm.elements.reviewMathRecognition.value = String(review.mathRecognition);
+      const updatedDate = settings && settings.updatedAt ? new Date(settings.updatedAt) : null;
+      const updatedAt = updatedDate && !Number.isNaN(updatedDate.getTime()) ? `，更新时间 ${formatDateTime(updatedDate)}` : "";
+      settingsStatusEl.className = "settings-status";
+      settingsStatusEl.textContent = `${settingsSummaryText(normalized, "当前设置")}${updatedAt}`;
+    }
+
+    function normalizePracticeSettings(settings) {
+      return {
+        dailyTargets: normalizeTargets(settings.dailyTargets, {
+          englishSpelling: 15,
+          englishRecognition: 30,
+          mathSpelling: 15,
+          mathRecognition: 10
+        }, settings.dailyPracticeTargetTotal),
+        passedReviewTargets: normalizeTargets(settings.passedReviewTargets, {
+          englishSpelling: 5,
+          englishRecognition: 5,
+          mathSpelling: 5,
+          mathRecognition: 5
+        }, settings.passedReviewTargetTotal)
+      };
+    }
+
+    function normalizeTargets(value, defaults, legacyTotal) {
+      if (value && typeof value === "object") {
+        return {
+          englishSpelling: settingNumber(value.englishSpelling, defaults.englishSpelling),
+          englishRecognition: settingNumber(value.englishRecognition, defaults.englishRecognition),
+          mathSpelling: settingNumber(value.mathSpelling, defaults.mathSpelling),
+          mathRecognition: settingNumber(value.mathRecognition, defaults.mathRecognition)
+        };
+      }
+      if (legacyTotal !== undefined) return allocateTargets(defaults, settingNumber(legacyTotal, sumTargets(defaults)));
+      return { ...defaults };
+    }
+
+    function allocateTargets(defaults, total) {
+      const entries = Object.entries(defaults);
+      const defaultTotal = sumTargets(defaults);
+      if (defaultTotal <= 0) return Object.fromEntries(entries.map(([key]) => [key, 0]));
+      const targetTotal = Math.max(0, Math.round(total));
+      const allocated = entries.map(([key, value], index) => {
+        const exact = (value / defaultTotal) * targetTotal;
+        return { key, index, value: Math.floor(exact), remainder: exact - Math.floor(exact) };
+      });
+      let remaining = targetTotal - allocated.reduce((sum, item) => sum + item.value, 0);
+      allocated
+        .sort((a, b) => b.remainder - a.remainder || a.index - b.index)
+        .forEach((item) => {
+          if (remaining <= 0) return;
+          item.value += 1;
+          remaining -= 1;
+        });
+      return Object.fromEntries(allocated.map(({ key, value }) => [key, value]));
+    }
+
+    function sumTargets(targets) {
+      return Object.values(targets || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+    }
+
+    function settingsSummaryText(settings, prefix) {
+      const normalized = normalizePracticeSettings(settings || {});
+      const daily = normalized.dailyTargets;
+      const review = normalized.passedReviewTargets;
+      return `${prefix}：测试 英语默写${daily.englishSpelling}、英语认读${daily.englishRecognition}、数学默写${daily.mathSpelling}、数学认读${daily.mathRecognition}；复习 英语默写${review.englishSpelling}、英语认读${review.englishRecognition}、数学默写${review.mathSpelling}、数学认读${review.mathRecognition}`;
+    }
+
+    async function loadPracticeSettings() {
+      try {
+        const response = await fetch(settingsUrl(), { method: "GET" });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "读取数量设置失败");
+        applyPracticeSettings(result.practiceSettings || {});
+      } catch {
+        applyPracticeSettings({});
+      }
+    }
 
     async function prepareFilesForUpload(files, updateStatus) {
       const prepared = [];
@@ -441,6 +694,7 @@
         const response = await fetch(UPLOAD_URL, { method: "GET" });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "读取已上传文件失败");
+        if (result.practiceSettings) applyPracticeSettings(result.practiceSettings);
         renderUploadedFiles(result.files || [], { showEmpty: true, day: result.day });
         return true;
       } catch {
