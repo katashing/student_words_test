@@ -339,7 +339,7 @@
             </label>
             <label>
               数学认读
-              <input name="dailyMathRecognition" type="number" min="0" max="200" step="1" value="10" required />
+              <input name="dailyMathRecognition" type="number" min="0" max="200" step="1" value="30" required />
             </label>
           </fieldset>
           <fieldset class="settings-group">
@@ -538,7 +538,7 @@
           englishSpelling: settingNumber(settingsForm.elements.dailyEnglishSpelling.value, 15),
           englishRecognition: settingNumber(settingsForm.elements.dailyEnglishRecognition.value, 30),
           mathSpelling: settingNumber(settingsForm.elements.dailyMathSpelling.value, 15),
-          mathRecognition: settingNumber(settingsForm.elements.dailyMathRecognition.value, 10)
+          mathRecognition: settingNumber(settingsForm.elements.dailyMathRecognition.value, 30)
         },
         passedReviewTargets: {
           englishSpelling: settingNumber(settingsForm.elements.reviewEnglishSpelling.value, 5),
@@ -580,7 +580,7 @@
           englishSpelling: 15,
           englishRecognition: 30,
           mathSpelling: 15,
-          mathRecognition: 10
+          mathRecognition: 30
         }, settings.dailyPracticeTargetTotal),
         passedReviewTargets: normalizeTargets(settings.passedReviewTargets, {
           englishSpelling: 5,
