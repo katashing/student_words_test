@@ -361,6 +361,17 @@
               <input name="reviewMathRecognition" type="number" min="0" max="200" step="1" value="5" required />
             </label>
           </fieldset>
+          <fieldset class="settings-group">
+            <legend>错题抽题</legend>
+            <label>
+              英语错题
+              <input name="questionEnglish" type="number" min="0" max="200" step="1" value="3" required />
+            </label>
+            <label>
+              数学错题
+              <input name="questionMath" type="number" min="0" max="200" step="1" value="3" required />
+            </label>
+          </fieldset>
         </div>
         <div class="settings-actions">
           <div id="settingsStatus" class="settings-status"></div>
@@ -374,10 +385,12 @@
       <label>
         分类
         <select name="category" required>
-          <option value="english_homework">英语作业</option>
-          <option value="math_homework">数学作业</option>
+          <option value="english_homework">英语作业（每日练习和复习）</option>
+          <option value="math_homework">数学作业（每日练习和复习）</option>
           <option value="english_words">英语单词</option>
           <option value="math_words">数学单词</option>
+          <option value="english_questions">英语错题</option>
+          <option value="math_questions">数学错题</option>
           <option value="english_interview">英文面试</option>
           <option value="chinese_interview">中文面试</option>
           <option value="mixed" selected>混合分类（多种种类合并，文档内需标注清楚类别）</option>
@@ -532,6 +545,10 @@
           englishRecognition: settingNumber(settingsForm.elements.reviewEnglishRecognition.value, 5),
           mathSpelling: settingNumber(settingsForm.elements.reviewMathSpelling.value, 5),
           mathRecognition: settingNumber(settingsForm.elements.reviewMathRecognition.value, 5)
+        },
+        questionTargets: {
+          english: settingNumber(settingsForm.elements.questionEnglish.value, 3),
+          math: settingNumber(settingsForm.elements.questionMath.value, 3)
         }
       };
     }
@@ -540,6 +557,7 @@
       const normalized = normalizePracticeSettings(settings || {});
       const daily = normalized.dailyTargets;
       const review = normalized.passedReviewTargets;
+      const questions = normalized.questionTargets;
       settingsForm.elements.dailyEnglishSpelling.value = String(daily.englishSpelling);
       settingsForm.elements.dailyEnglishRecognition.value = String(daily.englishRecognition);
       settingsForm.elements.dailyMathSpelling.value = String(daily.mathSpelling);
@@ -548,6 +566,8 @@
       settingsForm.elements.reviewEnglishRecognition.value = String(review.englishRecognition);
       settingsForm.elements.reviewMathSpelling.value = String(review.mathSpelling);
       settingsForm.elements.reviewMathRecognition.value = String(review.mathRecognition);
+      settingsForm.elements.questionEnglish.value = String(questions.english);
+      settingsForm.elements.questionMath.value = String(questions.math);
       const updatedDate = settings && settings.updatedAt ? new Date(settings.updatedAt) : null;
       const updatedAt = updatedDate && !Number.isNaN(updatedDate.getTime()) ? `，更新时间 ${formatDateTime(updatedDate)}` : "";
       settingsStatusEl.className = "settings-status";
@@ -567,7 +587,15 @@
           englishRecognition: 5,
           mathSpelling: 5,
           mathRecognition: 5
-        }, settings.passedReviewTargetTotal)
+        }, settings.passedReviewTargetTotal),
+        questionTargets: normalizeQuestionTargets(settings.questionTargets)
+      };
+    }
+
+    function normalizeQuestionTargets(value) {
+      return {
+        english: settingNumber(value && value.english, 3),
+        math: settingNumber(value && value.math, 3)
       };
     }
 
@@ -612,7 +640,8 @@
       const normalized = normalizePracticeSettings(settings || {});
       const daily = normalized.dailyTargets;
       const review = normalized.passedReviewTargets;
-      return `${prefix}：测试 英语默写${daily.englishSpelling}、英语认读${daily.englishRecognition}、数学默写${daily.mathSpelling}、数学认读${daily.mathRecognition}；复习 英语默写${review.englishSpelling}、英语认读${review.englishRecognition}、数学默写${review.mathSpelling}、数学认读${review.mathRecognition}`;
+      const questions = normalized.questionTargets;
+      return `${prefix}：测试 英语默写${daily.englishSpelling}、英语认读${daily.englishRecognition}、数学默写${daily.mathSpelling}、数学认读${daily.mathRecognition}；复习 英语默写${review.englishSpelling}、英语认读${review.englishRecognition}、数学默写${review.mathSpelling}、数学认读${review.mathRecognition}；错题 英语错题${questions.english}、数学错题${questions.math}`;
     }
 
     async function loadPracticeSettings() {

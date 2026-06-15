@@ -89,6 +89,57 @@
       color: var(--muted);
       background: var(--soft);
     }
+    .question-list {
+      display: grid;
+      gap: 10px;
+    }
+    .question-card {
+      border: 1px solid var(--line);
+      padding: 8px;
+      page-break-inside: avoid;
+    }
+    .question-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .question-prompt {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .question-image {
+      display: block;
+      max-width: 100%;
+      max-height: 118mm;
+      object-fit: contain;
+      margin: 4px auto 8px;
+      border: 1px solid var(--line);
+    }
+    .math-question .question-image {
+      width: 100%;
+      max-height: 150mm;
+    }
+    .question-answer,
+    .question-note {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .question-workspace {
+      min-height: 44mm;
+      border-bottom: 1.4px solid var(--line);
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .math-question .question-workspace {
+      min-height: 84mm;
+    }
+    .question-check {
+      margin-top: 6px;
+      color: var(--muted);
+      text-align: right;
+    }
     @media screen and (max-width: 720px) {
       body { font-size: 13px; background: white; }
       .page {
@@ -109,6 +160,8 @@
       .write-space { width: 92px; }
       .check-col { width: 48px; }
       .blank { width: 52px; }
+      .question-prompt { font-size: 15px; }
+      .question-image { max-height: none; }
     }
     @page { size: A4; margin: 0; }
     @media print {
@@ -873,6 +926,86 @@
       </tr>
     </tbody>
   </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>英语错题 老师版</h1>
+    <div class="meta">抽取日期：2026-06-15<br />从英语错题题库随机抽取 3 道</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <div class="question-list">
+    <article class="question-card">
+      <div class="question-meta">1. 句型转换：否定句 · EN-2026-06-15-006</div>
+      <div class="question-prompt">改为否定句：They are reading storybooks now.</div>
+      
+      <div class="question-answer"><strong>参考答案：</strong>They aren't reading storybooks now.</div>
+      <div class="question-note"><strong>答案解释：</strong>现在进行时否定直接在 be 后加 not。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card">
+      <div class="question-meta">2. 一般现在时：否定句 · EN-2026-06-15-001</div>
+      <div class="question-prompt">he ____ (not like) rainy days</div>
+      
+      <div class="question-answer"><strong>参考答案：</strong>doesn't like</div>
+      <div class="question-note"><strong>答案解释：</strong>三单否定用 doesn't + 动词原形。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card">
+      <div class="question-meta">3. 句型转换：简答 · EN-2026-06-15-008</div>
+      <div class="question-prompt">回答：Does Lily drink milk every morning?</div>
+      
+      <div class="question-answer"><strong>参考答案：</strong>Yes, she does. / No, she doesn't.</div>
+      <div class="question-note"><strong>答案解释：</strong>简答主语用 she。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+  </div>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>数学错题 老师版</h1>
+    <div class="meta">抽取日期：2026-06-15<br />从数学错题题库随机抽取 3 道</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <div class="question-list">
+    <article class="question-card math-question">
+      <div class="question-meta">1. workbook 2A / angle · MA-2026-06-15-029</div>
+      <div class="question-prompt">P25 angle</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-06-15_media/image29.png" alt="P25 angle" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">2. workbook 2C / money · MA-2026-06-15-008</div>
+      <div class="question-prompt">P8 money</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-06-15_media/image8.png" alt="P8 money" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">3. 综合测试 · MA-2026-06-15-031</div>
+      <div class="question-prompt">综合测试（图 2）</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-06-15_media/image31.png" alt="综合测试（图 2）" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+  </div>
 </section>
 </body>
 </html>

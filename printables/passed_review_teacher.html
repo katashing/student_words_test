@@ -89,6 +89,57 @@
       color: var(--muted);
       background: var(--soft);
     }
+    .question-list {
+      display: grid;
+      gap: 10px;
+    }
+    .question-card {
+      border: 1px solid var(--line);
+      padding: 8px;
+      page-break-inside: avoid;
+    }
+    .question-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .question-prompt {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .question-image {
+      display: block;
+      max-width: 100%;
+      max-height: 118mm;
+      object-fit: contain;
+      margin: 4px auto 8px;
+      border: 1px solid var(--line);
+    }
+    .math-question .question-image {
+      width: 100%;
+      max-height: 150mm;
+    }
+    .question-answer,
+    .question-note {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .question-workspace {
+      min-height: 44mm;
+      border-bottom: 1.4px solid var(--line);
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .math-question .question-workspace {
+      min-height: 84mm;
+    }
+    .question-check {
+      margin-top: 6px;
+      color: var(--muted);
+      text-align: right;
+    }
     @media screen and (max-width: 720px) {
       body { font-size: 13px; background: white; }
       .page {
@@ -109,6 +160,8 @@
       .write-space { width: 92px; }
       .check-col { width: 48px; }
       .blank { width: 52px; }
+      .question-prompt { font-size: 15px; }
+      .question-image { max-height: none; }
     }
     @page { size: A4; margin: 0; }
     @media print {
