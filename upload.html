@@ -736,7 +736,7 @@
       if (!files.length) {
         if (options.showEmpty) {
           uploadedListEl.className = "uploaded active";
-          uploadedListEl.innerHTML = `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除）${updatedText}</span></div><div class="uploaded-empty">今天还没有上传文件。</div>`;
+          uploadedListEl.innerHTML = `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除；“查看单个文件”只打开这一份，生成练习会自动拉取全部）${updatedText}</span></div><div class="uploaded-empty">今天还没有上传文件。</div>`;
         } else {
           uploadedListEl.className = "uploaded";
           uploadedListEl.innerHTML = "";
@@ -745,15 +745,15 @@
       }
       uploadedListEl.className = "uploaded active";
       uploadedListEl.innerHTML = [
-        `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除）${updatedText}</span></div>`,
+        `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除；“查看单个文件”只打开这一份，生成练习会自动拉取全部）${updatedText}</span></div>`,
         ...files.map((file, index) => {
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
           const pendingOnly = file.pendingOnly || !file.deletePath;
           const viewHref = fileDownloadHref(file);
           const viewLink = viewHref
-            ? `<a class="view-file" href="${escapeHtml(viewHref)}" target="_blank" rel="noopener">下载查看</a>`
-            : `<span class="view-file disabled">下载查看</span>`;
+            ? `<a class="view-file" href="${escapeHtml(viewHref)}" target="_blank" rel="noopener" title="只打开/下载这一个文件，不会批量拉取全部文件">查看单个文件</a>`
+            : `<span class="view-file disabled" title="只打开/下载这一个文件，不会批量拉取全部文件">查看单个文件</span>`;
           const timeText = formatUploadTime(file.uploadedAt);
           const state = pendingOnly ? "已上传（待服务器返回删除信息）" : `${timeText ? `${timeText} ` : ""}已上传`;
           return `<div class="uploaded-item" data-delete-path="${path}">
