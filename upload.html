@@ -646,7 +646,7 @@
 
     async function loadPracticeSettings() {
       try {
-        const response = await fetch(settingsUrl(), { method: "GET" });
+        const response = await fetch(settingsUrl(), { method: "GET", cache: "no-store" });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "读取数量设置失败");
         applyPracticeSettings(result.practiceSettings || {});
@@ -720,7 +720,7 @@
 
     async function loadTodayUploads() {
       try {
-        const response = await fetch(UPLOAD_URL, { method: "GET" });
+        const response = await fetch(UPLOAD_URL, { method: "GET", cache: "no-store" });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "读取已上传文件失败");
         if (result.practiceSettings) applyPracticeSettings(result.practiceSettings);
