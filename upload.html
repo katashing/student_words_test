@@ -220,31 +220,6 @@
       color: var(--ok);
       font-size: 18px;
       font-weight: 950;
-      flex-wrap: wrap;
-    }
-    .uploaded-title-main {
-      display: grid;
-      gap: 2px;
-    }
-    .download-all-file {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: auto;
-      min-height: 34px;
-      padding: 7px 12px;
-      border: 1px solid rgba(21, 128, 61, 0.28);
-      border-radius: 8px;
-      background: rgba(220, 252, 231, 0.95);
-      color: var(--ok);
-      font-size: 12px;
-      font-weight: 950;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .download-all-file.disabled {
-      opacity: 0.45;
-      pointer-events: none;
     }
     .uploaded-meta {
       white-space: nowrap;
@@ -756,18 +731,12 @@
       }
     }
 
-    function uploadedTitleHtml(updatedText, hasFiles) {
-      const linkClass = hasFiles ? "download-all-file" : "download-all-file disabled";
-      const href = hasFiles ? `${UPLOAD_URL}/all` : "#";
-      return `<div class="uploaded-title"><div class="uploaded-title-main"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除；每次请点右侧按钮下载全部）${updatedText}</span></div><a class="${linkClass}" href="${escapeHtml(href)}" target="_blank" rel="noopener">下载全部文件</a></div>`;
-    }
-
     function renderUploadedFiles(files, options = {}) {
       const updatedText = escapeHtml(latestUpdateText(files, options.day));
       if (!files.length) {
         if (options.showEmpty) {
           uploadedListEl.className = "uploaded active";
-          uploadedListEl.innerHTML = `${uploadedTitleHtml(updatedText, false)}<div class="uploaded-empty">今天还没有上传文件。</div>`;
+          uploadedListEl.innerHTML = `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除）${updatedText}</span></div><div class="uploaded-empty">今天还没有上传文件。</div>`;
         } else {
           uploadedListEl.className = "uploaded";
           uploadedListEl.innerHTML = "";
@@ -776,15 +745,15 @@
       }
       uploadedListEl.className = "uploaded active";
       uploadedListEl.innerHTML = [
-        uploadedTitleHtml(updatedText, true),
+        `<div class="uploaded-title"><span>今日已上传文件</span><span class="uploaded-meta">（所有老师可见，可删除）${updatedText}</span></div>`,
         ...files.map((file, index) => {
           const label = escapeHtml(readableFilename(file.originalName || file.name || `文件 ${index + 1}`));
           const path = escapeHtml(file.deletePath || "");
           const pendingOnly = file.pendingOnly || !file.deletePath;
           const viewHref = fileDownloadHref(file);
           const viewLink = viewHref
-            ? `<a class="view-file" href="${escapeHtml(viewHref)}" target="_blank" rel="noopener" title="只打开/下载这一个文件，不会批量拉取全部文件">查看单个文件</a>`
-            : `<span class="view-file disabled" title="只打开/下载这一个文件，不会批量拉取全部文件">查看单个文件</span>`;
+            ? `<a class="view-file" href="${escapeHtml(viewHref)}" target="_blank" rel="noopener">下载查看</a>`
+            : `<span class="view-file disabled">下载查看</span>`;
           const timeText = formatUploadTime(file.uploadedAt);
           const state = pendingOnly ? "已上传（待服务器返回删除信息）" : `${timeText ? `${timeText} ` : ""}已上传`;
           return `<div class="uploaded-item" data-delete-path="${path}">
