@@ -89,11 +89,25 @@
       color: #dc2626;
       font-weight: 900;
     }
+    .picture-prompt {
+      padding: 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+    .picture-prompt img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 160mm;
+      margin: 0 auto;
+    }
     .answer-blank {
       display: block;
       height: 34px;
       border-bottom: 1px solid #94a3b8;
     }
+    .picture-card .answer-blank { height: 28px; }
     .empty-note {
       padding: 22px;
       border: 1px solid var(--line);
@@ -121,18 +135,22 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. What is your name?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. How old are you?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. Where do you study now? / Which school do you go to?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">4. Do you have a nickname? / What can I call you?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
     </div>
@@ -140,14 +158,27 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. How many people are there in your family?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. Who takes care of your studies at home? / Who helps you with your homework?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. What do you like to do with your family on weekends?</div>
+
+        <div class="answer-line"><span class="answer-blank"></span></div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">4. What did you do last Sunday?</div>
+
+        <div class="answer-line"><span class="answer-blank"></span></div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">5. What do you do with your brother?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
     </div>
@@ -155,18 +186,32 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. What is your hobby? / What do you like to do in your free time?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. Do you like sports? / What sport do you like?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. Do you like drawing / singing / dancing?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">4. What is your favorite toy? Why?</div>
+
+        <div class="answer-line"><span class="answer-blank"></span></div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">5. What is your favourite season? Why?</div>
+
+        <div class="answer-line"><span class="answer-blank"></span></div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">6. What is your favourite food?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
     </div>
@@ -174,14 +219,17 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. What is your favorite subject? Why?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. Do you like reading?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. What is your favorite book?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
     </div>
@@ -189,15 +237,44 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. Why would you choose our school?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. What do you do during recess?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. Who is your best friend? Why do you like him?</div>
+
         <div class="answer-line"><span class="answer-blank"></span></div>
+      </section>
+    </div>
+    <h2>六、品格与情景应对</h2>
+    <div class="qa-list">
+      <section class="qa-card">
+        <div class="question-line">1. If you see a classmate fall down on the playground, what will you do?</div>
+
+        <div class="answer-line"><span class="answer-blank"></span></div>
+      </section>
+    </div>
+    <h2>七、看图说话</h2>
+    <div class="qa-list">
+      <section class="qa-card picture-card">
+        <div class="question-line">1. Look at the pictures and tell the story. What happens in Picture 4?</div>
+        <div class="picture-prompt"><img src="assets/interview/2026-07-20_bathroom_cleanup_picture_story.jpg" alt="Picture prompt for question 1" /></div>
+        <div class="answer-line"><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span></div>
+      </section>
+      <section class="qa-card picture-card">
+        <div class="question-line">2. Look at the pictures and answer the five questions below. Then tell the story and complete Picture 4.</div>
+        <div class="picture-prompt"><img src="assets/interview/2026-07-20_anson_and_lisa_picture_story.jpg" alt="Picture prompt for question 2" /></div>
+        <div class="answer-line"><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span></div>
+      </section>
+      <section class="qa-card picture-card">
+        <div class="question-line">3. Look at the pictures and tell the story in at least three paragraphs. What happens in Picture 4?</div>
+        <div class="picture-prompt"><img src="assets/interview/2026-07-20_restaurant_accident_picture_story.jpg" alt="Picture prompt for question 3" /></div>
+        <div class="answer-line"><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span><span class="answer-blank"></span></div>
       </section>
     </div>
   </main>

@@ -89,11 +89,25 @@
       color: #dc2626;
       font-weight: 900;
     }
+    .picture-prompt {
+      padding: 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+    .picture-prompt img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 118mm;
+      margin: 0 auto;
+    }
     .answer-blank {
       display: block;
       height: 34px;
       border-bottom: 1px solid #94a3b8;
     }
+    .picture-card .answer-blank { height: 28px; }
     .empty-note {
       padding: 22px;
       border: 1px solid var(--line);
@@ -121,18 +135,22 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. What is your name?</div>
+
         <div class="answer-line">My name is <strong>Wu Ruoyang</strong>. My English name is Ryan. You can call me Ryan if you wish.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. How old are you?</div>
+
         <div class="answer-line">I am eight years old.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. Where do you study now? / Which school do you go to?</div>
+
         <div class="answer-line">I study at Hanlin Primary School. I am in <strong>Grade Two</strong>.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">4. Do you have a nickname? / What can I call you?</div>
+
         <div class="answer-line">My nickname is Qiqi.</div>
       </section>
     </div>
@@ -140,48 +158,78 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. How many people are there in your family?</div>
+
         <div class="answer-line">There are four people in my family: my dad, my mum, <strong>my brother, and me</strong>.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. Who takes care of your studies at home? / Who helps you with your homework?</div>
+
         <div class="answer-line">My parents <strong>help me with</strong> my homework.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. What do you like to do with your family on weekends?</div>
-        <div class="answer-line">I like to fly a kite in the park with my family on weekends.</div>
+
+        <div class="answer-line">I like to <strong>watch TV</strong> with my family on weekends.</div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">4. What did you do last Sunday?</div>
+
+        <div class="answer-line">Last Sunday, I went to the park with my family. We flew a kite and had a picnic. I played on the slide, and it was <strong>a lot of fun</strong>.</div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">5. What do you do with your brother?</div>
+
+        <div class="answer-line"><strong>My brother and I</strong> like to play basketball together on weekends. Sometimes, we also watch cartoons and laugh a lot.</div>
       </section>
     </div>
     <h2>三、兴趣与爱好</h2>
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. What is your hobby? / What do you like to do in your free time?</div>
-        <div class="answer-line">My hobbies are reading books, such as Journey to the West, and riding a bike.</div>
+
+        <div class="answer-line">My hobby is <strong>riding a bike</strong>.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. Do you like sports? / What sport do you like?</div>
+
         <div class="answer-line">I like swimming because swimming is good for my health.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. Do you like drawing / singing / dancing?</div>
-        <div class="answer-line">No, I don't like dancing, but I like drawing.</div>
+
+        <div class="answer-line">I like drawing, but I don't like <strong>singing or dancing</strong>.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">4. What is your favorite toy? Why?</div>
-        <div class="answer-line">My favorite <strong>toys are</strong> my toy cars. They are my birthday gifts.</div>
+
+        <div class="answer-line">My favorite <strong>toy is my toy car</strong> because it is my birthday gift.</div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">5. What is your favourite season? Why?</div>
+
+        <div class="answer-line">My favourite season is summer. I like it because the weather is hot and sunny. I can go swimming with my dad, and I can eat ice cream.</div>
+      </section>
+      <section class="qa-card">
+        <div class="question-line">6. What is your favourite food?</div>
+
+        <div class="answer-line">My favourite food is pizza. I like it because it is cheesy and yummy. I usually eat it with my friends on weekends.</div>
       </section>
     </div>
     <h2>四、学习与阅读</h2>
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. What is your favorite subject? Why?</div>
+
         <div class="answer-line">My favorite subject is English because English is useful. We can <strong>talk to people around the world in English</strong>.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. Do you like reading?</div>
-        <div class="answer-line">Yes, I like Journey to the West. It is my favorite book.</div>
+
+        <div class="answer-line">Yes, <strong>I do</strong>. My favorite book is Journey to the West.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. What is your favorite book?</div>
+
         <div class="answer-line">My favorite book is Journey to the West. <strong>The Monkey King</strong> fights monsters. He is very brave. I like him very much.</div>
       </section>
     </div>
@@ -189,15 +237,44 @@
     <div class="qa-list">
       <section class="qa-card">
         <div class="question-line">1. Why would you choose our school?</div>
-        <div class="answer-line">I want to come to your school because it is very famous. I love reading, and I see your school has a big library. I will study hard and be a good student here.</div>
+
+        <div class="answer-line">I want to come to your school because it is very famous. I love reading, and I <strong>know that</strong> your school has a big library. I will study hard and be a good student here.</div>
       </section>
       <section class="qa-card">
         <div class="question-line">2. What do you do during recess?</div>
-        <div class="answer-line">During recess, I like to go to the library or the classroom. I read storybooks or draw pictures with my friends. It is very relaxing and quiet.</div>
+
+        <div class="answer-line">During recess, I like to go to the library or <strong>stay in</strong> the classroom. I read storybooks or draw pictures with my friends. <strong>Both places are quiet, and I feel relaxed there.</strong></div>
       </section>
       <section class="qa-card">
         <div class="question-line">3. Who is your best friend? Why do you like him?</div>
+
         <div class="answer-line">My best friend is Peter. He is very kind and friendly. I like him because we always play football together at recess. He also helps me when I have problems.</div>
+      </section>
+    </div>
+    <h2>六、品格与情景应对</h2>
+    <div class="qa-list">
+      <section class="qa-card">
+        <div class="question-line">1. If you see a classmate fall down on the playground, what will you do?</div>
+
+        <div class="answer-line">If I see a classmate fall down, I will <strong>run over to help</strong>. I will ask, &quot;Are you OK?&quot; Then I will <strong>tell the teacher</strong>.</div>
+      </section>
+    </div>
+    <h2>七、看图说话</h2>
+    <div class="qa-list">
+      <section class="qa-card picture-card">
+        <div class="question-line">1. Look at the pictures and tell the story. What happens in Picture 4?</div>
+        <div class="picture-prompt"><img src="assets/interview/2026-07-20_bathroom_cleanup_picture_story.jpg" alt="Picture prompt for question 1" /></div>
+        <div class="answer-line">It is morning. The boy is brushing his teeth in the bathroom. He makes a big mess. There is water and rubbish all over the floor. His mother walks in and is shocked and angry. She tells him to clean up the mess. In Picture 4, the boy uses a broom to sweep up the rubbish and a mop to clean the wet floor. He says sorry to his mum. His mum is no longer angry and smiles.</div>
+      </section>
+      <section class="qa-card picture-card">
+        <div class="question-line">2. Look at the pictures and answer the five questions below. Then tell the story and complete Picture 4.</div>
+        <div class="picture-prompt"><img src="assets/interview/2026-07-20_anson_and_lisa_picture_story.jpg" alt="Picture prompt for question 2" /></div>
+        <div class="answer-line">After class, Anson waited outside the Elite Learning Centre for Lisa. Lisa was two minutes late, so Anson became impatient. He rudely told her to carry his schoolbag.<br><br>Later, a pair of sunglasses fell onto the floor and broke. Anson became angry and shouted at Lisa. His parents heard him and came over. They were shocked and disappointed.<br><br>Anson's dad said, &quot;Lisa is here to look after you. You should be polite to her. You shouldn't shout at her.&quot;<br><br>In the end, Anson realised that he was wrong. He apologised to Lisa and promised not to be rude again. Lisa forgave him, and his parents were pleased that he had learnt to respect others.</div>
+      </section>
+      <section class="qa-card picture-card">
+        <div class="question-line">3. Look at the pictures and tell the story in at least three paragraphs. What happens in Picture 4?</div>
+        <div class="picture-prompt"><img src="assets/interview/2026-07-20_restaurant_accident_picture_story.jpg" alt="Picture prompt for question 3" /></div>
+        <div class="answer-line">It was lunchtime at a busy fast-food restaurant. A boy bought a hamburger and a drink. He carried the tray carefully towards his table.<br><br>Suddenly, another boy ran through the restaurant and shouted loudly. He did not look where he was going, so he crashed into the boy carrying the tray. The boy with the tray fell to the floor and screamed. His food and drink spilled everywhere, and the people nearby were shocked.<br><br>The running boy immediately stopped and helped the other boy up. He apologised sincerely and helped clean up the mess. Luckily, the boy with the tray was not badly hurt and forgave him. The running boy promised that he would never run in a restaurant again.</div>
       </section>
     </div>
   </main>
