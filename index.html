@@ -118,6 +118,9 @@
     .quick-actions.interview-flow {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+    .quick-actions.grammar-flow {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
     .quick-flow-title {
       margin: 10px 0 6px;
       color: #1f2933;
@@ -156,6 +159,11 @@
       border-color: rgba(14, 165, 233, 0.52);
       background: linear-gradient(135deg, rgba(240, 249, 255, 0.96), rgba(255, 255, 255, 0.72));
       color: #075985;
+    }
+    .quick-action.grammar {
+      border-color: rgba(15, 118, 110, 0.52);
+      background: linear-gradient(135deg, rgba(204, 251, 241, 0.9), rgba(255, 255, 255, 0.72));
+      color: #115e59;
     }
     .quick-action.check {
       border-color: rgba(100, 116, 139, 0.5);
@@ -544,6 +552,7 @@
       .tool-stat { margin-left: 0; }
       .quick-actions { grid-template-columns: 1fr; }
       .quick-actions.interview-flow { grid-template-columns: 1fr; }
+      .quick-actions.grammar-flow { grid-template-columns: 1fr; }
       .quick-action { min-height: 60px; }
       .grid { grid-template-columns: 1fr; }
       .today-row { grid-template-columns: 1fr; }
@@ -653,7 +662,23 @@
 
     <section class="section">
       <div class="section-head">
-        <h2>三、资料查看</h2>
+        <h2>三、语法专项</h2>
+      </div>
+      <div class="quick-actions grammar-flow" aria-label="语法专项">
+        <section class="quick-action grammar">
+          <span class="quick-kicker">1</span>
+          <span class="quick-label">语法专项练习</span>
+          <span class="quick-meta">三单 / 一般现在时 / 现在进行时，共 300 题</span>
+          <span class="quick-links">
+            <a class="quick-link" href="grammar_practice.html?v=2026-07-21">打开练习</a>
+          </span>
+        </section>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>四、资料查看</h2>
       </div>
       <div class="dashboard-tools" id="dashboardTools">
         <div class="tool-row">
