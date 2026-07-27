@@ -124,62 +124,40 @@
       font-size: 11px;
     }
     .part-head strong { font-size: 13px; }
-    .word-bank {
+    .question-list {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 3px 8px;
-      padding: 5px 8px;
-      border-bottom: 1px solid #94a3b8;
-      color: #1e293b;
-      font-size: 12px;
-      font-weight: 750;
-      text-align: center;
+      gap: 0;
+      padding: 5px 11px 7px;
     }
-    .word-bank span { min-width: 0; }
-    .email-head {
+    .question-item {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 26px minmax(0, 1fr);
+      align-items: start;
+      min-height: 17mm;
+      padding: 8px 2px 6px;
       border-bottom: 1px solid var(--line);
-      font-size: 10px;
+      break-inside: avoid;
     }
-    .email-head span {
-      padding: 3px 7px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .email-head span:last-child { grid-column: 1 / -1; border-bottom: 0; }
-    .passage-body {
-      padding: 5px 9px 6px;
-      font-size: 12.5px;
-      font-weight: 650;
-      line-height: 1.9;
-    }
-    .passage-body p { margin: 2px 0 5px; }
-    .cloze {
-      display: inline-flex;
-      align-items: flex-end;
-      white-space: nowrap;
-      vertical-align: -1px;
-    }
-    .blank-number {
-      margin-right: 2px;
+    .question-item:last-child { border-bottom: 0; }
+    .question-number {
       color: var(--muted);
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 800;
+      line-height: 1.65;
     }
-    .blank {
-      display: inline-block;
-      width: 25mm;
-      height: 1.2em;
-      margin-right: 1mm;
-      border-bottom: 1.3px solid var(--ink);
+    .question-text {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      font-size: 15px;
+      font-weight: 650;
+      line-height: 1.65;
     }
     .answer-line {
       display: none;
-      padding: 4px 7px;
+      padding: 6px 9px;
       border-top: 1px dashed #94a3b8;
       color: #065f46;
-      font-size: 8.5px;
+      font-size: 10px;
       font-weight: 800;
       line-height: 1.4;
     }
@@ -210,10 +188,8 @@
       .topbar-inner { width: calc(100vw - 20px); }
       .site-title { width: 100%; }
       .page { width: 100%; min-height: auto; margin: 0; padding: 12px; box-shadow: none; }
-      .word-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .email-head { grid-template-columns: 1fr; }
-      .email-head span:last-child { grid-column: auto; }
-      .passage-body { font-size: 13px; }
+      .question-item { min-height: auto; }
+      .question-text { font-size: 14px; }
       .student-line { grid-template-columns: 1fr 1fr; }
     }
     @page { size: A4; margin: 0; }
@@ -229,8 +205,8 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="site-title">语法专项打印试卷 · 300 题 · 2026-07-24</div>
-      <button type="button" data-tab="comprehensive-grammar" class="active">综合卷（30份）</button>
+      <div class="site-title">语法专项打印试卷 · 100 题 · 2026-07-27</div>
+      <button type="button" data-tab="comprehensive-grammar" class="active">老师语法卷（10份）</button>
       <button type="button" class="nav-button" id="previousSet" title="上一套" aria-label="上一套">‹</button>
       <select class="set-control" id="setSelect" aria-label="选择试卷"></select>
       <button type="button" class="nav-button" id="nextSet" title="下一套" aria-label="下一套">›</button>
@@ -245,601 +221,291 @@
       <section class="page active" data-paper-page="0">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 1 / 30 · 10 points</div>
+          <div class="page-number">Set 1 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>play</span><span>drink</span><span>study</span><span>not swim</span><span>run</span><span>go</span><span>write</span><span>not read</span><span>make</span><span>watch</span></div>
-          <div class="email-head"><span><strong>To:</strong> kathy@cheery.com</span><span><strong>From:</strong> joe@cheery.com</span><span><strong>Subject:</strong> Our busy week</span></div>
-          <div class="passage-body"><p>Hi Kathy,</p><p>Let me tell you about the things my family and friends do in a normal week. Today is different, and everyone is doing something else now. We sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> English. We usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> a storybook. He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> in the park now. She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> in the pool now. I usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> to school. You often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> cartoons. He often <span class="cloze" data-domain="simple-present"><span class="blank-number">(7)</span><span class="blank"></span></span> milk. Do they <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> short sentences every week? Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> a card now? They usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> football.</p><p>Write back soon!<br />Yours,<br />Joe</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. study · 2. do not read · 3. is running · 4. is not swimming · 5. go · 6. watch · 7. drinks · 8. write · 9. making · 10. play</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 1-10 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">I often ________ (do) my homework after school.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">Look! I ________ (do) my homework now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">She ________ (do) her homework every evening.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">Listen! He ________ (do) a puzzle in the room.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">We usually ________ (play) games on weekends.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">Now we ________ (play) basketball on the playground.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">Tom ________ (play) the piano every Sunday.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">Look! Tom ________ (play) the piano now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">My mum ________ (bake) cakes for us every month.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">Mum ________ (bake) a chocolate cake right now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. do · 2. am doing · 3. does · 4. is doing · 5. play · 6. are playing · 7. plays · 8. is playing · 9. bakes · 10. is baking</div>
         </div>
       </section>
       <section class="page" data-paper-page="1">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 2 / 30 · 10 points</div>
+          <div class="page-number">Set 2 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not wash</span><span>get</span><span>brush</span><span>drink</span><span>eat</span><span>watch</span><span>read</span><span>not play</span><span>do</span><span>write</span></div>
-          <div class="email-head"><span><strong>To:</strong> amy@cheery.com</span><span><strong>From:</strong> may@cheery.com</span><span><strong>Subject:</strong> Family and friends</span></div>
-          <div class="passage-body"><p>Hi Amy,</p><p>My family and friends have many regular activities. Today our plans are changing, so we are doing different things now. My friends sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> short sentences. The children often <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> homework. He usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> milk. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> basketball now. They often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> a storybook. Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> a film now? We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> ready now. Does Tom <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> the dog every week? She usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> the dishes. She often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> breakfast.</p><p>Write back soon!<br />Yours,<br />May</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. write · 2. do · 3. drinks · 4. are not playing · 5. read · 6. watching · 7. are getting · 8. brush · 9. does not wash · 10. eats</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 11-20 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">I ________ (bake) cookies with my friend sometimes.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">We ________ (bake) bread in the kitchen now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">Lily ________ (draw) beautiful pictures every day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">Look! Lily ________ (draw) a little cat.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">They ________ (draw) pictures in art class every week.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">The students ________ (draw) flowers now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">My dad ________ (buy) fruit for our family every day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">Dad ________ (buy) apples and bananas in the shop now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">I ________ (buy) small gifts for my friends sometimes.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">Look! I ________ (buy) a new pencil box.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. bake · 2. are baking · 3. draws · 4. is drawing · 5. draw · 6. are drawing · 7. buys · 8. is buying · 9. buy · 10. am buying</div>
         </div>
       </section>
       <section class="page" data-paper-page="2">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 3 / 30 · 10 points</div>
+          <div class="page-number">Set 3 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>carry</span><span>fly</span><span>not fix</span><span>ride</span><span>have</span><span>brush</span><span>wash</span><span>teach</span><span>study</span><span>not write</span></div>
-          <div class="email-head"><span><strong>To:</strong> ben@cheery.com</span><span><strong>From:</strong> tom@cheery.com</span><span><strong>Subject:</strong> Things we do</span></div>
-          <div class="passage-body"><p>Hi Ben,</p><p>Here are some things the people around me do regularly. Today is not a usual day, and everyone is busy now. We often <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> a schoolbag. My brother often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> a music lesson. Tom usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> the dog. Lucy sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> math. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> new words now. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> a bike now? I usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(7)</span><span class="blank"></span></span> the bike. Do you <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> a kite every week? She sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> the dishes. You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(10)</span><span class="blank"></span></span> for a test now.</p><p>Write back soon!<br />Yours,<br />Tom</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. carry · 2. has · 3. brushes · 4. teaches · 5. is not writing · 6. riding · 7. do not fix · 8. fly · 9. washes · 10. are studying</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 21-30 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">My sister ________ (make) toys by herself.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">Now she ________ (make) a paper plane.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">We ________ (make) dumplings every Spring Festival.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">My family ________ (make) dumplings now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">The teacher ________ (prepare) lessons every night.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">Look! The teacher ________ (prepare) for our class game.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">I ________ (prepare) my schoolbag every morning.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">I ________ (prepare) my books for the test now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">Our school ________ (hold) a sports meeting every year.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">Look! Our school ________ (hold) a music party now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. makes · 2. is making · 3. make · 4. are making · 5. prepares · 6. is preparing · 7. prepare · 8. am preparing · 9. holds · 10. is holding</div>
         </div>
       </section>
       <section class="page" data-paper-page="3">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 4 / 30 · 10 points</div>
+          <div class="page-number">Set 4 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not visit</span><span>fly</span><span>open</span><span>fix</span><span>carry</span><span>close</span><span>catch</span><span>not swim</span><span>make</span><span>run</span></div>
-          <div class="email-head"><span><strong>To:</strong> emma@cheery.com</span><span><strong>From:</strong> lucy@cheery.com</span><span><strong>Subject:</strong> A normal week</span></div>
-          <div class="passage-body"><p>Hi Emma,</p><p>Everyone I know has a different routine during the week. This week is special, and we are doing something different now. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> in the park now. She often <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> the door. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> in the pool now. They usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> Grandma. Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> a card now? Lucy usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> the bus. We usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> a schoolbag. You sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> a kite. I often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> the bike. Does he <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> the window every week?</p><p>Write back soon!<br />Yours,<br />Lucy</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. are running · 2. closes · 3. is not swimming · 4. do not visit · 5. making · 6. catches · 7. carry · 8. fly · 9. fix · 10. open</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 31-40 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">We ________ (hold) our books when we read.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">The girl ________ (hold) a cute doll in her hands now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">My grandpa ________ (give) me candy sometimes.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">Look! He ________ (give) me a new storybook.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">Teachers ________ (give) us homework every day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">Miss Li ________ (give) us new pencils now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">My brother ________ (come) home at 6 o’clock every day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">Look! My brother ________ (come) back from school.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">They ________ (come) to my house every weekend.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">Look! My friends ________ (come) to play with me.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. hold · 2. is holding · 3. gives · 4. is giving · 5. give · 6. is giving · 7. comes · 8. is coming · 9. come · 10. are coming</div>
         </div>
       </section>
       <section class="page" data-paper-page="4">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 5 / 30 · 10 points</div>
+          <div class="page-number">Set 5 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not play</span><span>enjoy</span><span>try</span><span>not cook</span><span>write</span><span>help</span><span>read</span><span>watch</span><span>draw</span><span>clean</span></div>
-          <div class="email-head"><span><strong>To:</strong> jack@cheery.com</span><span><strong>From:</strong> sam@cheery.com</span><span><strong>Subject:</strong> Our weekly routine</span></div>
-          <div class="passage-body"><p>Hi Jack,</p><p>Let me tell you about our usual activities. Today our routine is changing, and everyone is busy now. They sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the game. I often <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> short sentences. Tom usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> football. He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> a film now. My friends usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> a classmate. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> a map now? She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> dinner now. Do the children <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> a storybook every week? We often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> hard. He often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> the room.</p><p>Write back soon!<br />Yours,<br />Sam</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. enjoy · 2. write · 3. does not play · 4. is watching · 5. help · 6. drawing · 7. is not cooking · 8. read · 9. try · 10. cleans</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 41-50 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">He ________ (do) housework on Saturdays.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">He ________ (do) housework now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">She ________ (play) badminton after school.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">She ________ (play) badminton with her mum now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">We ________ (make) breakfast every morning.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">My mum ________ (make) breakfast for me now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">I ________ (hold) my mum’s hand when we walk.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">I ________ (hold) a new pen now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">They ________ (buy) books in the bookstore sometimes.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">They ________ (buy) picture books now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. does · 2. is doing · 3. plays · 4. is playing · 5. make · 6. is making · 7. hold · 8. am holding · 9. buy · 10. are buying</div>
         </div>
       </section>
       <section class="page" data-paper-page="5">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 6 / 30 · 10 points</div>
+          <div class="page-number">Set 6 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>leave</span><span>have</span><span>open</span><span>visit</span><span>not do</span><span>teach</span><span>draw</span><span>not come</span><span>close</span><span>ride</span></div>
-          <div class="email-head"><span><strong>To:</strong> lily@cheery.com</span><span><strong>From:</strong> mia@cheery.com</span><span><strong>Subject:</strong> After-school activities</span></div>
-          <div class="passage-body"><p>Hi Lily,</p><p>My family and classmates do many things during the week. Today we have new plans, and we are doing different activities now. She usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the window. He sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> Grandma. They often <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> math. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> home now. My brother sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> a picture. Do we <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> a music lesson every week? You usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(7)</span><span class="blank"></span></span> homework. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> a bike now. Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> the classroom now? Tom often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> the door.</p><p>Write back soon!<br />Yours,<br />Mia</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. opens · 2. visits · 3. teach · 4. are not coming · 5. draws · 6. have · 7. do not do · 8. are riding · 9. leaving · 10. closes</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 51-60 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">My aunt ________ (bake) cookies on Friday.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">My aunt ________ (bake) a big cake for her kid now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">The boy ________ (draw) trees and hills every time.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">The boy ________ (draw) a little dog now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">Tom often ________ (prepare) for his English test.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">Tom ________ (prepare) his notebook now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">Our class ________ (hold) a small party every month.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">Our class ________ (hold) a birthday party now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">My dad ________ (give) me pocket money every week.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">Dad ________ (give) me a new toy now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. bakes · 2. is baking · 3. draws · 4. is drawing · 5. prepares · 6. is preparing · 7. holds · 8. is holding · 9. gives · 10. is giving</div>
         </div>
       </section>
       <section class="page" data-paper-page="6">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 7 / 30 · 10 points</div>
+          <div class="page-number">Set 7 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>help</span><span>watch</span><span>go</span><span>dance</span><span>not take</span><span>not try</span><span>play</span><span>enjoy</span><span>study</span><span>make</span></div>
-          <div class="email-head"><span><strong>To:</strong> max@cheery.com</span><span><strong>From:</strong> leo@cheery.com</span><span><strong>Subject:</strong> Weekday plans</span></div>
-          <div class="passage-body"><p>Hi Max,</p><p>These are some of our regular weekday activities. Today is different from a normal weekday, and everyone is busy now. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> a photo now. Tom often <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> a classmate. Does she <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> the game every week? He usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> hard. Lucy often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> cartoons. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> on the stage now? You usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> football. You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> a card now. My brother usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> to school. I sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> English.</p><p>Write back soon!<br />Yours,<br />Leo</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. is not taking · 2. helps · 3. enjoy · 4. does not try · 5. watches · 6. dancing · 7. play · 8. are making · 9. goes · 10. study</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 61-70 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">Lucy ________ (come) to school early every day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">Look! Lucy ________ (come) into the classroom.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">I ________ (do) sports every morning.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">I ________ (do) morning exercises now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">They ________ (play) table tennis after class.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">They ________ (play) table tennis now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">My sister ________ (make) paper flowers every Sunday.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">She ________ (make) a red paper flower now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">We ________ (buy) stationery at the shop sometimes.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">We ________ (buy) new erasers now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. comes · 2. is coming · 3. do · 4. am doing · 5. play · 6. are playing · 7. makes · 8. is making · 9. buy · 10. are buying</div>
         </div>
       </section>
       <section class="page" data-paper-page="7">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 8 / 30 · 10 points</div>
+          <div class="page-number">Set 8 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>drink</span><span>write</span><span>go</span><span>talk</span><span>not draw</span><span>not listen</span><span>read</span><span>watch</span><span>cook</span><span>eat</span></div>
-          <div class="email-head"><span><strong>To:</strong> kate@cheery.com</span><span><strong>From:</strong> anna@cheery.com</span><span><strong>Subject:</strong> Our free time</span></div>
-          <div class="passage-body"><p>Hi Kate,</p><p>My friends and family enjoy many activities in their free time. Today we are trying something different, and everyone is active now. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> dinner now. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(2)</span><span class="blank"></span></span> to music now. You often <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> cartoons. My friends often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> breakfast. Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> to the teacher now? The children usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> a picture. You often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> a storybook. Do I <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> to school every week? We sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> short sentences. They usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> milk.</p><p>Write back soon!<br />Yours,<br />Anna</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. are cooking · 2. is not listening · 3. watch · 4. eat · 5. talking · 6. do not draw · 7. read · 8. go · 9. write · 10. drink</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 71-80 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">The cook ________ (bake) bread every morning.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">The cook ________ (bake) sweet bread now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">Artists ________ (draw) many nice pictures.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">The artist ________ (draw) a beautiful bird now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">Students ________ (prepare) their lessons every night.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">The students ________ (prepare) for the show now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">The club ________ (hold) games for kids every summer.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">The club ________ (hold) a ball game now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">Friends ________ (give) gifts to each other on festivals.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">My friend ________ (give) me a card now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. bakes · 2. is baking · 3. draw · 4. is drawing · 5. prepare · 6. are preparing · 7. holds · 8. is holding · 9. give · 10. is giving</div>
         </div>
       </section>
       <section class="page" data-paper-page="8">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 9 / 30 · 10 points</div>
+          <div class="page-number">Set 9 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not put</span><span>wash</span><span>eat</span><span>brush</span><span>teach</span><span>not drink</span><span>do</span><span>cut</span><span>leave</span><span>have</span></div>
-          <div class="email-head"><span><strong>To:</strong> alex@cheery.com</span><span><strong>From:</strong> ryan@cheery.com</span><span><strong>Subject:</strong> A busy family</span></div>
-          <div class="passage-body"><p>Hi Alex,</p><p>Everyone in my family has a regular routine. Today our usual plans are changing, and we are all busy now. He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> the classroom now. Do they <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> breakfast every week? We usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> milk. He usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> the dog. Tom sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> math. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> paper now? She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> books away now. My friends sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> the dishes. She often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> a music lesson. He often <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> homework.</p><p>Write back soon!<br />Yours,<br />Ryan</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. is leaving · 2. eat · 3. do not drink · 4. brushes · 5. teaches · 6. cutting · 7. is not putting · 8. wash · 9. has · 10. does</div>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 81-90 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">Many kids ________ (come) to the park every weekend.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">Many kids ________ (come) to the playground now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">He ________ (make) model planes in his free time.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">He ________ (make) a new model plane now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">She ________ (do) reading every evening.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">She ________ (do) reading in the study now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">We ________ (hold) a book sharing meeting every term.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">We ________ (hold) a book meeting now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">Mum ________ (buy) vegetables every morning.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">Mum ________ (buy) fresh vegetables now.</span></div>
+          </div>
+          <div class="answer-line"><strong>Answers:</strong> 1. come · 2. are coming · 3. makes · 4. is making · 5. does · 6. is doing · 7. hold · 8. are holding · 9. buys · 10. is buying</div>
         </div>
       </section>
       <section class="page" data-paper-page="9">
         <div class="paper-head">
           <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+            <h1>Simple Present &amp; Present Continuous</h1>
+            <p class="subtitle">Teacher Worksheet · 10-Question Grammar Practice</p>
           </div>
-          <div class="page-number">Set 10 / 30 · 10 points</div>
+          <div class="page-number">Set 10 / 10 · 10 points</div>
         </div>
         <div class="student-line">
           <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
         </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>enjoy</span><span>help</span><span>not try</span><span>fix</span><span>carry</span><span>catch</span><span>dance</span><span>not sit</span><span>shop</span><span>fly</span></div>
-          <div class="email-head"><span><strong>To:</strong> sophie@cheery.com</span><span><strong>From:</strong> ella@cheery.com</span><span><strong>Subject:</strong> My classmates</span></div>
-          <div class="passage-body"><p>Hi Sophie,</p><p>My classmates and I have different routines. Today is a special day, and we are doing new things now. I usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> a schoolbag. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(2)</span><span class="blank"></span></span> on the stage now. My brother often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> the bike. Does Tom <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> the game every week? Tom usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> the bus. Lucy sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> a kite. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> on the sofa now. The children often <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> a classmate. Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> with Mum now? She usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> hard.</p><p>Write back soon!<br />Yours,<br />Ella</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. carry · 2. are dancing · 3. fixes · 4. enjoy · 5. catches · 6. flies · 7. are not sitting · 8. help · 9. shopping · 10. does not try</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="10">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
+        <p class="instruction"><strong>Instructions:</strong> Complete each sentence with the correct form of the verb in brackets. Look at the subject and time clues before you write. Write one answer in each blank.</p>
+        <div class="part">
+          <div class="part-head"><strong>Verb Forms</strong><span>Questions 91-100 from the teacher's worksheet</span></div>
+          <div class="question-list">
+            <div class="question-item" data-domain="simple-present"><span class="question-number">1.</span><span class="question-text">The children ________ (play) outdoors every day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">2.</span><span class="question-text">The children ________ (play) outdoors now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">3.</span><span class="question-text">My teacher ________ (make) fun games for us.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">4.</span><span class="question-text">My teacher ________ (make) a new game now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">5.</span><span class="question-text">I ________ (prepare) gifts for my mum every Mother’s Day.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">6.</span><span class="question-text">I ________ (prepare) a gift for mum now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">7.</span><span class="question-text">The boy ________ (hold) a kite every spring.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">8.</span><span class="question-text">The boy ________ (hold) a big kite now.</span></div>
+            <div class="question-item" data-domain="simple-present"><span class="question-number">9.</span><span class="question-text">They ________ (give) help to old people sometimes.</span></div>
+            <div class="question-item" data-domain="present-continuous"><span class="question-number">10.</span><span class="question-text">They ________ (give) help to an old grandma now.</span></div>
           </div>
-          <div class="page-number">Set 11 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>try</span><span>visit</span><span>not clean</span><span>open</span><span>not close</span><span>listen</span><span>help</span><span>look</span><span>enjoy</span><span>not talk</span></div>
-          <div class="email-head"><span><strong>To:</strong> daniel@cheery.com</span><span><strong>From:</strong> henry@cheery.com</span><span><strong>Subject:</strong> Our daily activities</span></div>
-          <div class="passage-body"><p>Hi Daniel,</p><p>Let me tell you what the people around me usually do. Today is unusual, and everyone is doing something different now. We often <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> the window. You sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> the game. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> at the picture now? I often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> hard. I usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> the room. We usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> a classmate. They usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(7)</span><span class="blank"></span></span> the door. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> to the teacher now. Do you <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> Grandma every week? You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(10)</span><span class="blank"></span></span> to music now.</p><p>Write back soon!<br />Yours,<br />Henry</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. open · 2. enjoy · 3. looking · 4. try · 5. do not clean · 6. help · 7. do not close · 8. is not talking · 9. visit · 10. are listening</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="11">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 12 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>visit</span><span>cut</span><span>read</span><span>swim</span><span>not study</span><span>open</span><span>not write</span><span>close</span><span>not run</span><span>play</span></div>
-          <div class="email-head"><span><strong>To:</strong> chloe@cheery.com</span><span><strong>From:</strong> grace@cheery.com</span><span><strong>Subject:</strong> A week at home</span></div>
-          <div class="passage-body"><p>Hi Chloe,</p><p>My family has many regular activities at home and outside. Today our plans are different, and everyone is doing something now. He often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the door. Tom usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> short sentences. Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> in the pool now? She often <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> a storybook. They usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> English. They sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> Grandma. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> paper now. My friends usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> the window. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> in the park now. Does he <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> football every week?</p><p>Write back soon!<br />Yours,<br />Grace</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. closes · 2. does not write · 3. swimming · 4. reads · 5. do not study · 6. visit · 7. are cutting · 8. open · 9. is not running · 10. play</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="12">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 13 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not teach</span><span>shop</span><span>go</span><span>study</span><span>do</span><span>play</span><span>have</span><span>watch</span><span>not brush</span><span>not get</span></div>
-          <div class="email-head"><span><strong>To:</strong> noah@cheery.com</span><span><strong>From:</strong> oscar@cheery.com</span><span><strong>Subject:</strong> School and home</span></div>
-          <div class="passage-body"><p>Hi Noah,</p><p>We all have regular jobs and activities at school and at home. Today is not a normal day, so we are changing our activities now. My brother sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> English. Tom usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> the dog. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> basketball now? She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> ready now. I often <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> a music lesson. You usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> math. Do the children <span class="cloze" data-domain="simple-present"><span class="blank-number">(7)</span><span class="blank"></span></span> homework every week? He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> with Mum now. She usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> to school. Tom often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> cartoons.</p><p>Write back soon!<br />Yours,<br />Oscar</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. studies · 2. does not brush · 3. playing · 4. is not getting · 5. have · 6. do not teach · 7. do · 8. is shopping · 9. goes · 10. watches</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="13">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 14 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>write</span><span>not study</span><span>enjoy</span><span>drink</span><span>look</span><span>read</span><span>ride</span><span>not carry</span><span>try</span><span>not help</span></div>
-          <div class="email-head"><span><strong>To:</strong> zoe@cheery.com</span><span><strong>From:</strong> ruby@cheery.com</span><span><strong>Subject:</strong> What everyone does</span></div>
-          <div class="passage-body"><p>Hi Zoe,</p><p>Here are some things my family and friends do regularly. Today everyone has a new job, and we are all working now. Lucy often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> a storybook. You usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> a schoolbag. I sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> short sentences. Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> a bike now? They often <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> the game. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> for a test now. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> at the picture now. Do we <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> hard every week? He usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> a classmate. You usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> milk.</p><p>Write back soon!<br />Yours,<br />Ruby</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. reads · 2. do not carry · 3. write · 4. riding · 5. enjoy · 6. are not studying · 7. are looking · 8. try · 9. does not help · 10. drink</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="14">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 15 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not watch</span><span>draw</span><span>have</span><span>brush</span><span>go</span><span>not run</span><span>swim</span><span>not close</span><span>wash</span><span>write</span></div>
-          <div class="email-head"><span><strong>To:</strong> lucas@cheery.com</span><span><strong>From:</strong> ethan@cheery.com</span><span><strong>Subject:</strong> Our regular plans</span></div>
-          <div class="passage-body"><p>Hi Lucas,</p><p>My family and classmates usually follow these routines. Today our regular plans are changing, and we are doing different things now. We sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the dishes. You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(2)</span><span class="blank"></span></span> an email now. The children usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> cartoons. They usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> the dog. Tom often <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> to school. My friends often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> a music lesson. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> in the pool now? Does she <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> a picture every week? He usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> the door. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(10)</span><span class="blank"></span></span> in the park now.</p><p>Write back soon!<br />Yours,<br />Ethan</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. wash · 2. are writing · 3. do not watch · 4. brush · 5. goes · 6. have · 7. swimming · 8. draw · 9. does not close · 10. is not running</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="15">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 16 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>clean</span><span>fix</span><span>not write</span><span>fly</span><span>drink</span><span>catch</span><span>not watch</span><span>not wash</span><span>eat</span><span>play</span></div>
-          <div class="email-head"><span><strong>To:</strong> kathy@cheery.com</span><span><strong>From:</strong> joe@cheery.com</span><span><strong>Subject:</strong> More about our busy week</span></div>
-          <div class="passage-body"><p>Hi Kathy,</p><p>Let me tell you about the things my family and friends do in a normal week. Today is different, and everyone is doing something else now. He usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the bus. We usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> the dishes. She often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> the bike. You often <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> breakfast. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> basketball now. The children usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> short sentences. Tom sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> a kite. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> a film now. Do I <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> milk every week? Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(10)</span><span class="blank"></span></span> the desk now?</p><p>Write back soon!<br />Yours,<br />Joe</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. catches · 2. do not wash · 3. fixes · 4. eat · 5. are playing · 6. do not write · 7. flies · 8. is not watching · 9. drink · 10. cleaning</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="16">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 17 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>fix</span><span>come</span><span>help</span><span>write</span><span>not teach</span><span>not ride</span><span>enjoy</span><span>catch</span><span>not fly</span><span>try</span></div>
-          <div class="email-head"><span><strong>To:</strong> amy@cheery.com</span><span><strong>From:</strong> may@cheery.com</span><span><strong>Subject:</strong> More about family and friends</span></div>
-          <div class="passage-body"><p>Hi Amy,</p><p>My family and friends have many regular activities. Today our plans are changing, so we are doing different things now. We usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> math. He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(2)</span><span class="blank"></span></span> new words now. He often <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> the bike. Do they <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> the bus every week? I usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> a classmate. Lucy sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> the game. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> home now? She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> a bike now. My brother often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> hard. She usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> a kite.</p><p>Write back soon!<br />Yours,<br />May</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. do not teach · 2. is writing · 3. fixes · 4. catch · 5. help · 6. enjoys · 7. coming · 8. is not riding · 9. tries · 10. does not fly</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="17">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 18 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>swim</span><span>not help</span><span>open</span><span>take</span><span>visit</span><span>draw</span><span>not make</span><span>not go</span><span>close</span><span>clean</span></div>
-          <div class="email-head"><span><strong>To:</strong> ben@cheery.com</span><span><strong>From:</strong> tom@cheery.com</span><span><strong>Subject:</strong> More about things we do</span></div>
-          <div class="passage-body"><p>Hi Ben,</p><p>Here are some things the people around me do regularly. Today is not a usual day, and everyone is busy now. I usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> to school. Does Tom <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> the room every week? We usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> the window. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> a card now. She usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> a classmate. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> in the pool now. Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> a photo now? You sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> Grandma. They often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> the door. The children often <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> a picture.</p><p>Write back soon!<br />Yours,<br />Tom</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. do not go · 2. clean · 3. open · 4. are not making · 5. does not help · 6. are swimming · 7. taking · 8. visit · 9. close · 10. draw</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="18">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 19 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>study</span><span>draw</span><span>clean</span><span>go</span><span>watch</span><span>not drink</span><span>not play</span><span>not cook</span><span>write</span><span>read</span></div>
-          <div class="email-head"><span><strong>To:</strong> emma@cheery.com</span><span><strong>From:</strong> lucy@cheery.com</span><span><strong>Subject:</strong> More about a normal week</span></div>
-          <div class="passage-body"><p>Hi Emma,</p><p>Everyone I know has a different routine during the week. This week is special, and we are doing something different now. My friends usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> to school. Do you <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> a storybook every week? The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> dinner now. I usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> football. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> a map now? We often <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> short sentences. He often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> cartoons. You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> the desk now. She sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> English. They usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> milk.</p><p>Write back soon!<br />Yours,<br />Lucy</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. go · 2. read · 3. is not cooking · 4. do not play · 5. drawing · 6. write · 7. watches · 8. are cleaning · 9. studies · 10. do not drink</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="19">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 20 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>read</span><span>not have</span><span>brush</span><span>not wash</span><span>write</span><span>do</span><span>not leave</span><span>put</span><span>come</span><span>drink</span></div>
-          <div class="email-head"><span><strong>To:</strong> jack@cheery.com</span><span><strong>From:</strong> sam@cheery.com</span><span><strong>Subject:</strong> More about our weekly routine</span></div>
-          <div class="passage-body"><p>Hi Jack,</p><p>Let me tell you about our usual activities. Today our routine is changing, and everyone is busy now. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> home now. Tom often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> a storybook. Tom usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> a music lesson. Lucy usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> milk. They usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> the dishes. Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> books away now? My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> the classroom now. Does he <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> the dog every week? My brother sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> short sentences. She often <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> homework.</p><p>Write back soon!<br />Yours,<br />Sam</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. are coming · 2. reads · 3. does not have · 4. drinks · 5. do not wash · 6. putting · 7. is not leaving · 8. brush · 9. writes · 10. does</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="20">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 21 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not fly</span><span>have</span><span>shop</span><span>brush</span><span>try</span><span>wash</span><span>carry</span><span>take</span><span>not dance</span><span>sit</span></div>
-          <div class="email-head"><span><strong>To:</strong> lily@cheery.com</span><span><strong>From:</strong> mia@cheery.com</span><span><strong>Subject:</strong> More about after-school activities</span></div>
-          <div class="passage-body"><p>Hi Lily,</p><p>My family and classmates do many things during the week. Today we have new plans, and we are doing different activities now. I often <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> hard. We often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> a music lesson. Do the children <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> a schoolbag every week? He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> a photo now. You usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> the dog. She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> on the stage now. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> with Mum now. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> on the sofa now? Tom usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> a kite. I sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> the dishes.</p><p>Write back soon!<br />Yours,<br />Mia</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. try · 2. have · 3. carry · 4. is taking · 5. brush · 6. is not dancing · 7. are shopping · 8. sitting · 9. does not fly · 10. wash</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="21">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 22 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>fly</span><span>not open</span><span>fix</span><span>listen</span><span>close</span><span>look</span><span>catch</span><span>draw</span><span>not talk</span><span>study</span></div>
-          <div class="email-head"><span><strong>To:</strong> max@cheery.com</span><span><strong>From:</strong> leo@cheery.com</span><span><strong>Subject:</strong> More about weekday plans</span></div>
-          <div class="passage-body"><p>Hi Max,</p><p>These are some of our regular weekday activities. Today is different from a normal weekday, and everyone is busy now. My friends often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the bike. They often <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> a picture. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> to music now. They usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> the bus. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> for a test now. He sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> a kite. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> to the teacher now. Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> at the picture now? You usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> the window. Do we <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> the door every week?</p><p>Write back soon!<br />Yours,<br />Leo</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. fix · 2. draw · 3. are listening · 4. catch · 5. is studying · 6. flies · 7. are not talking · 8. looking · 9. do not open · 10. close</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="22">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 23 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>help</span><span>run</span><span>put</span><span>enjoy</span><span>swim</span><span>write</span><span>try</span><span>not cut</span><span>drink</span><span>not read</span></div>
-          <div class="email-head"><span><strong>To:</strong> kate@cheery.com</span><span><strong>From:</strong> anna@cheery.com</span><span><strong>Subject:</strong> More about our free time</span></div>
-          <div class="passage-body"><p>Hi Kate,</p><p>My friends and family enjoy many activities in their free time. Today we are trying something different, and everyone is active now. You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> books away now. Tom sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> the game. Tom often <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> milk. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> paper now. He usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> a storybook. Does she <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> short sentences every week? My brother usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> a classmate. She often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> hard. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> in the pool now. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(10)</span><span class="blank"></span></span> in the park now?</p><p>Write back soon!<br />Yours,<br />Anna</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. are putting · 2. enjoys · 3. drinks · 4. is not cutting · 5. does not read · 6. write · 7. helps · 8. tries · 9. is swimming · 10. running</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="23">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 24 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not have</span><span>visit</span><span>get</span><span>teach</span><span>catch</span><span>close</span><span>open</span><span>not shop</span><span>sit</span><span>play</span></div>
-          <div class="email-head"><span><strong>To:</strong> alex@cheery.com</span><span><strong>From:</strong> ryan@cheery.com</span><span><strong>Subject:</strong> More about a busy family</span></div>
-          <div class="passage-body"><p>Hi Alex,</p><p>Everyone in my family has a regular routine. Today our usual plans are changing, and we are all busy now. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> on the sofa now. I usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> the window. Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> ready now? The children usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> a music lesson. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> with Mum now. Do I <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> math every week? She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> basketball now. Lucy sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> Grandma. You often <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> the bus. You often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> the door.</p><p>Write back soon!<br />Yours,<br />Ryan</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. are sitting · 2. open · 3. getting · 4. do not have · 5. is not shopping · 6. teach · 7. is playing · 8. visits · 9. catch · 10. close</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="24">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 25 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>watch</span><span>ride</span><span>help</span><span>write</span><span>talk</span><span>not look</span><span>clean</span><span>not enjoy</span><span>go</span><span>study</span></div>
-          <div class="email-head"><span><strong>To:</strong> sophie@cheery.com</span><span><strong>From:</strong> ella@cheery.com</span><span><strong>Subject:</strong> More about my classmates</span></div>
-          <div class="passage-body"><p>Hi Sophie,</p><p>My classmates and I have different routines. Today is a special day, and we are doing new things now. He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> to the teacher now. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(2)</span><span class="blank"></span></span> a bike now. She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> at the picture now. We usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(4)</span><span class="blank"></span></span> to school. Do they <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> a classmate every week? We usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> the game. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> new words now? He often <span class="cloze" data-domain="simple-present"><span class="blank-number">(8)</span><span class="blank"></span></span> the room. My friends sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> English. They often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> cartoons.</p><p>Write back soon!<br />Yours,<br />Ella</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. is talking · 2. are riding · 3. is not looking · 4. go · 5. help · 6. do not enjoy · 7. writing · 8. cleans · 9. study · 10. watch</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="25">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 26 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>write</span><span>watch</span><span>run</span><span>make</span><span>not go</span><span>not swim</span><span>drink</span><span>study</span><span>take</span><span>read</span></div>
-          <div class="email-head"><span><strong>To:</strong> daniel@cheery.com</span><span><strong>From:</strong> henry@cheery.com</span><span><strong>Subject:</strong> More about our daily activities</span></div>
-          <div class="passage-body"><p>Hi Daniel,</p><p>Let me tell you what the people around me usually do. Today is unusual, and everyone is doing something different now. Does Tom <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> cartoons every week? Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(2)</span><span class="blank"></span></span> a card now? She sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(3)</span><span class="blank"></span></span> short sentences. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> in the pool now. The children often <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> English. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> a photo now. He often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> a storybook. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> in the park now. Tom usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(9)</span><span class="blank"></span></span> milk. She usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> to school.</p><p>Write back soon!<br />Yours,<br />Henry</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. watch · 2. making · 3. writes · 4. are not swimming · 5. study · 6. is taking · 7. reads · 8. are running · 9. drinks · 10. does not go</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="26">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 27 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not play</span><span>watch</span><span>do</span><span>brush</span><span>have</span><span>teach</span><span>get</span><span>clean</span><span>wash</span><span>not eat</span></div>
-          <div class="email-head"><span><strong>To:</strong> chloe@cheery.com</span><span><strong>From:</strong> grace@cheery.com</span><span><strong>Subject:</strong> More about a week at home</span></div>
-          <div class="passage-body"><p>Hi Chloe,</p><p>My family has many regular activities at home and outside. Today our plans are different, and everyone is doing something now. My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(1)</span><span class="blank"></span></span> the desk now. Lucy usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> the dog. Are the girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> a film now? I usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> breakfast. I often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> a music lesson. Do you <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> homework every week? The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> basketball now. You <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> ready now. We often <span class="cloze" data-domain="simple-present"><span class="blank-number">(9)</span><span class="blank"></span></span> math. My brother sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> the dishes.</p><p>Write back soon!<br />Yours,<br />Grace</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. is cleaning · 2. brushes · 3. watching · 4. do not eat · 5. have · 6. do · 7. is not playing · 8. are getting · 9. teach · 10. washes</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="27">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 28 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>not carry</span><span>fix</span><span>catch</span><span>fly</span><span>try</span><span>ride</span><span>not write</span><span>enjoy</span><span>come</span><span>study</span></div>
-          <div class="email-head"><span><strong>To:</strong> noah@cheery.com</span><span><strong>From:</strong> oscar@cheery.com</span><span><strong>Subject:</strong> More about school and home</span></div>
-          <div class="passage-body"><p>Hi Noah,</p><p>We all have regular jobs and activities at school and at home. Today is not a normal day, so we are changing our activities now. We often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the bike. You usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> the bus. The girls <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> for a test now. She often <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> the game. They usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(5)</span><span class="blank"></span></span> a schoolbag. Is he <span class="cloze" data-domain="present-continuous"><span class="blank-number">(6)</span><span class="blank"></span></span> a bike now? My dad <span class="cloze" data-domain="present-continuous"><span class="blank-number">(7)</span><span class="blank"></span></span> new words now. They sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(8)</span><span class="blank"></span></span> a kite. She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> home now. Does he <span class="cloze" data-domain="simple-present"><span class="blank-number">(10)</span><span class="blank"></span></span> hard every week?</p><p>Write back soon!<br />Yours,<br />Oscar</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. fix · 2. catch · 3. are studying · 4. enjoys · 5. do not carry · 6. riding · 7. is not writing · 8. fly · 9. is coming · 10. try</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="28">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 29 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>open</span><span>try</span><span>run</span><span>not visit</span><span>take</span><span>close</span><span>make</span><span>enjoy</span><span>not swim</span><span>help</span></div>
-          <div class="email-head"><span><strong>To:</strong> zoe@cheery.com</span><span><strong>From:</strong> ruby@cheery.com</span><span><strong>Subject:</strong> More about what everyone does</span></div>
-          <div class="passage-body"><p>Hi Zoe,</p><p>Here are some things my family and friends do regularly. Today everyone has a new job, and we are all working now. Tom usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(1)</span><span class="blank"></span></span> Grandma. He sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(2)</span><span class="blank"></span></span> the game. She <span class="cloze" data-domain="present-continuous"><span class="blank-number">(3)</span><span class="blank"></span></span> in the pool now. Are we <span class="cloze" data-domain="present-continuous"><span class="blank-number">(4)</span><span class="blank"></span></span> a card now? She usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(5)</span><span class="blank"></span></span> a classmate. I often <span class="cloze" data-domain="simple-present"><span class="blank-number">(6)</span><span class="blank"></span></span> the door. Do the children <span class="cloze" data-domain="simple-present"><span class="blank-number">(7)</span><span class="blank"></span></span> the window every week? They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> a photo now. He <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> in the park now. My friends often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(10)</span><span class="blank"></span></span> hard.</p><p>Write back soon!<br />Yours,<br />Ruby</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. does not visit · 2. enjoys · 3. is not swimming · 4. making · 5. helps · 6. close · 7. open · 8. are taking · 9. is running · 10. try</div>
-        </div>
-      </section>
-      <section class="page" data-paper-page="29">
-        <div class="paper-head">
-          <div>
-            <h1>Subject-Verb Agreement &amp; Present Tenses</h1>
-            <p class="subtitle">三单辨析 + 一般现在时 + 现在进行时 · 5-Minute Grammar Quiz</p>
-          </div>
-          <div class="page-number">Set 30 / 30 · 10 points</div>
-        </div>
-        <div class="student-line">
-          <span>Name:</span><span>Date:</span><span>Time:</span><span>Score:</span>
-        </div>
-        <p class="instruction"><strong>Instructions:</strong> Complete the email with the correct forms of the verbs. Use each verb once. Look at the subject and time clues before you write. Write one answer in each blank.</p>
-        <div class="part single-passage">
-          <div class="part-head"><strong>Grammar in Context</strong><span>Complete the email with the correct forms of the verbs. Use each verb once.</span></div>
-          <div class="word-bank"><span>visit</span><span>cook</span><span>not clean</span><span>close</span><span>read</span><span>write</span><span>not play</span><span>open</span><span>draw</span><span>watch</span></div>
-          <div class="email-head"><span><strong>To:</strong> lucas@cheery.com</span><span><strong>From:</strong> ethan@cheery.com</span><span><strong>Subject:</strong> More about our regular plans</span></div>
-          <div class="passage-body"><p>Hi Lucas,</p><p>My family and classmates usually follow these routines. Today our regular plans are changing, and we are doing different things now. My brother usually <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(1)</span><span class="blank"></span></span> the window. They often <span class="cloze" data-domain="simple-present"><span class="blank-number">(2)</span><span class="blank"></span></span> short sentences. You usually <span class="cloze" data-domain="simple-present"><span class="blank-number">(3)</span><span class="blank"></span></span> football. Do we <span class="cloze" data-domain="simple-present"><span class="blank-number">(4)</span><span class="blank"></span></span> a storybook every week? Are you <span class="cloze" data-domain="present-continuous"><span class="blank-number">(5)</span><span class="blank"></span></span> dinner now? Lucy often <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(6)</span><span class="blank"></span></span> the door. Tom sometimes <span class="cloze" data-domain="subject-verb-agreement"><span class="blank-number">(7)</span><span class="blank"></span></span> Grandma. We <span class="cloze" data-domain="present-continuous"><span class="blank-number">(8)</span><span class="blank"></span></span> a film now. They <span class="cloze" data-domain="present-continuous"><span class="blank-number">(9)</span><span class="blank"></span></span> the desk now. The boy <span class="cloze" data-domain="present-continuous"><span class="blank-number">(10)</span><span class="blank"></span></span> a map now.</p><p>Write back soon!<br />Yours,<br />Ethan</p></div>
-          <div class="answer-line"><strong>Answers:</strong> 1. opens · 2. write · 3. do not play · 4. read · 5. cooking · 6. closes · 7. visits · 8. are watching · 9. are not cleaning · 10. is drawing</div>
+          <div class="answer-line"><strong>Answers:</strong> 1. play · 2. are playing · 3. makes · 4. is making · 5. prepare · 6. am preparing · 7. holds · 8. is holding · 9. give · 10. are giving</div>
         </div>
       </section>
     </div>
