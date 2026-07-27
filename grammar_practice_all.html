@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>语法专项打印试卷</title>
+  <title>语法全部试卷（HTML）</title>
   <style>
     :root {
       --ink: #1f2933;
@@ -63,7 +63,6 @@
     }
     .page {
       width: 210mm;
-      min-height: 297mm;
       margin: 12px auto;
       padding: 11mm 10mm;
       background: #fff;
@@ -111,7 +110,6 @@
     .part {
       margin-top: 7px;
       border: 1.2px solid #94a3b8;
-      break-inside: avoid;
     }
     .part-head {
       display: flex;
@@ -135,7 +133,6 @@
       min-height: 17mm;
       padding: 8px 2px 6px;
       border-bottom: 1px solid var(--line);
-      break-inside: avoid;
     }
     .question-item:last-child { border-bottom: 0; }
     .question-number {
@@ -161,74 +158,46 @@
       line-height: 1.4;
     }
     body.show-answers .answer-line { display: block; }
-    [data-panel],
-    .page { display: none; }
-    [data-panel].active { display: block; }
-    .page.active { display: block; }
-    .set-control {
-      min-height: 34px;
-      padding: 6px 28px 6px 9px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .nav-button {
-      width: 34px;
-      padding: 0;
-      font-size: 20px;
-      line-height: 1;
-    }
-    button:disabled { opacity: 0.42; cursor: default; }
     @media screen and (max-width: 760px) {
       .topbar-inner { width: calc(100vw - 20px); }
       .site-title { width: 100%; }
-      .page { width: 100%; min-height: auto; margin: 0; padding: 12px; box-shadow: none; }
+      .page { width: 100%; margin: 0 0 12px; padding: 12px; box-shadow: none; }
       .question-item { min-height: auto; }
       .question-text { font-size: 14px; }
       .student-line { grid-template-columns: 1fr 1fr; }
     }
-    @page { size: A4; margin: 0; }
+    @page { size: A4 portrait; margin: 10mm; }
     @media print {
       .topbar { display: none !important; }
       html, body, main {
-        width: 210mm;
         margin: 0;
         padding: 0;
         background: #fff;
       }
       .page {
-        width: 210mm;
-        height: 297mm;
-        min-height: 0;
+        width: auto;
         margin: 0;
-        padding: 11mm 10mm;
-        overflow: hidden;
+        padding: 0;
         box-shadow: none;
       }
-      .part { break-inside: auto; }
+      .page + .page {
+        break-before: page;
+        page-break-before: always;
+      }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="site-title">语法专项打印试卷 · 100 题 · 2026-07-27</div>
-      <button type="button" data-tab="comprehensive-grammar" class="active">老师语法卷（10份）</button>
-      <button type="button" class="nav-button" id="previousSet" title="上一套" aria-label="上一套">‹</button>
-      <select class="set-control" id="setSelect" aria-label="选择试卷"></select>
-      <button type="button" class="nav-button" id="nextSet" title="下一套" aria-label="下一套">›</button>
+      <div class="site-title">全部语法试卷 HTML · 100 题 · 2026-07-27</div>
       <button type="button" id="toggleAnswers">显示答案版</button>
-      <button type="button" id="printPage">打印本套</button>
-      <a class="back-link" href="grammar_practice_all.html">打印全部试卷（HTML）</a>
+      <button type="button" id="printAllHtml">打印全部试卷</button>
+      <a class="back-link" href="grammar_practice.html">返回单套试卷</a>
       <a class="back-link" href="index.html">返回首页</a>
     </div>
   </header>
   <main>
-    <div data-panel="comprehensive-grammar" class="active">
       <section class="page active" data-paper-page="0">
         <div class="paper-head">
           <div>
@@ -519,64 +488,17 @@
           <div class="answer-line"><strong>Answers:</strong> 1. play · 2. are playing · 3. makes · 4. is making · 5. prepare · 6. am preparing · 7. holds · 8. is holding · 9. give · 10. are giving</div>
         </div>
       </section>
-    </div>
   </main>
   <script>
     (function() {
-      const tabs = Array.from(document.querySelectorAll("[data-tab]"));
-      const panels = Array.from(document.querySelectorAll("[data-panel]"));
-      const previousSet = document.getElementById("previousSet");
-      const nextSet = document.getElementById("nextSet");
-      const setSelect = document.getElementById("setSelect");
       const toggleAnswers = document.getElementById("toggleAnswers");
-      const printPage = document.getElementById("printPage");
-
-      function activePanel() {
-        return document.querySelector("[data-panel].active");
-      }
-
-      function showSet(index) {
-        const pages = Array.from(activePanel().querySelectorAll("[data-paper-page]"));
-        const safeIndex = Math.max(0, Math.min(index, pages.length - 1));
-        pages.forEach(function(page, pageIndex) { page.classList.toggle("active", pageIndex === safeIndex); });
-        setSelect.value = String(safeIndex);
-        previousSet.disabled = safeIndex === 0;
-        nextSet.disabled = safeIndex === pages.length - 1;
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      function updateSetMenu() {
-        const pages = Array.from(activePanel().querySelectorAll("[data-paper-page]"));
-        setSelect.innerHTML = pages.map(function(page, index) {
-          return '<option value="' + index + '">第 ' + (index + 1) + ' 套（10 题）</option>';
-        }).join("");
-        showSet(0);
-      }
-
-      function showPanel(id) {
-        for (const tab of tabs) tab.classList.toggle("active", tab.dataset.tab === id);
-        for (const panel of panels) panel.classList.toggle("active", panel.dataset.panel === id);
-        updateSetMenu();
-      }
-
-      for (const tab of tabs) {
-        tab.addEventListener("click", function() {
-          showPanel(tab.dataset.tab);
-        });
-      }
-      setSelect.addEventListener("change", function() { showSet(Number(setSelect.value)); });
-      previousSet.addEventListener("click", function() { showSet(Number(setSelect.value) - 1); });
-      nextSet.addEventListener("click", function() { showSet(Number(setSelect.value) + 1); });
-      if (toggleAnswers) {
-        toggleAnswers.addEventListener("click", function() {
-          document.body.classList.toggle("show-answers");
-          toggleAnswers.textContent = document.body.classList.contains("show-answers") ? "隐藏答案版" : "显示答案版";
-        });
-      }
-      if (printPage) {
-        printPage.addEventListener("click", function() { window.print(); });
-      }
-      updateSetMenu();
+      const printAllHtml = document.getElementById("printAllHtml");
+      toggleAnswers.addEventListener("click", function() {
+        document.body.classList.toggle("show-answers");
+        toggleAnswers.classList.toggle("active", document.body.classList.contains("show-answers"));
+        toggleAnswers.textContent = document.body.classList.contains("show-answers") ? "隐藏答案版" : "显示答案版";
+      });
+      printAllHtml.addEventListener("click", function() { window.print(); });
     })();
   </script>
 </body>
