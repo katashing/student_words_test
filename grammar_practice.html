@@ -68,7 +68,6 @@
       padding: 11mm 10mm;
       background: #fff;
       box-shadow: 0 8px 24px rgba(30, 41, 59, 0.12);
-      page-break-after: always;
     }
     .paper-head {
       display: flex;
@@ -195,10 +194,28 @@
     @page { size: A4; margin: 0; }
     @media print {
       .topbar { display: none !important; }
-      body { background: #fff; }
-      .page { margin: 0; box-shadow: none; }
+      html, body, main {
+        width: 210mm;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        margin: 0;
+        padding: 11mm 10mm;
+        overflow: hidden;
+        box-shadow: none;
+      }
+      .part { break-inside: auto; }
       body.print-all [data-panel],
       body.print-all .page { display: block !important; }
+      body.print-all .page:not(:last-child) {
+        break-after: page;
+        page-break-after: always;
+      }
     }
   </style>
 </head>
