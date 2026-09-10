@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>每日词汇练习 老师版 2026-09-09</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #52606d;
+      --line: #d9e2ec;
+      --soft: #f7f9fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Heiti SC", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background: #eef2f6;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 10mm 9mm;
+      background: white;
+      page-break-after: always;
+    }
+    .head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 7px;
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0; font-size: 27px; line-height: 1.15; letter-spacing: 0; white-space: nowrap; }
+    .meta { color: var(--muted); font-size: 13px; line-height: 1.35; text-align: right; }
+    .checkline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin: 7px 0 9px;
+      color: var(--muted);
+    }
+    .checkline span { border-bottom: 1px solid var(--line); min-height: 16px; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td { border: 1px solid var(--line); padding: 8px 7px; vertical-align: top; }
+    th { background: var(--soft); font-weight: 700; text-align: left; }
+    .category-row td {
+      padding: 4px 7px;
+      background: #eef2f6;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .n { width: 7mm; text-align: center; color: var(--muted); }
+    .word { width: 34mm; font-family: Arial, Helvetica, "PingFang SC", sans-serif; font-weight: 700; font-size: 18px; }
+    .cn { width: 32mm; font-weight: 700; }
+    .example { width: auto; font-family: Arial, Helvetica, "PingFang SC", sans-serif; }
+    .write-space { width: 46mm; min-height: 22px; }
+    .check-col { width: 17mm; text-align: center; }
+    .box {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 1.4px solid var(--ink);
+      vertical-align: middle;
+    }
+    strong { font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
+    .blank {
+      display: inline-block;
+      width: 24mm;
+      border-bottom: 1.6px solid var(--ink);
+      height: 1em;
+      vertical-align: -1px;
+    }
+    .answer-line {
+      display: block;
+      width: 100%;
+      min-height: 1.25em;
+      border-bottom: 1.4px solid var(--line);
+    }
+    .empty {
+      padding: 18px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--soft);
+    }
+    .question-list {
+      display: grid;
+      gap: 10px;
+    }
+    .question-card {
+      border: 1px solid var(--line);
+      padding: 8px;
+      page-break-inside: avoid;
+    }
+    .question-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .question-instruction {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .question-prompt {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .question-image {
+      display: block;
+      max-width: 100%;
+      max-height: 118mm;
+      object-fit: contain;
+      margin: 4px auto 8px;
+      border: 1px solid var(--line);
+    }
+    .math-question .question-image {
+      width: 100%;
+      max-height: 150mm;
+    }
+    .question-answer,
+    .question-note {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .question-workspace {
+      min-height: 44mm;
+      border-bottom: 1.4px solid var(--line);
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .math-question .question-workspace {
+      min-height: 84mm;
+    }
+    .question-check {
+      margin-top: 6px;
+      color: var(--muted);
+      text-align: right;
+    }
+    @media screen and (max-width: 720px) {
+      body { font-size: 13px; background: white; }
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 12px;
+        overflow-x: auto;
+      }
+      h1 { font-size: 21px; white-space: normal; }
+      .meta { text-align: left; }
+      .checkline { grid-template-columns: 1fr; gap: 5px; }
+      th, td { padding: 5px 4px; }
+      .n { width: 28px; }
+      .word { width: 88px; font-size: 14px; overflow-wrap: anywhere; }
+      .cn { width: 76px; overflow-wrap: anywhere; }
+      .example { overflow-wrap: anywhere; }
+      .write-space { width: 92px; }
+      .check-col { width: 48px; }
+      .blank { width: 52px; }
+      .question-prompt { font-size: 15px; }
+      .question-image { max-height: none; }
+    }
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<section class="page">
+  <div class="head">
+    <h1>英语默写 老师版</h1>
+    <div class="meta">抽取日期：2026-09-09<br />从未掌握池随机抽取 20 个，并按老师词表分类顺序呈现</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="word">单词/词组</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/说明</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">noun 名词</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="word">hotel</td>
+        <td class="cn">酒店</td>
+        <td class="example">We stayed in a <strong>hotel</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="word">picnic</td>
+        <td class="cn">野餐</td>
+        <td class="example">We have a <strong>picnic</strong> in the park.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="word">garden</td>
+        <td class="cn">花园</td>
+        <td class="example">We play in the <strong>garden</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">4</td>
+        <td class="word">window</td>
+        <td class="cn">窗户</td>
+        <td class="example">Open the <strong>window</strong>, please.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="word">train</td>
+        <td class="cn">火车；训练</td>
+        <td class="example">I can use <strong>train</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="word">doctor</td>
+        <td class="cn">医生</td>
+        <td class="example">I can use <strong>doctor</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="word">shopkeeper</td>
+        <td class="cn">售货员</td>
+        <td class="example">I can use <strong>shopkeeper</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb 动词</td></tr>
+<tr>
+        <td class="n">8</td>
+        <td class="word">put away</td>
+        <td class="cn">收拾、收纳</td>
+        <td class="example">I can use <strong>put away</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">preposition 介词</td></tr>
+<tr>
+        <td class="n">9</td>
+        <td class="word">during</td>
+        <td class="cn">在……之间</td>
+        <td class="example">I read <strong>during</strong> the break.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">phrase 短语</td></tr>
+<tr>
+        <td class="n">10</td>
+        <td class="word">take photo</td>
+        <td class="cn">照相</td>
+        <td class="example">I take a photo of my cat.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">set the table</td>
+        <td class="cn">摆餐具</td>
+        <td class="example">I <strong>set the table</strong> before dinner.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">mobile phone</td>
+        <td class="cn">手机</td>
+        <td class="example">I can use <strong>mobile phone</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">adjective 形容词</td></tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">helpful</td>
+        <td class="cn">有帮助的</td>
+        <td class="example">I can use <strong>helpful</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">popular</td>
+        <td class="cn">流行的</td>
+        <td class="example">I can use <strong>popular</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">favourite</td>
+        <td class="cn">特别喜欢的</td>
+        <td class="example">My <strong>favourite</strong> sport is basketball.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">noun/verb 名词/动词</td></tr>
+<tr>
+        <td class="n">16</td>
+        <td class="word">exercise</td>
+        <td class="cn">锻炼</td>
+        <td class="example"><strong>Exercise</strong> is good for health.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb/noun 动词/名词</td></tr>
+<tr>
+        <td class="n">17</td>
+        <td class="word">travel</td>
+        <td class="cn">旅行</td>
+        <td class="example">We <strong>travel</strong> during the holiday.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">uncategorized 未分类</td></tr>
+<tr>
+        <td class="n">18</td>
+        <td class="word">English</td>
+        <td class="cn">英语</td>
+        <td class="example">I can use <strong>English</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">19</td>
+        <td class="word">amazing</td>
+        <td class="cn">很好的</td>
+        <td class="example">I can use <strong>amazing</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">20</td>
+        <td class="word">supermarket</td>
+        <td class="cn">超市</td>
+        <td class="example">I can use <strong>supermarket</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>英语认读 老师版</h1>
+    <div class="meta">抽取日期：2026-09-09<br />从未掌握池随机抽取 30 个，并按老师词表分类顺序呈现</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="word">单词/词组</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/说明</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">adjective 形容词</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="word">dangerous</td>
+        <td class="cn">危险的</td>
+        <td class="example">The road is <strong>dangerous</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">noun 名词</td></tr>
+<tr>
+        <td class="n">2</td>
+        <td class="word">riddle</td>
+        <td class="cn">谜语</td>
+        <td class="example">I can solve the <strong>riddle</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="word">pronoun</td>
+        <td class="cn">代词</td>
+        <td class="example">He is a <strong>pronoun</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">4</td>
+        <td class="word">blog</td>
+        <td class="cn">博客</td>
+        <td class="example">I can use <strong>blog</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="word">court</td>
+        <td class="cn">球场</td>
+        <td class="example">We play on the <strong>court</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="word">fable</td>
+        <td class="cn">寓言</td>
+        <td class="example">The <strong>fable</strong> has a lesson.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="word">timetable</td>
+        <td class="cn">时间表</td>
+        <td class="example">The <strong>timetable</strong> shows my classes.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb 动词</td></tr>
+<tr>
+        <td class="n">8</td>
+        <td class="word">weigh</td>
+        <td class="cn">称重</td>
+        <td class="example">We <strong>weigh</strong> the bag.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">9</td>
+        <td class="word">collect</td>
+        <td class="cn">收集</td>
+        <td class="example">I <strong>collect</strong> stamps.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">10</td>
+        <td class="word">describe</td>
+        <td class="cn">描述</td>
+        <td class="example">I can <strong>describe</strong> the picture.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">chase</td>
+        <td class="cn">追逐</td>
+        <td class="example">The dog may <strong>chase</strong> the ball.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">phrase 短语</td></tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">Causeway Bay</td>
+        <td class="cn">铜锣湾</td>
+        <td class="example">I can use <strong>Causeway Bay</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">step on</td>
+        <td class="cn">踩到</td>
+        <td class="example">I can use <strong>step on</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">simple present tense</td>
+        <td class="cn">一般现在时</td>
+        <td class="example">I can use <strong>simple present tense</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">noun/verb 名词/动词</td></tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">survey</td>
+        <td class="cn">调查</td>
+        <td class="example">We do a <strong>survey</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">adjective/noun 形容词/名词</td></tr>
+<tr>
+        <td class="n">16</td>
+        <td class="word">round</td>
+        <td class="cn">圆形</td>
+        <td class="example">The ball is <strong>round</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">uncategorized 未分类</td></tr>
+<tr>
+        <td class="n">17</td>
+        <td class="word">assessment</td>
+        <td class="cn">测试</td>
+        <td class="example">I can use <strong>assessment</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">18</td>
+        <td class="word">vocabulary</td>
+        <td class="cn">词汇</td>
+        <td class="example">I can use <strong>vocabulary</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">19</td>
+        <td class="word">blanks</td>
+        <td class="cn">空白</td>
+        <td class="example">I can use <strong>blanks</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">20</td>
+        <td class="word">suitable</td>
+        <td class="cn">合适的</td>
+        <td class="example">I can use <strong>suitable</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">21</td>
+        <td class="word">phrases</td>
+        <td class="cn">短语</td>
+        <td class="example">I can use <strong>phrases</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">22</td>
+        <td class="word">adjectives</td>
+        <td class="cn">形容词</td>
+        <td class="example">I can use <strong>adjectives</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">23</td>
+        <td class="word">improvement</td>
+        <td class="cn">提升</td>
+        <td class="example">I can use <strong>improvement</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">24</td>
+        <td class="word">thief</td>
+        <td class="cn">小偷</td>
+        <td class="example">I can use <strong>thief</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">25</td>
+        <td class="word">organic</td>
+        <td class="cn">有机的</td>
+        <td class="example">I can use <strong>organic</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">26</td>
+        <td class="word">farming</td>
+        <td class="cn">耕种</td>
+        <td class="example">I can use <strong>farming</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">27</td>
+        <td class="word">royal</td>
+        <td class="cn">皇家的</td>
+        <td class="example">I can use <strong>royal</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">28</td>
+        <td class="word">knowledge</td>
+        <td class="cn">知识</td>
+        <td class="example">I can use <strong>knowledge</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">29</td>
+        <td class="word">lollies</td>
+        <td class="cn">棒棒糖</td>
+        <td class="example">I can use <strong>lollies</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">30</td>
+        <td class="word">illustrate</td>
+        <td class="cn">插画</td>
+        <td class="example">I can use <strong>illustrate</strong> in class.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>数学默写 老师版</h1>
+    <div class="meta">抽取日期：2026-09-09<br />从未掌握池随机抽取 15 个，并按老师词表分类顺序呈现</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="word">单词/词组</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/说明</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">time/date 时间日期</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="word">July</td>
+        <td class="cn">七月</td>
+        <td class="example"><strong>July</strong> is the seventh month.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="word">December</td>
+        <td class="cn">十二月</td>
+        <td class="example"><strong>December</strong> is the twelfth month.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="word">Saturday</td>
+        <td class="cn">星期六</td>
+        <td class="example"><strong>Saturday</strong> is a weekend day.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">numbers 数字</td></tr>
+<tr>
+        <td class="n">4</td>
+        <td class="word">seven</td>
+        <td class="cn">7</td>
+        <td class="example"><strong>Seven</strong> is 7.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="word">fifteen</td>
+        <td class="cn">15</td>
+        <td class="example"><strong>Fifteen</strong> is 15.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="word">seventeen</td>
+        <td class="cn">17</td>
+        <td class="example"><strong>Seventeen</strong> is 17.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="word">forty</td>
+        <td class="cn">40</td>
+        <td class="example"><strong>Forty</strong> is 40.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">8</td>
+        <td class="word">ninety</td>
+        <td class="cn">90</td>
+        <td class="example"><strong>Ninety</strong> is 90.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">9</td>
+        <td class="word">thousand</td>
+        <td class="cn">千</td>
+        <td class="example">One <strong>thousand</strong> is 1000.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">ordinal numbers 序数</td></tr>
+<tr>
+        <td class="n">10</td>
+        <td class="word">second</td>
+        <td class="cn">第二</td>
+        <td class="example">This is the <strong>second</strong> shape.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">solid shape 立体图形</td></tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">triangular prism</td>
+        <td class="cn">三棱柱</td>
+        <td class="example">A <strong>triangular prism</strong> has triangular faces.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">hexagonal prism</td>
+        <td class="cn">六棱柱</td>
+        <td class="example">A <strong>hexagonal prism</strong> has hexagonal faces.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">pentagonal pyramid</td>
+        <td class="cn">五棱锥</td>
+        <td class="example">A <strong>pentagonal pyramid</strong> has pentagonal faces.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">cylinder</td>
+        <td class="cn">圆柱</td>
+        <td class="example">A <strong>cylinder</strong> has two circular faces.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">sphere</td>
+        <td class="cn">球</td>
+        <td class="example">A <strong>sphere</strong> is round.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>数学认读 老师版</h1>
+    <div class="meta">抽取日期：2026-09-09<br />从未掌握池抽取 9 个；因不足 30 题，从已过关词库补足 21 个，并按老师词表分类顺序呈现；已优先避开最近 3 天出现过的词</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="word">单词/词组</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/说明</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">operations 运算</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="word">borrowing</td>
+        <td class="cn">借位</td>
+        <td class="example"><strong>Borrowing</strong> helps when we subtract.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="word">be left</td>
+        <td class="cn">剩下的</td>
+        <td class="example">How many apples will <strong>be left</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">geometry 几何</td></tr>
+<tr>
+        <td class="n">3</td>
+        <td class="word">obtuse angle</td>
+        <td class="cn">钝角</td>
+        <td class="example">An <strong>obtuse angle</strong> is larger than a right angle.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">question word 题目词</td></tr>
+<tr>
+        <td class="n">4</td>
+        <td class="word">calculate</td>
+        <td class="cn">计算</td>
+        <td class="example"><strong>Calculate</strong> the answer.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="word">estimate</td>
+        <td class="cn">估计</td>
+        <td class="example"><strong>Estimate</strong> the answer first.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="word">match</td>
+        <td class="cn">匹配</td>
+        <td class="example"><strong>Match</strong> the number to the word.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="word">respectively</td>
+        <td class="cn">分别地</td>
+        <td class="example">Tom and Ben have 2 and 3 books <strong>respectively</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">answer 答案</td></tr>
+<tr>
+        <td class="n">8</td>
+        <td class="word">answer</td>
+        <td class="cn">答案</td>
+        <td class="example">Write the <strong>answer</strong> in the box.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">comparison 比较</td></tr>
+<tr>
+        <td class="n">9</td>
+        <td class="word">less</td>
+        <td class="cn">更少的；小于</td>
+        <td class="example">8 is <strong>less</strong> than 10.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">10</td>
+        <td class="word">more</td>
+        <td class="cn">更多</td>
+        <td class="example">8 is <strong>more</strong> than 5.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">fewer</td>
+        <td class="cn">更少</td>
+        <td class="example">There are <strong>fewer</strong> apples in this box.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">time/date 时间日期</td></tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">leap year</td>
+        <td class="cn">闰年</td>
+        <td class="example">A <strong>leap year</strong> has 366 days.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">non-leap year</td>
+        <td class="cn">平年</td>
+        <td class="example">A <strong>non-leap year</strong> has 365 days.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">position 位置</td></tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">front</td>
+        <td class="cn">前面</td>
+        <td class="example">The door is at the <strong>front</strong> of the room.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">above</td>
+        <td class="cn">上面</td>
+        <td class="example">The clock is <strong>above</strong> the board.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">operations calculation 运算</td></tr>
+<tr>
+        <td class="n">16</td>
+        <td class="word">difference</td>
+        <td class="cn">差</td>
+        <td class="example">The <strong>difference</strong> is the answer in subtraction.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">17</td>
+        <td class="word">subtract A from B</td>
+        <td class="cn">B-A</td>
+        <td class="example">I can read <strong>subtract A from B</strong> in a math question.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">18</td>
+        <td class="word">remainder</td>
+        <td class="cn">余数</td>
+        <td class="example">The <strong>remainder</strong> is left after division.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">teacher math vocabulary 老师数学词汇</td></tr>
+<tr>
+        <td class="n">19</td>
+        <td class="word">start</td>
+        <td class="cn">开始</td>
+        <td class="example">I can read <strong>start</strong> in a math question.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">20</td>
+        <td class="word">stop</td>
+        <td class="cn">停</td>
+        <td class="example">I can read <strong>stop</strong> in a math question.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">currency money 货币</td></tr>
+<tr>
+        <td class="n">21</td>
+        <td class="word">dollar</td>
+        <td class="cn">元</td>
+        <td class="example">One <strong>dollar</strong> has 100 cents.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">22</td>
+        <td class="word">exchange</td>
+        <td class="cn">交换</td>
+        <td class="example">We <strong>exchange</strong> money at the counter.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">23</td>
+        <td class="word">pay for</td>
+        <td class="cn">支付</td>
+        <td class="example">I <strong>pay for</strong> the book.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">24</td>
+        <td class="word">note</td>
+        <td class="cn">纸币</td>
+        <td class="example">This is a five-dollar <strong>note</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">25</td>
+        <td class="word">expensive</td>
+        <td class="cn">昂贵的</td>
+        <td class="example">I can read <strong>expensive</strong> in a math question.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">measurement 测量</td></tr>
+<tr>
+        <td class="n">26</td>
+        <td class="word">measure</td>
+        <td class="cn">测量</td>
+        <td class="example">We <strong>measure</strong> the length with a ruler.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">27</td>
+        <td class="word">distance</td>
+        <td class="cn">距离</td>
+        <td class="example">Find the <strong>distance</strong> between the two points.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">句型结构</td></tr>
+<tr>
+        <td class="n">28</td>
+        <td class="word">Angle ... is larger than Angle ...</td>
+        <td class="cn">角......大于角......</td>
+        <td class="example"><strong>Angle</strong> A is larger than <strong>Angle</strong> B.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">29</td>
+        <td class="word">Angle ... is smaller than Angle ...</td>
+        <td class="cn">角......小于角......</td>
+        <td class="example"><strong>Angle</strong> A is smaller than <strong>Angle</strong> B.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">30</td>
+        <td class="word">... is to the south of ...</td>
+        <td class="cn">......位于......的南侧。</td>
+        <td class="example">The library is to the south of the shop.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>英语错题 老师版</h1>
+    <div class="meta">抽取日期：2026-09-09<br />从英语错题题库随机抽取 5 道</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <div class="question-list">
+    <article class="question-card">
+      <div class="question-meta">1. 综合提升练习：现在进行时动词填空 · EN-2026-07-22-100</div>
+      
+      <div class="question-prompt">They ________ (give) help to an old grandma now.</div>
+      
+      <div class="question-answer"><strong>Answer:</strong> are giving</div>
+      <div class="question-note"><strong>Explanation:</strong> 根据 look/listen/now 等提示判断现在进行时，结构为 be + 动词ing。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card">
+      <div class="question-meta">2. 基础专项练习：一般现在时动词填空 · EN-2026-07-22-019</div>
+      
+      <div class="question-prompt">I ________ (buy) small gifts for my friends sometimes.</div>
+      
+      <div class="question-answer"><strong>Answer:</strong> buy</div>
+      <div class="question-note"><strong>Explanation:</strong> 一般现在时；根据主语判断动词原形或第三人称单数形式。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card">
+      <div class="question-meta">3. 寓言阅读：季节信息 · EN-2026-06-23-002</div>
+      
+      <div class="question-prompt">What season is it when the ant stores food?<br />A. spring<br />B. summer<br />C. autumn<br />D. winter</div>
+      
+      <div class="question-answer"><strong>Answer:</strong> C</div>
+      <div class="question-note"><strong>Explanation:</strong> 秋收时节蚂蚁储备过冬粮食。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card">
+      <div class="question-meta">4. 基础专项练习：一般现在时动词填空 · EN-2026-07-22-039</div>
+      
+      <div class="question-prompt">They ________ (come) to my house every weekend.</div>
+      
+      <div class="question-answer"><strong>Answer:</strong> come</div>
+      <div class="question-note"><strong>Explanation:</strong> 一般现在时；根据主语判断动词原形或第三人称单数形式。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card">
+      <div class="question-meta">5. 综合提升练习：一般现在时动词填空 · EN-2026-07-22-053</div>
+      
+      <div class="question-prompt">The boy ________ (draw) trees and hills every time.</div>
+      
+      <div class="question-answer"><strong>Answer:</strong> draws</div>
+      <div class="question-note"><strong>Explanation:</strong> 一般现在时；第三人称单数主语动词加 s/es，复数或 I/we/they 用原形。</div>
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+  </div>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>数学错题 老师版</h1>
+    <div class="meta">抽取日期：2026-09-09<br />从数学错题题库随机抽取 4 道</div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <div class="question-list">
+    <article class="question-card math-question">
+      <div class="question-meta">1. 综合测试 · MA-2026-06-17-007</div>
+      
+      <div class="question-prompt">综合测试 3（图 7）</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-06-17_media/image45.png" alt="综合测试 3（图 7）" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">2. 综合测试 6 / 3-D shape · MA-2026-07-24-006</div>
+      
+      <div class="question-prompt">Prism with 5 faces</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-07-24_media/image6.png" alt="Prism with 5 faces" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">3. 综合测试 · MA-2026-06-16-035</div>
+      
+      <div class="question-prompt">综合测试（图 6）</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-06-16_media/image35.png" alt="综合测试（图 6）" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">4. workbook 2B / 3-D shape · MA-2026-06-15-023</div>
+      
+      <div class="question-prompt">P21 3-D shape</div>
+      <img class="question-image" src="assets/question_sets/math_mistake_questions_2026-06-15_media/image23.png" alt="P21 3-D shape" />
+      
+      
+      <div class="question-workspace"></div>
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+  </div>
+</section>
+</body>
+</html>
