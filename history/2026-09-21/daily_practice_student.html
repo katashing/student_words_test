@@ -135,16 +135,23 @@
     .scan-page .scan-meta { font-size: 11px; color: var(--muted); }
     .scan-page .scan-image { display: block; width: 100%; height: 246mm; object-fit: contain; margin: 3mm auto 0; }
     .scan-page .question-check { font-size: 12px; }
-    .teacher-scan-layout { display: grid; grid-template-columns: minmax(0, 1fr) 38mm; gap: 4mm; align-items: start; }
+    .teacher-scan-layout { display: grid; grid-template-columns: minmax(0, 1fr) 48mm; gap: 4mm; align-items: start; }
     .teacher-scan-layout .scan-image { height: 246mm; object-position: top center; }
     .teacher-answer-margin { padding-top: 8mm; font-family: Arial, "PingFang SC", sans-serif; }
     .teacher-answer-margin h2 { font-size: 13px; margin: 0 0 5mm; }
-    .teacher-answer-margin p { color: #c00000; font-size: 15px; font-weight: 600; line-height: 1.5; margin: 0 0 4mm; overflow-wrap: anywhere; }
+    .teacher-answer-margin p { color: #c00000; font-size: 13px; font-weight: 600; line-height: 1.45; margin: 0 0 3mm; overflow-wrap: anywhere; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .teacher-answer-margin small { font-size: 10px; color: #52606d; }
     .question-answer,
     .question-note {
       margin: 4px 0;
       font-size: 14px;
+    }
+    .question-answer {
+      color: #c00000;
+      font-family: Arial, "PingFang SC", sans-serif;
+      font-weight: 600;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
     .question-workspace {
       min-height: 44mm;
