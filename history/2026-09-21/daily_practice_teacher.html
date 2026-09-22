@@ -135,11 +135,20 @@
     .scan-page .scan-meta { font-size: 11px; color: var(--muted); }
     .scan-page .scan-image { display: block; width: 100%; height: 246mm; object-fit: contain; margin: 3mm auto 0; }
     .scan-page .question-check { font-size: 12px; }
-    .teacher-scan-layout { display: grid; grid-template-columns: minmax(0, 1fr) 48mm; gap: 4mm; align-items: start; }
-    .teacher-scan-layout .scan-image { height: 246mm; object-position: top center; }
-    .teacher-answer-margin { padding-top: 8mm; font-family: Arial, "PingFang SC", sans-serif; }
-    .teacher-answer-margin h2 { font-size: 13px; margin: 0 0 5mm; }
-    .teacher-answer-margin p { color: #c00000; font-size: 13px; font-weight: 600; line-height: 1.45; margin: 0 0 3mm; overflow-wrap: anywhere; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    
+  .teacher-scan-layout { --answer-width:48mm; --answer-gap:4mm; display:grid; grid-template-columns:minmax(0,1fr) var(--answer-width); gap:var(--answer-gap); align-items:stretch; margin-top:3mm; }
+  .teacher-image-frame { min-width:0; }
+  .teacher-scan-layout .scan-image,.teacher-scan-layout .original-image { display:block; width:100%; height:auto; max-height:246mm; object-fit:contain; object-position:top center; margin:0; }
+  .teacher-answer-margin { position:relative; min-width:0; padding:0; margin:0; font-family:Arial,"PingFang SC",sans-serif; font-size:13px; }
+  .aligned-answer { position:absolute; top:calc(var(--answer-y) * 100%); left:0; width:100%; transform:translateY(-50%); }
+  .aligned-answer p { color:#c00000; font-size:inherit; font-weight:600; line-height:1.3; margin:0; overflow-wrap:anywhere; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .aligned-answer p+p { margin-top:2px; }
+  .teacher-answer-guides { position:absolute; top:0; left:calc(-1 * var(--answer-gap)); width:var(--answer-gap); height:100%; overflow:visible; pointer-events:none; }
+  .teacher-answer-guides path { fill:none; stroke:#c00000; stroke-width:.7; opacity:.4; vector-effect:non-scaling-stroke; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  @media screen and (max-width:720px) {
+    .scan-page .teacher-scan-layout { min-width:726px; }
+  }
+
     .question-answer {
       margin: 4px 0;
       font-size: 14px;
@@ -996,8 +1005,11 @@
       <h1>英语错题 老师版 · 第 1 题</h1>
       <div class="scan-meta">2026-09-21 · 姓名：孙大圣</div>
       <div class="teacher-scan-layout">
-    <img class="scan-image" src="assets/question_sets/english_selected_mistakes_2026-09-21_media/page-01.png" alt="老师原作答及批改图 · William and Martin: favourite activities · 1">
-    <aside class="teacher-answer-margin"><h2>答案</h2><p>1. likes playing; on</p><p>2. likes playing the; at</p><p>3. like swimming at the beach; in summer</p><p>4. He likes doing the high jump; on Sunday（原页作答）</p><p>5. I like playing table; on Saturday</p></aside>
+    <div class="teacher-image-frame"><img class="scan-image"  width="1131" height="1600" src="assets/question_sets/english_selected_mistakes_2026-09-21_media/page-01.png" alt="老师原作答及批改图 · William and Martin: favourite activities · 1"></div>
+    <aside class="teacher-answer-margin" aria-label="对应小题答案">
+      <svg class="teacher-answer-guides" aria-hidden="true" preserveAspectRatio="none"></svg>
+      <div class="aligned-answer" data-answer-y="0.212" style="--answer-y:0.212"><p data-answer-index="0">1. likes playing; on</p></div><div class="aligned-answer" data-answer-y="0.335" style="--answer-y:0.335"><p data-answer-index="1">2. likes playing the; at</p></div><div class="aligned-answer" data-answer-y="0.458" style="--answer-y:0.458"><p data-answer-index="2">3. like swimming at the beach; in summer</p></div><div class="aligned-answer" data-answer-y="0.58" style="--answer-y:0.58"><p data-answer-index="3">4. He likes doing the high jump; on Sunday（原页作答）</p></div><div class="aligned-answer" data-answer-y="0.71" style="--answer-y:0.71"><p data-answer-index="4">5. I like playing table; on Saturday</p></div>
+    </aside>
   </div>
       <div class="question-check"><span class="box"></span> 已掌握</div>
     </section>
@@ -1005,8 +1017,11 @@
       <h1>英语错题 老师版 · 第 2 题</h1>
       <div class="scan-meta">2026-09-21 · 姓名：孙大圣</div>
       <div class="teacher-scan-layout">
-    <img class="scan-image" src="assets/question_sets/english_selected_mistakes_2026-09-21_media/page-23.png" alt="老师原作答及批改图 · Simple present and present continuous · 1">
-    <aside class="teacher-answer-margin"><h2>答案</h2><p>1. is climbing</p><p>2. have</p><p>3. skates</p><p>4. are running</p><p>5. goes</p><p>6. visit</p><p>7. draws</p><p>8. is singing</p></aside>
+    <div class="teacher-image-frame"><img class="scan-image"  width="1131" height="1600" src="assets/question_sets/english_selected_mistakes_2026-09-21_media/page-23.png" alt="老师原作答及批改图 · Simple present and present continuous · 1"></div>
+    <aside class="teacher-answer-margin" aria-label="对应小题答案">
+      <svg class="teacher-answer-guides" aria-hidden="true" preserveAspectRatio="none"></svg>
+      <div class="aligned-answer" data-answer-y="0.526" style="--answer-y:0.526"><p data-answer-index="0">1. is climbing</p></div><div class="aligned-answer" data-answer-y="0.563" style="--answer-y:0.563"><p data-answer-index="1">2. have</p></div><div class="aligned-answer" data-answer-y="0.625" style="--answer-y:0.625"><p data-answer-index="2">3. skates</p></div><div class="aligned-answer" data-answer-y="0.665" style="--answer-y:0.665"><p data-answer-index="3">4. are running</p></div><div class="aligned-answer" data-answer-y="0.702" style="--answer-y:0.702"><p data-answer-index="4">5. goes</p></div><div class="aligned-answer" data-answer-y="0.741" style="--answer-y:0.741"><p data-answer-index="5">6. visit</p></div><div class="aligned-answer" data-answer-y="0.783" style="--answer-y:0.783"><p data-answer-index="6">7. draws</p></div><div class="aligned-answer" data-answer-y="0.822" style="--answer-y:0.822"><p data-answer-index="7">8. is singing</p></div>
+    </aside>
   </div>
       <div class="question-check"><span class="box"></span> 已掌握</div>
     </section>
@@ -1014,8 +1029,11 @@
       <h1>英语错题 老师版 · 第 3 题</h1>
       <div class="scan-meta">2026-09-21 · 姓名：孙大圣</div>
       <div class="teacher-scan-layout">
-    <img class="scan-image" src="assets/question_sets/english_selected_mistakes_2026-09-21_teacher/page-36.png" alt="老师原作答及批改图 · Cindy and her friends’ future jobs · 1">
-    <aside class="teacher-answer-margin"><h2>答案</h2><p>1. wants to be a plice officer（拼写被圈错，未见改正）</p><p>2. wants to be a pilot</p><p>3. 原稿不清，参照原图</p><p>4. Cindy wants to be a doctor.</p><p>5. 原稿右侧答案被截，参照原图</p></aside>
+    <div class="teacher-image-frame"><img class="scan-image"  width="1055" height="1491" src="assets/question_sets/english_selected_mistakes_2026-09-21_teacher/page-36.png" alt="老师原作答及批改图 · Cindy and her friends’ future jobs · 1"></div>
+    <aside class="teacher-answer-margin" aria-label="对应小题答案">
+      <svg class="teacher-answer-guides" aria-hidden="true" preserveAspectRatio="none"></svg>
+      <div class="aligned-answer" data-answer-y="0.426" style="--answer-y:0.426"><p data-answer-index="0">1. wants to be a plice officer（拼写被圈错，未见改正）</p></div><div class="aligned-answer" data-answer-y="0.5" style="--answer-y:0.5"><p data-answer-index="1">2. wants to be a pilot</p></div><div class="aligned-answer" data-answer-y="0.575" style="--answer-y:0.575"><p data-answer-index="2">3. 原稿不清，参照原图</p></div><div class="aligned-answer" data-answer-y="0.651" style="--answer-y:0.651"><p data-answer-index="3">4. Cindy wants to be a doctor.</p></div><div class="aligned-answer" data-answer-y="0.728" style="--answer-y:0.728"><p data-answer-index="4">5. 原稿右侧答案被截，参照原图</p></div>
+    </aside>
   </div>
       <div class="question-check"><span class="box"></span> 已掌握</div>
     </section>
@@ -1059,5 +1077,71 @@
     </article>
   </div>
 </section>
+<script>(function alignTeacherAnswers() {
+  function fit(groups, height, gap) {
+    let offset = 0;
+    const entries = groups.map(group => {
+      const h = group.getBoundingClientRect().height;
+      const anchor = Number(group.dataset.answerY) * height;
+      const entry = { group, h, anchor, offset, desired: anchor - h / 2 - offset };
+      offset += h + gap;
+      return entry;
+    });
+    const total = offset - gap;
+    const blocks = [];
+    entries.forEach((entry, index) => {
+      blocks.push({ start:index, end:index, sum:entry.desired, count:1 });
+      while (blocks.length > 1) {
+        const b = blocks.at(-1), a = blocks.at(-2);
+        if (a.sum / a.count <= b.sum / b.count) break;
+        blocks.splice(-2, 2, { start:a.start, end:b.end, sum:a.sum+b.sum, count:a.count+b.count });
+      }
+    });
+    for (const block of blocks) {
+      const shift = Math.max(0, Math.min(Math.max(0, height-total), block.sum / block.count));
+      for (let i=block.start; i<=block.end; i++) entries[i].top = entries[i].offset + shift;
+    }
+    return { entries, total, maxShift:Math.max(0,...entries.map(e => Math.abs(e.top+e.h/2-e.anchor))) };
+  }
+  function align(layout) {
+    const img = layout.querySelector('img');
+    const aside = layout.querySelector('.teacher-answer-margin');
+    const height = img.getBoundingClientRect().height;
+    if (!height || !img.complete || !img.naturalWidth) return;
+    const groups = Array.from(aside.querySelectorAll('.aligned-answer'));
+    let result;
+    for (let size=13; size>=11; size-=0.5) {
+      aside.style.fontSize = size+'px';
+      result = fit(groups, height, 3);
+      if (result.total <= height && result.maxShift <= height * 0.035) break;
+    }
+    aside.style.height = height+'px';
+    const svg = aside.querySelector('svg');
+    svg.setAttribute('viewBox','0 0 100 '+height);
+    svg.replaceChildren();
+    for (const e of result.entries) {
+      e.group.style.top = e.top+'px';
+      e.group.style.transform = 'none';
+      e.group.dataset.alignmentOffset = (e.top+e.h/2-e.anchor).toFixed(2);
+      const line = document.createElementNS('http://www.w3.org/2000/svg','path');
+      line.setAttribute('d',`M 0 ${e.anchor} L 100 ${e.top+e.h/2}`);
+      svg.appendChild(line);
+    }
+    layout.dataset.alignmentReady = 'true';
+    layout.dataset.answerOverflow = String(result.total > height);
+  }
+  const layouts = Array.from(document.querySelectorAll('.teacher-scan-layout'));
+  const update = () => layouts.forEach(align);
+  for (const layout of layouts) layout.querySelector('img').addEventListener('load',()=>align(layout));
+  if (typeof ResizeObserver !== 'undefined') {
+    const observer = new ResizeObserver(entries => entries.forEach(entry => align(entry.target)));
+    layouts.forEach(layout => observer.observe(layout));
+  }
+  document.addEventListener('toggle',update,true);
+  window.addEventListener('resize',update);
+  window.addEventListener('beforeprint',update);
+  if (document.fonts) document.fonts.ready.then(update);
+  update();
+})();</script>
 </body>
 </html>
