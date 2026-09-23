@@ -201,6 +201,7 @@
     @media print {
       body { background: white; }
       .page { margin: 0; box-shadow: none; }
+      .compact-recognition tbody tr:not(.category-row) td { padding-top: 6px; padding-bottom: 6px; }
     }
   </style>
 </head>
@@ -763,7 +764,7 @@
     <span>日期：</span>
     <span>用时：</span>
   </div>
-  <table>
+  <table class="compact-recognition">
     <thead>
       <tr>
         <th class="n">#</th>
@@ -774,19 +775,20 @@
       </tr>
     </thead>
     <tbody>
-<tr class="category-row"><td colspan="5">geometry 几何</td></tr>
+<tr class="category-row"><td colspan="5">operations 运算</td></tr>
 <tr>
         <td class="n">1</td>
+        <td class="word">be left</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">How many apples will <strong>be left</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">geometry 几何</td></tr>
+<tr>
+        <td class="n">2</td>
         <td class="word">angle</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example">An <strong>angle</strong> is formed by two rays with the same endpoint.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">2</td>
-        <td class="word">right angle</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">A <strong>right angle</strong> is 90 degrees.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
@@ -798,50 +800,44 @@
       </tr>
 <tr>
         <td class="n">4</td>
-        <td class="word">obtuse angle</td>
+        <td class="word">opposite side</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">An <strong>obtuse angle</strong> is greater than 90 degrees and less than 180 degrees.</td>
+        <td class="example">In a rectangle, the <strong>opposite sides</strong> are equal.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">5</td>
-        <td class="word">grid</td>
+        <td class="word">identical</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">A <strong>grid</strong> helps us find positions.</td>
+        <td class="example">These two triangles are <strong>identical</strong> in shape and size.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">6</td>
-        <td class="word">line segment</td>
+        <td class="word">parallel to each other</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">Draw a <strong>line segment</strong>.</td>
+        <td class="example">The two lines are <strong>parallel to each other</strong>.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
+<tr class="category-row"><td colspan="5">shape 形状</td></tr>
 <tr>
         <td class="n">7</td>
-        <td class="word">adjacent side</td>
+        <td class="word">circle</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">These are <strong>adjacent sides</strong>.</td>
+        <td class="example">Draw a <strong>circle</strong> around the answer.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
-<tr class="category-row"><td colspan="5">question word 题目词</td></tr>
+<tr class="category-row"><td colspan="5">answer 答案</td></tr>
 <tr>
         <td class="n">8</td>
-        <td class="word">compare</td>
+        <td class="word">correct</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">We <strong>compare</strong> two numbers.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">9</td>
-        <td class="word">calculate</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example"><strong>Calculate</strong> the answer.</td>
+        <td class="example">Choose the <strong>correct</strong> answer.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">place value 位值</td></tr>
 <tr>
-        <td class="n">10</td>
+        <td class="n">9</td>
         <td class="word">tens</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example">The digit is in the <strong>tens</strong> place.</td>
@@ -849,94 +845,101 @@
       </tr>
 <tr class="category-row"><td colspan="5">comparison 比较</td></tr>
 <tr>
+        <td class="n">10</td>
+        <td class="word">less</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">8 is <strong>less</strong> than 10.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
         <td class="n">11</td>
-        <td class="word">more</td>
+        <td class="word">lightest</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">8 is <strong>more</strong> than 5.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">12</td>
-        <td class="word">fewer</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">There are <strong>fewer</strong> apples in this box.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">13</td>
-        <td class="word">fewest</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">Which group has the <strong>fewest</strong>?</td>
+        <td class="example">The 1 kg bag is the <strong>lightest</strong> of the 1 kg, 2 kg and 3 kg bags.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">position 位置</td></tr>
 <tr>
-        <td class="n">14</td>
-        <td class="word">behind</td>
+        <td class="n">12</td>
+        <td class="word">back</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">The bag is <strong>behind</strong> the chair.</td>
+        <td class="example">The desk is at the <strong>back</strong> of the room.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">operations calculation 运算</td></tr>
 <tr>
-        <td class="n">15</td>
-        <td class="word">expression</td>
+        <td class="n">13</td>
+        <td class="word">multiplication</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">Write the <strong>expression</strong> in horizontal form.</td>
+        <td class="example"><strong>Multiplication</strong> can use times.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">subtract A from B</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">&quot;<strong>Subtract A from B</strong>&quot; means B - A.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">equally</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Share the apples <strong>equally</strong>.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">16</td>
+        <td class="word">dividend</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>dividend</strong> is divided by the divisor.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">17</td>
         <td class="word">quotient</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example">The <strong>quotient</strong> is the answer in division.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
+<tr>
+        <td class="n">18</td>
+        <td class="word">checking</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example"><strong>Checking</strong> by addition shows that 9 - 4 = 5 is correct: 5 + 4 = 9.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
 <tr class="category-row"><td colspan="5">teacher math vocabulary 老师数学词汇</td></tr>
 <tr>
-        <td class="n">17</td>
+        <td class="n">19</td>
         <td class="word">each</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example"><strong>Each</strong> child has three pencils.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
-<tr>
-        <td class="n">18</td>
-        <td class="word">finish</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">Please <strong>finish</strong> the calculation.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
 <tr class="category-row"><td colspan="5">currency money 货币</td></tr>
 <tr>
-        <td class="n">19</td>
+        <td class="n">20</td>
         <td class="word">dollar</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example">One <strong>dollar</strong> has 100 cents.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">20</td>
-        <td class="word">exchange</td>
+        <td class="n">21</td>
+        <td class="word">cent</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">We <strong>exchange</strong> money at the counter.</td>
+        <td class="example">One <strong>cent</strong> is a small amount of money.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">21</td>
-        <td class="word">note</td>
+        <td class="n">22</td>
+        <td class="word">pay for</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">This is a five-dollar <strong>note</strong>.</td>
+        <td class="example">I <strong>pay for</strong> the book.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">measurement 测量</td></tr>
-<tr>
-        <td class="n">22</td>
-        <td class="word">centimetre</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">A <strong>centimetre</strong> is a small unit of length.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
 <tr>
         <td class="n">23</td>
         <td class="word">measure</td>
@@ -944,57 +947,55 @@
         <td class="example">We <strong>measure</strong> the length with a ruler.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
-<tr class="category-row"><td colspan="5">data charts 统计图</td></tr>
 <tr>
         <td class="n">24</td>
-        <td class="word">pictogram</td>
+        <td class="word">distance</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">Read the <strong>pictogram</strong>.</td>
+        <td class="example">Find the <strong>distance</strong> between the two points.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">25</td>
-        <td class="word">block chart</td>
+        <td class="word">kilogram</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">Read the <strong>block chart</strong>.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr class="category-row"><td colspan="5">geometry tool 几何工具</td></tr>
-<tr>
-        <td class="n">26</td>
-        <td class="word">geo-strip</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">A <strong>geo-strip</strong> can help make shapes.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr class="category-row"><td colspan="5">directions tool 方向工具</td></tr>
-<tr>
-        <td class="n">27</td>
-        <td class="word">compass</td>
-        <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">A <strong>compass</strong> shows directions.</td>
+        <td class="example">One <strong>kilogram</strong> is 1,000 grams.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">句型结构</td></tr>
 <tr>
-        <td class="n">28</td>
+        <td class="n">26</td>
         <td class="word">Angle ... is larger than Angle ...</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example"><strong>Angle</strong> A is larger than <strong>Angle</strong> B.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">29</td>
+        <td class="n">27</td>
+        <td class="word">... is to the east of ...</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The school is to the east of the park.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">28</td>
         <td class="word">... is to the west of ...</td>
         <td class="cn"><span class="answer-line"></span></td>
         <td class="example">The bank is to the west of the school.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
+<tr class="category-row"><td colspan="5">plane shape 平面图形</td></tr>
+<tr>
+        <td class="n">29</td>
+        <td class="word">isosceles trapezium</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">An <strong>isosceles trapezium</strong> has two equal legs.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
 <tr>
         <td class="n">30</td>
-        <td class="word">... is to the north of ...</td>
+        <td class="word">right-angled trapezium</td>
         <td class="cn"><span class="answer-line"></span></td>
-        <td class="example">The playground is to the north of the hall.</td>
+        <td class="example">A <strong>right-angled trapezium</strong> has two right angles.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
     </tbody>
