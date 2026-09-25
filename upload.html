@@ -365,7 +365,7 @@
             <legend>今日练习（错题）</legend>
             <label>
               英语错题
-              <input name="questionEnglish" type="number" min="0" max="200" step="1" value="3" required />
+              <input name="questionEnglish" type="number" min="0" max="200" step="1" value="2" required />
             </label>
             <label>
               数学错题
@@ -547,7 +547,7 @@
           mathRecognition: settingNumber(settingsForm.elements.reviewMathRecognition.value, 5)
         },
         questionTargets: {
-          english: settingNumber(settingsForm.elements.questionEnglish.value, 3),
+          english: settingNumber(settingsForm.elements.questionEnglish.value, 2),
           math: settingNumber(settingsForm.elements.questionMath.value, 3)
         }
       };
@@ -594,7 +594,7 @@
 
     function normalizeQuestionTargets(value) {
       return {
-        english: settingNumber(value && value.english, 3),
+        english: settingNumber(value && value.english, 2),
         math: settingNumber(value && value.math, 3)
       };
     }
