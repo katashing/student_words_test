@@ -203,13 +203,21 @@
       .page { margin: 0; box-shadow: none; }
       .compact-vocabulary tbody tr:not(.category-row) td { padding-top: 6px; padding-bottom: 6px; }
     }
+  
+    /* daily-practice-timing */
+    .practice-timing-meta { display:flex; justify-content:space-between; align-items:baseline; gap:12px; text-align:left; }
+    .practice-timing { color:var(--ink); font-weight:600; white-space:nowrap; }
+    @media screen and (max-width:720px) {
+      .practice-timing-meta { flex-wrap:wrap; gap:2px 12px; }
+      .practice-timing { white-space:normal; }
+    }
   </style>
 </head>
 <body>
 <section class="page">
   <div class="head">
     <h1>英语默写 老师版</h1>
-    <div class="meta">2026-10-15</div>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-15</span></div>
   </div>
   <div class="checkline">
     <span>姓名：孙大圣</span>
@@ -382,7 +390,7 @@
 <section class="page">
   <div class="head">
     <h1>英语认读 老师版</h1>
-    <div class="meta">2026-10-15</div>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-15</span></div>
   </div>
   <div class="checkline">
     <span>姓名：孙大圣</span>
@@ -622,7 +630,7 @@
 <section class="page">
   <div class="head">
     <h1>数学默写 老师版</h1>
-    <div class="meta">2026-10-15</div>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-15</span></div>
   </div>
   <div class="checkline">
     <span>姓名：孙大圣</span>
@@ -756,7 +764,7 @@
 <section class="page">
   <div class="head">
     <h1>数学认读 老师版</h1>
-    <div class="meta">2026-10-15</div>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-15</span></div>
   </div>
   <div class="checkline">
     <span>姓名：孙大圣</span>
@@ -1006,7 +1014,7 @@
 </section>
 <section class="page scan-page">
       <h1>英语错题 老师版 · 第 1 题</h1>
-      <div class="scan-meta">2026-10-15 · 姓名：孙大圣</div>
+      <div class="scan-meta practice-timing-meta" data-practice-timing="true"><span>2026-10-15 · 姓名：孙大圣</span><span class="practice-timing">整套预习10分钟 · 英语题合计10分钟</span></div>
       <div class="teacher-scan-layout">
     <div class="teacher-image-frame"><img class="scan-image"  width="1131" height="1600" src="assets/question_sets/english_selected_mistakes_2026-09-21_media/page-55.png" alt="老师原作答及批改图 · The Chocolate Kingdom · 1"></div>
     <aside class="teacher-answer-margin" aria-label="对应小题答案">
@@ -1018,7 +1026,7 @@
     </section>
 <section class="page scan-page">
       <h1>英语错题 老师版 · 第 2 题</h1>
-      <div class="scan-meta">2026-10-15 · 姓名：孙大圣</div>
+      <div class="scan-meta practice-timing-meta" data-practice-timing="true"><span>2026-10-15 · 姓名：孙大圣</span><span class="practice-timing">整套预习10分钟 · 英语题合计10分钟</span></div>
       <div class="teacher-scan-layout">
     <div class="teacher-image-frame"><img class="scan-image"  width="1131" height="1600" src="assets/question_sets/english_selected_mistakes_2026-09-21_media/page-45.png" alt="老师原作答及批改图 · Gary’s storybook · 1"></div>
     <aside class="teacher-answer-margin" aria-label="对应小题答案">
@@ -1031,7 +1039,7 @@
 <section class="page">
   <div class="head">
     <h1>三年级数学错题 老师版</h1>
-    <div class="meta">2026-10-15</div>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 数学题合计10分钟</span><span>2026-10-15</span></div>
   </div>
   <div class="checkline">
     <span>姓名：孙大圣</span>
