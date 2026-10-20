@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>每日词汇练习 学生版 2026-10-20</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #52606d;
+      --line: #d9e2ec;
+      --soft: #f7f9fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Heiti SC", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background: #eef2f6;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 10mm 9mm;
+      background: white;
+      page-break-after: always;
+    }
+    .head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 7px;
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0; font-size: 27px; line-height: 1.15; letter-spacing: 0; white-space: nowrap; }
+    .meta { color: var(--muted); font-size: 13px; line-height: 1.35; text-align: right; }
+    .checkline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin: 7px 0 9px;
+      color: var(--muted);
+    }
+    .checkline span { border-bottom: 1px solid var(--line); min-height: 16px; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td { border: 1px solid var(--line); padding: 8px 7px; vertical-align: top; }
+    th { background: var(--soft); font-weight: 700; text-align: left; }
+    .category-row td {
+      padding: 4px 7px;
+      background: #eef2f6;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .category-row { break-after: avoid; page-break-after: avoid; }
+    .n { width: 7mm; text-align: center; color: var(--muted); }
+    .word { width: 38mm; font-family: Arial, Helvetica, "PingFang SC", sans-serif; font-weight: 700; font-size: 18px; overflow-wrap: anywhere; }
+    .cn { width: 32mm; font-weight: 700; }
+    .example { width: auto; font-family: Arial, Helvetica, "PingFang SC", sans-serif; }
+    .write-space { width: 46mm; min-height: 22px; }
+    .check-col { width: 17mm; text-align: center; }
+    .box {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 1.4px solid var(--ink);
+      vertical-align: middle;
+    }
+    strong { font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
+    .blank {
+      display: inline-block;
+      width: 24mm;
+      border-bottom: 1.6px solid var(--ink);
+      height: 1em;
+      vertical-align: -1px;
+    }
+    .answer-line {
+      display: block;
+      width: 100%;
+      min-height: 1.25em;
+      border-bottom: 1.4px solid var(--line);
+    }
+    .empty {
+      padding: 18px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--soft);
+    }
+    .question-list {
+      display: block;
+    }
+    .question-card + .question-card { margin-top: 10px; }
+    .question-card {
+      border: 1px solid var(--line);
+      padding: 8px;
+      page-break-inside: avoid;
+    }
+    .question-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .question-instruction {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .question-prompt {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .question-image {
+      display: block;
+      max-width: 100%;
+      max-height: 118mm;
+      object-fit: contain;
+      margin: 4px auto 8px;
+      border: 1px solid var(--line);
+    }
+    .math-question .question-image {
+      width: 100%;
+      max-height: 150mm;
+    }
+    .english-screenshot .question-image {
+      width: 100%;
+      max-height: 180mm;
+    }
+    .scan-page h1 { font-size: 18px; }
+    .scan-page .scan-meta { font-size: 11px; color: var(--muted); }
+    .scan-page .scan-image { display: block; width: 100%; height: 246mm; object-fit: contain; margin: 3mm auto 0; }
+    .scan-page .question-check { font-size: 12px; }
+    
+  .teacher-scan-layout { --answer-width:48mm; --answer-gap:4mm; display:grid; grid-template-columns:minmax(0,1fr) var(--answer-width); gap:var(--answer-gap); align-items:stretch; margin-top:3mm; }
+  .teacher-image-frame { min-width:0; }
+  .teacher-scan-layout .scan-image,.teacher-scan-layout .original-image { display:block; width:100%; height:auto; max-height:246mm; object-fit:contain; object-position:top center; margin:0; }
+  .teacher-answer-margin { position:relative; min-width:0; padding:0; margin:0; font-family:Arial,"PingFang SC",sans-serif; font-size:13px; }
+  .aligned-answer { position:absolute; top:calc(var(--answer-y) * 100%); left:0; width:100%; transform:translateY(-50%); }
+  .aligned-answer p { color:#c00000; font-size:inherit; font-weight:600; line-height:1.3; margin:0; overflow-wrap:anywhere; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .aligned-answer p+p { margin-top:2px; }
+  .teacher-answer-guides { position:absolute; top:0; left:calc(-1 * var(--answer-gap)); width:var(--answer-gap); height:100%; overflow:visible; pointer-events:none; }
+  .teacher-answer-guides path { fill:none; stroke:#c00000; stroke-width:.7; opacity:.4; vector-effect:non-scaling-stroke; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  @media screen and (max-width:720px) {
+    .scan-page .teacher-scan-layout { min-width:726px; }
+  }
+
+    .question-answer {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .question-answer {
+      color: #c00000;
+      font-family: Arial, "PingFang SC", sans-serif;
+      font-weight: 600;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .question-workspace {
+      min-height: 44mm;
+      border-bottom: 1.4px solid var(--line);
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .math-question .question-workspace {
+      min-height: 84mm;
+    }
+    .question-check {
+      margin-top: 6px;
+      color: var(--muted);
+      text-align: right;
+    }
+    @media screen and (max-width: 720px) {
+      body { font-size: 13px; background: white; }
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 12px;
+        overflow-x: auto;
+      }
+      h1 { font-size: 21px; white-space: normal; }
+      .meta { text-align: left; }
+      .checkline { grid-template-columns: 1fr; gap: 5px; }
+      th, td { padding: 5px 4px; }
+      .n { width: 28px; }
+      .word { width: 88px; font-size: 14px; overflow-wrap: anywhere; }
+      .cn { width: 76px; overflow-wrap: anywhere; }
+      .example { overflow-wrap: anywhere; }
+      .write-space { width: 92px; }
+      .check-col { width: 48px; }
+      .blank { width: 52px; }
+      .question-prompt { font-size: 15px; }
+      .question-image { max-height: none; }
+    }
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+      .compact-vocabulary tbody tr:not(.category-row) td { padding-top: 6px; padding-bottom: 6px; }
+    }
+  
+    /* daily-practice-timing */
+    .practice-timing-meta { display:flex; justify-content:space-between; align-items:baseline; gap:12px; text-align:left; }
+    .practice-timing { color:var(--ink); font-weight:600; white-space:nowrap; }
+    @media screen and (max-width:720px) {
+      .practice-timing-meta { flex-wrap:wrap; gap:2px 12px; }
+      .practice-timing { white-space:normal; }
+    }
+  </style>
+</head>
+<body>
+<section class="page">
+  <div class="head">
+    <h1>英语默写 学生版</h1>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-20</span></div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/提示</th>
+        <th class="write-space">英文默写</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">noun 名词</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="cn">章节</td>
+        <td class="example">This <span class="blank"></span> is about animals.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="cn">班长</td>
+        <td class="example">The <span class="blank"></span> helps the teacher.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="cn">斑马</td>
+        <td class="example">The <span class="blank"></span> has black and white stripes.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">4</td>
+        <td class="cn">叶子</td>
+        <td class="example">A <span class="blank"></span> falls from the tree.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="cn">顺序</td>
+        <td class="example">Please put them in <span class="blank"></span>.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="cn">空气</td>
+        <td class="example">We need <span class="blank"></span> to breathe.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="cn">秋天</td>
+        <td class="example">The leaves turn yellow in <span class="blank"></span>.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">8</td>
+        <td class="cn">司机</td>
+        <td class="example">The bus <span class="blank"></span> stopped at the crossing.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb 动词</td></tr>
+<tr>
+        <td class="n">9</td>
+        <td class="cn">吃饭</td>
+        <td class="example">We <span class="blank"></span> together every evening.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">10</td>
+        <td class="cn">发送</td>
+        <td class="example">I will <span class="blank"></span> you a postcard.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">preposition 介词</td></tr>
+<tr>
+        <td class="n">11</td>
+        <td class="cn">在……期间</td>
+        <td class="example">I read <span class="blank"></span> the break.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">phrase 短语</td></tr>
+<tr>
+        <td class="n">12</td>
+        <td class="cn">手机</td>
+        <td class="example">Mum uses her <span class="blank"></span> to call Grandma.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">adjective 形容词</td></tr>
+<tr>
+        <td class="n">13</td>
+        <td class="cn">安静的</td>
+        <td class="example">Please be <span class="blank"></span>.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="cn">粗鲁的</td>
+        <td class="example">Do not be <span class="blank"></span>.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">adjective/adverb 形容词/副词</td></tr>
+<tr>
+        <td class="n">15</td>
+        <td class="cn">早的；早地</td>
+        <td class="example">I get up <span class="blank"></span>.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">adverb 副词</td></tr>
+<tr>
+        <td class="n">16</td>
+        <td class="cn">经常</td>
+        <td class="example">We <span class="blank"></span> play in the park.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb/noun 动词/名词</td></tr>
+<tr>
+        <td class="n">17</td>
+        <td class="cn">旅行</td>
+        <td class="example">We <span class="blank"></span> during the holiday.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">question word 疑问词</td></tr>
+<tr>
+        <td class="n">18</td>
+        <td class="cn">哪一个</td>
+        <td class="example"><span class="blank"></span> one do you like?</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">uncategorized 未分类</td></tr>
+<tr>
+        <td class="n">19</td>
+        <td class="cn">等待</td>
+        <td class="example">Please <span class="blank"></span> for me at the gate.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">20</td>
+        <td class="cn">厨房</td>
+        <td class="example">Dad is cooking in the <span class="blank"></span>.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>英语认读 学生版</h1>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-20</span></div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="word">单词/词组</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/说明</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">adjective 形容词</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="word">wonderful</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We had a <strong>wonderful</strong> day.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="word">cuddly</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The toy bear is very <strong>cuddly</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="word">gentle</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Gopal is <strong>gentle</strong> and polite.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">4</td>
+        <td class="word">poor</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Once upon a time there was a <strong>poor</strong> man called Billy.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">noun 名词</td></tr>
+<tr>
+        <td class="n">5</td>
+        <td class="word">beach</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">I want to go to the <strong>beach</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="word">pronoun</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">&quot;He&quot; is a <strong>pronoun</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="word">hamster</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>hamster</strong> sleeps in its cage.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">8</td>
+        <td class="word">fin</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">A fish has a <strong>fin</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">9</td>
+        <td class="word">magazine</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Read the <strong>magazine</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">10</td>
+        <td class="word">genie</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>genie</strong> grants a wish.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">shelf</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Put the book on the <strong>shelf</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">volunteer</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">A <strong>volunteer</strong> helps us plant trees.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">Carnival</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We will go to the <strong>Carnival</strong> on Sunday.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">guitar</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">She plays the <strong>guitar</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">farm</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Ben wants to go to the <strong>farm</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">16</td>
+        <td class="word">beef</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Is there any <strong>beef</strong>? Yes, there is.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">noun phrase 名词短语</td></tr>
+<tr>
+        <td class="n">17</td>
+        <td class="word">secondary school student</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">My cousin is a <strong>secondary school student</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">18</td>
+        <td class="word">the school fair</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">There are many games at <strong>the school fair</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">19</td>
+        <td class="word">a carrot</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">I put <strong>a carrot</strong> in the soup.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb 动词</td></tr>
+<tr>
+        <td class="n">20</td>
+        <td class="word">refer</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The words &quot;he&quot; and &quot;she&quot; <strong>refer</strong> to people.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">21</td>
+        <td class="word">arrive</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">I <strong>arrive</strong> at school on time.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">22</td>
+        <td class="word">yawn</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">I <strong>yawn</strong> when I am tired.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">23</td>
+        <td class="word">weigh</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We <strong>weigh</strong> the bag.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">verb phrase 动词短语</td></tr>
+<tr>
+        <td class="n">24</td>
+        <td class="word">make paper toys</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Can you <strong>make paper toys</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">25</td>
+        <td class="word">practise the piano</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">I <strong>practise the piano</strong> every afternoon.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">26</td>
+        <td class="word">eat rice dumplings</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We <strong>eat rice dumplings</strong> at the Dragon Boat Festival.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">27</td>
+        <td class="word">watch dragon boat races</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We <strong>watch dragon boat races</strong> every year.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">28</td>
+        <td class="word">watch a clown show or a magic show</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We can <strong>watch a clown show or a magic show</strong> at the party.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">uncategorized 未分类</td></tr>
+<tr>
+        <td class="n">29</td>
+        <td class="word">structure</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">We are learning about sentence <strong>structure</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">30</td>
+        <td class="word">shout</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Please do not <strong>shout</strong> in the library.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>数学默写 学生版</h1>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-20</span></div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/提示</th>
+        <th class="write-space">英文默写</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">time/date 时间日期</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="cn">三月</td>
+        <td class="example"><span class="blank"></span> is the third month.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="cn">四月</td>
+        <td class="example"><span class="blank"></span> is the fourth month.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="cn">五月</td>
+        <td class="example"><span class="blank"></span> is the fifth month.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">4</td>
+        <td class="cn">七月</td>
+        <td class="example"><span class="blank"></span> is the seventh month.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="cn">九月</td>
+        <td class="example"><span class="blank"></span> is the ninth month.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">6</td>
+        <td class="cn">十月</td>
+        <td class="example"><span class="blank"></span> is the tenth month.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="cn">星期四</td>
+        <td class="example"><span class="blank"></span> is a weekday.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">8</td>
+        <td class="cn">星期六</td>
+        <td class="example"><span class="blank"></span> is a weekend day.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">time unit 时间单位</td></tr>
+<tr>
+        <td class="n">9</td>
+        <td class="cn">时</td>
+        <td class="example">An <span class="blank"></span> has 60 minutes.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">numbers 数字</td></tr>
+<tr>
+        <td class="n">10</td>
+        <td class="cn">6</td>
+        <td class="example"><span class="blank"></span> is 6.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">11</td>
+        <td class="cn">20</td>
+        <td class="example"><span class="blank"></span> is 20.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">12</td>
+        <td class="cn">90</td>
+        <td class="example"><span class="blank"></span> is 90.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">ordinal numbers 序数</td></tr>
+<tr>
+        <td class="n">13</td>
+        <td class="cn">第一</td>
+        <td class="example">This is the <span class="blank"></span> shape.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">solid shape 立体图形</td></tr>
+<tr>
+        <td class="n">14</td>
+        <td class="cn">圆锥</td>
+        <td class="example">A <span class="blank"></span> has one curved face.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">plane shape 平面图形</td></tr>
+<tr>
+        <td class="n">15</td>
+        <td class="cn">三角形</td>
+        <td class="example">A <span class="blank"></span> has three sides.</td>
+        <td class="write-space"></td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page">
+  <div class="head">
+    <h1>数学认读 学生版</h1>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 单词四项合计20分钟</span><span>2026-10-20</span></div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <table class="compact-vocabulary">
+    <thead>
+      <tr>
+        <th class="n">#</th>
+        <th class="word">单词/词组</th>
+        <th class="cn">中文意思</th>
+        <th class="example">例句/说明</th>
+        <th class="check-col">已掌握</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr class="category-row"><td colspan="5">operations 运算</td></tr>
+<tr>
+        <td class="n">1</td>
+        <td class="word">altogether</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">How many are there <strong>altogether</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">2</td>
+        <td class="word">carrying</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example"><strong>Carrying</strong> helps when the ones make ten.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">3</td>
+        <td class="word">be left</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">How many apples will <strong>be left</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">geometry 几何</td></tr>
+<tr>
+        <td class="n">4</td>
+        <td class="word">right angle</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">A <strong>right angle</strong> is 90 degrees.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">5</td>
+        <td class="word">parallel</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example"><strong>Parallel</strong> lines never meet.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">question word 题目词</td></tr>
+<tr>
+        <td class="n">6</td>
+        <td class="word">onwards</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Count <strong>onwards</strong> from 20.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">7</td>
+        <td class="word">backwards</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Count <strong>backwards</strong> from 20.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">8</td>
+        <td class="word">match</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example"><strong>Match</strong> the number to the word.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">9</td>
+        <td class="word">respectively</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Tom and Ben have 2 and 3 books <strong>respectively</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">comparison 比较</td></tr>
+<tr>
+        <td class="n">10</td>
+        <td class="word">most</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Which group has the <strong>most</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">shortest</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Find the <strong>shortest</strong> line.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">heaviest</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The 3 kg bag is the <strong>heaviest</strong> of the 1 kg, 2 kg and 3 kg bags.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">time/date 时间日期</td></tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">minute hand</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">At three o'clock, the <strong>minute hand</strong> points to 12.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">common year</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">A <strong>common year</strong> has 365 days.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">15</td>
+        <td class="word">small division</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The minute hand moves one <strong>small division</strong> in one minute.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">position 位置</td></tr>
+<tr>
+        <td class="n">16</td>
+        <td class="word">below</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The box is <strong>below</strong> the table.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">operations calculation 运算</td></tr>
+<tr>
+        <td class="n">17</td>
+        <td class="word">difference</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>difference</strong> is the answer in subtraction.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">18</td>
+        <td class="word">product</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>product</strong> is the answer in multiplication.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">19</td>
+        <td class="word">equally</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Share the apples <strong>equally</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">20</td>
+        <td class="word">division</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example"><strong>Division</strong> is the opposite of multiplication.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">21</td>
+        <td class="word">quotient</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>quotient</strong> is the answer in division.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">22</td>
+        <td class="word">horizontal form</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Write it in <strong>horizontal form</strong>.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">measurement 测量</td></tr>
+<tr>
+        <td class="n">23</td>
+        <td class="word">ruler</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Use a <strong>ruler</strong> to measure the length of the line segment.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">24</td>
+        <td class="word">distance</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Find the <strong>distance</strong> between the two points.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">25</td>
+        <td class="word">height</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">Measure the <strong>height</strong> of the box.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">26</td>
+        <td class="word">kilometer</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">One <strong>kilometer</strong> is 1,000 meters.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">27</td>
+        <td class="word">gram</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">One <strong>gram</strong> is one thousandth of a kilogram.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">28</td>
+        <td class="word">weight</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The <strong>weight</strong> of this bag is 2 kg.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">句型结构</td></tr>
+<tr>
+        <td class="n">29</td>
+        <td class="word">... is to the east of ...</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The school is to the east of the park.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">30</td>
+        <td class="word">... is to the north of ...</td>
+        <td class="cn"><span class="answer-line"></span></td>
+        <td class="example">The playground is to the north of the hall.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="page scan-page">
+      <h1>英语错题 学生版 · 第 1 题</h1>
+      <div class="scan-meta practice-timing-meta" data-practice-timing="true"><span>2026-10-20 · 姓名：孙大圣</span><span class="practice-timing">整套预习10分钟 · 英语题合计10分钟</span></div>
+      <img class="scan-image" src="assets/question_sets/english_screenshot_mistakes_2026-09-20_clean/image1.png" alt="C. School poster: complete the prepositions in the screenshot. · 1">
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </section>
+<section class="page scan-page">
+      <h1>英语错题 学生版 · 第 2 题</h1>
+      <div class="scan-meta practice-timing-meta" data-practice-timing="true"><span>2026-10-20 · 姓名：孙大圣</span><span class="practice-timing">整套预习10分钟 · 英语题合计10分钟</span></div>
+      <img class="scan-image" src="assets/question_sets/english_selected_mistakes_2026-09-21_clean/page-16.png" alt="Kenny and his mum · 1">
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </section>
+<section class="page">
+  <div class="head">
+    <h1>三年级数学错题 学生版</h1>
+    <div class="meta practice-timing-meta" data-practice-timing="true"><span class="practice-timing">整套预习10分钟 · 数学题合计10分钟</span><span>2026-10-20</span></div>
+  </div>
+  <div class="checkline">
+    <span>姓名：孙大圣</span>
+    <span>日期：</span>
+    <span>用时：</span>
+  </div>
+  <div class="question-list">
+    <article class="question-card math-question">
+      <div class="question-meta">第 1 题</div>
+      
+      
+      <img class="question-image" src="assets/question_sets/math_grade3_mistakes_2026-09-22_clean/image4.png" alt="After lunch, Alex joins the orienteering activity. Alex goes south to checkpoint 1 from the starting point. Write the direction he goes in each part of his route: Start — South → Checkpoint 1 — ____ → Checkpoint 2 — ____ → Checkpoint 3 — ____ → Checkpoint 4." />
+      
+      
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">第 2 题</div>
+      
+      
+      <img class="question-image" src="assets/question_sets/math_grade3_mistakes_2026-09-22_clean/image1.png" alt="Read the map below carefully, and then answer the questions. (a) The route between the (school / shopping mall / football court / cinema) and the gas station is the shortest. (b) The route between the (gas station / shopping mall / football court / cinema) and the school is the longest. (c) To go from the shopping mall to the cinema through the football court, the route is ____ km long. (d) To go from the football court to the school, the shortest route is ____ km long." style="max-height:200mm" />
+      
+      
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+    <article class="question-card math-question">
+      <div class="question-meta">第 3 题</div>
+      
+      
+      <img class="question-image" src="assets/question_sets/math_grade3_mistakes_2026-10-14_clean/image2.png" alt="The elevator goes from the ground floor to the scenic overlook platform in ____ seconds." />
+      
+      
+      <div class="question-check"><span class="box"></span> 已掌握</div>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>
