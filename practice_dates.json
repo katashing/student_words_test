@@ -1726,5 +1726,23 @@
       "html": "history/2026-11-07/passed_review_teacher.html?v=5f71fa37bae0",
       "pdf": "printables/passed_review_teacher_2026-11-07.pdf?v=47d4c81cd5be"
     }
+  },
+  "2026-11-08": {
+    "daily_practice_student": {
+      "html": "history/2026-11-08/daily_practice_student.html?v=af9f0b9e4a34",
+      "pdf": "printables/daily_practice_student_2026-11-08.pdf?v=5a6a11b9618d"
+    },
+    "daily_practice_teacher": {
+      "html": "history/2026-11-08/daily_practice_teacher.html?v=5c28319a208c",
+      "pdf": "printables/daily_practice_teacher_2026-11-08.pdf?v=113113e9f88d"
+    },
+    "passed_review_student": {
+      "html": "history/2026-11-08/passed_review_student.html?v=81d3a5da6317",
+      "pdf": "printables/passed_review_student_2026-11-08.pdf?v=0f8dbd9ab0b1"
+    },
+    "passed_review_teacher": {
+      "html": "history/2026-11-08/passed_review_teacher.html?v=c2ac25c88ac2",
+      "pdf": "printables/passed_review_teacher_2026-11-08.pdf?v=c6300990a134"
+    }
   }
 }
