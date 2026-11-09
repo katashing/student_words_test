@@ -202,7 +202,8 @@
     @media print {
       body { background: white; }
       .page { margin: 0; box-shadow: none; }
-      .compact-vocabulary tbody tr:not(.category-row) td { padding-top: 6px; padding-bottom: 6px; }
+      .page:has(.compact-vocabulary) { padding-bottom: 5mm; }
+      .compact-vocabulary tbody tr:not(.category-row) td { padding-top: 5px; padding-bottom: 5px; }
     }
   
     /* daily-practice-timing */
@@ -687,9 +688,9 @@
       </tr>
 <tr>
         <td class="n">6</td>
-        <td class="word">Wednesday</td>
-        <td class="cn">星期三</td>
-        <td class="example"><strong>Wednesday</strong> is a weekday.</td>
+        <td class="word">Monday</td>
+        <td class="cn">星期一</td>
+        <td class="example"><strong>Monday</strong> is a weekday.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
@@ -699,34 +700,33 @@
         <td class="example"><strong>Thursday</strong> is a weekday.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
-<tr class="category-row"><td colspan="5">time unit 时间单位</td></tr>
-<tr>
-        <td class="n">8</td>
-        <td class="word">month</td>
-        <td class="cn">月</td>
-        <td class="example">A <strong>month</strong> has many days.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
 <tr class="category-row"><td colspan="5">numbers 数字</td></tr>
 <tr>
-        <td class="n">9</td>
+        <td class="n">8</td>
         <td class="word">four</td>
         <td class="cn">4</td>
         <td class="example"><strong>Four</strong> is 4.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
+        <td class="n">9</td>
+        <td class="word">sixteen</td>
+        <td class="cn">16</td>
+        <td class="example"><strong>Sixteen</strong> is 16.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
         <td class="n">10</td>
-        <td class="word">six</td>
-        <td class="cn">6</td>
-        <td class="example"><strong>Six</strong> is 6.</td>
+        <td class="word">eighteen</td>
+        <td class="cn">18</td>
+        <td class="example"><strong>Eighteen</strong> is 18.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">11</td>
-        <td class="word">sixteen</td>
-        <td class="cn">16</td>
-        <td class="example"><strong>Sixteen</strong> is 16.</td>
+        <td class="word">nineteen</td>
+        <td class="cn">19</td>
+        <td class="example"><strong>Nineteen</strong> is 19.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
@@ -736,27 +736,28 @@
         <td class="example"><strong>Forty</strong> is 40.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
-<tr>
-        <td class="n">13</td>
-        <td class="word">eighty</td>
-        <td class="cn">80</td>
-        <td class="example"><strong>Eighty</strong> is 80.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
 <tr class="category-row"><td colspan="5">solid shape 立体图形</td></tr>
 <tr>
+        <td class="n">13</td>
+        <td class="word">hexagonal pyramid</td>
+        <td class="cn">六棱锥</td>
+        <td class="example">A <strong>hexagonal pyramid</strong> has one hexagonal base and six triangular side faces.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">plane shape 平面图形</td></tr>
+<tr>
         <td class="n">14</td>
-        <td class="word">cone</td>
-        <td class="cn">圆锥</td>
-        <td class="example">A <strong>cone</strong> has one curved face.</td>
+        <td class="word">parallelogram</td>
+        <td class="cn">平行四边形</td>
+        <td class="example">A <strong>parallelogram</strong> has two pairs of parallel sides.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">geometry 几何</td></tr>
 <tr>
         <td class="n">15</td>
-        <td class="word">acute angle</td>
-        <td class="cn">锐角</td>
-        <td class="example">An <strong>acute angle</strong> is smaller than a right angle.</td>
+        <td class="word">adjacent side</td>
+        <td class="cn">邻边</td>
+        <td class="example">These are <strong>adjacent sides</strong>.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
     </tbody>
@@ -801,6 +802,13 @@
       </tr>
 <tr>
         <td class="n">3</td>
+        <td class="word">altogether</td>
+        <td class="cn">一起</td>
+        <td class="example">How many are there <strong>altogether</strong>?</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">4</td>
         <td class="word">carrying</td>
         <td class="cn">进位</td>
         <td class="example"><strong>Carrying</strong> helps when the ones make ten.</td>
@@ -808,36 +816,15 @@
       </tr>
 <tr class="category-row"><td colspan="5">geometry 几何</td></tr>
 <tr>
-        <td class="n">4</td>
-        <td class="word">right angle</td>
-        <td class="cn">直角</td>
-        <td class="example">A <strong>right angle</strong> is 90 degrees.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
         <td class="n">5</td>
-        <td class="word">obtuse angle</td>
-        <td class="cn">钝角</td>
-        <td class="example">An <strong>obtuse angle</strong> is greater than 90 degrees and less than 180 degrees.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">6</td>
         <td class="word">identical</td>
         <td class="cn">完全相同的</td>
         <td class="example">These two triangles are <strong>identical</strong> in shape and size.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
-<tr>
-        <td class="n">7</td>
-        <td class="word">parallel to each other</td>
-        <td class="cn">相互平行</td>
-        <td class="example">The two lines are <strong>parallel to each other</strong>.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
 <tr class="category-row"><td colspan="5">directions 方向</td></tr>
 <tr>
-        <td class="n">8</td>
+        <td class="n">6</td>
         <td class="word">direction</td>
         <td class="cn">方向</td>
         <td class="example"><strong>Direction</strong> tells us where to go.</td>
@@ -845,46 +832,62 @@
       </tr>
 <tr class="category-row"><td colspan="5">question word 题目词</td></tr>
 <tr>
-        <td class="n">9</td>
-        <td class="word">estimate</td>
-        <td class="cn">估计</td>
-        <td class="example"><strong>Estimate</strong> the answer first.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">10</td>
-        <td class="word">count</td>
-        <td class="cn">数数</td>
-        <td class="example"><strong>Count</strong> from 1 to 10.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">11</td>
-        <td class="word">respectively</td>
-        <td class="cn">分别地</td>
-        <td class="example">Tom and Ben have 2 and 3 books <strong>respectively</strong>.</td>
+        <td class="n">7</td>
+        <td class="word">onwards</td>
+        <td class="cn">向前；继续向前</td>
+        <td class="example">Count <strong>onwards</strong> from 20.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">comparison 比较</td></tr>
 <tr>
-        <td class="n">12</td>
-        <td class="word">lighter</td>
-        <td class="cn">更轻的</td>
-        <td class="example">A pencil is <strong>lighter</strong> than a brick.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">13</td>
+        <td class="n">8</td>
         <td class="word">lightest</td>
         <td class="cn">最轻的</td>
         <td class="example">The 1 kg bag is the <strong>lightest</strong> of the 1 kg, 2 kg and 3 kg bags.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">14</td>
+        <td class="n">9</td>
+        <td class="word">heavier</td>
+        <td class="cn">更重的</td>
+        <td class="example">A 3 kg bag is <strong>heavier</strong> than a 2 kg bag.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">10</td>
         <td class="word">heaviest</td>
         <td class="cn">最重的</td>
         <td class="example">The 3 kg bag is the <strong>heaviest</strong> of the 1 kg, 2 kg and 3 kg bags.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">time/date 时间日期</td></tr>
+<tr>
+        <td class="n">11</td>
+        <td class="word">leap year</td>
+        <td class="cn">闰年</td>
+        <td class="example">A <strong>leap year</strong> has 366 days.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">12</td>
+        <td class="word">non-leap year</td>
+        <td class="cn">平年</td>
+        <td class="example">A <strong>non-leap year</strong> has 365 days.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">13</td>
+        <td class="word">midnight</td>
+        <td class="cn">半夜；午夜（凌晨零点）</td>
+        <td class="example"><strong>Midnight</strong> is twelve o'clock at night.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">quantity 数量</td></tr>
+<tr>
+        <td class="n">14</td>
+        <td class="word">pair</td>
+        <td class="cn">双</td>
+        <td class="example">A <strong>pair</strong> means two things together.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">position 位置</td></tr>
@@ -898,49 +901,42 @@
 <tr class="category-row"><td colspan="5">operations calculation 运算</td></tr>
 <tr>
         <td class="n">16</td>
+        <td class="word">difference</td>
+        <td class="cn">差</td>
+        <td class="example">The <strong>difference</strong> is the answer in subtraction.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr>
+        <td class="n">17</td>
         <td class="word">A times B</td>
         <td class="cn">A✖️B</td>
         <td class="example"><strong>A times B</strong> means multiplication.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">17</td>
+        <td class="n">18</td>
         <td class="word">multiplication</td>
         <td class="cn">乘法</td>
         <td class="example"><strong>Multiplication</strong> can use times.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">18</td>
-        <td class="word">product</td>
-        <td class="cn">积</td>
-        <td class="example">The <strong>product</strong> is the answer in multiplication.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
         <td class="n">19</td>
-        <td class="word">expression</td>
-        <td class="cn">式子</td>
-        <td class="example">Write the <strong>expression</strong> in horizontal form.</td>
+        <td class="word">mixed operations</td>
+        <td class="cn">混合运算</td>
+        <td class="example"><strong>Mixed operations</strong> use more than one operation.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">20</td>
-        <td class="word">remainder</td>
-        <td class="cn">余数</td>
-        <td class="example">The <strong>remainder</strong> is left after division.</td>
+        <td class="word">division</td>
+        <td class="cn">除法</td>
+        <td class="example"><strong>Division</strong> is the opposite of multiplication.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">teacher math vocabulary 老师数学词汇</td></tr>
 <tr>
         <td class="n">21</td>
-        <td class="word">between ... and ...</td>
-        <td class="cn">在……和……之间</td>
-        <td class="example">7 is <strong>between</strong> 6 <strong>and</strong> 8.</td>
-        <td class="check-col"><span class="box"></span></td>
-      </tr>
-<tr>
-        <td class="n">22</td>
         <td class="word">stop</td>
         <td class="cn">停</td>
         <td class="example"><strong>Stop</strong> counting when you reach twenty.</td>
@@ -948,17 +944,25 @@
       </tr>
 <tr class="category-row"><td colspan="5">measurement 测量</td></tr>
 <tr>
-        <td class="n">23</td>
+        <td class="n">22</td>
         <td class="word">height</td>
         <td class="cn">高度</td>
         <td class="example">Measure the <strong>height</strong> of the box.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
-        <td class="n">24</td>
+        <td class="n">23</td>
         <td class="word">kilogram</td>
         <td class="cn">千克</td>
         <td class="example">One <strong>kilogram</strong> is 1,000 grams.</td>
+        <td class="check-col"><span class="box"></span></td>
+      </tr>
+<tr class="category-row"><td colspan="5">data charts 统计图</td></tr>
+<tr>
+        <td class="n">24</td>
+        <td class="word">block chart</td>
+        <td class="cn">方块图</td>
+        <td class="example">Read the <strong>block chart</strong>.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr class="category-row"><td colspan="5">句型结构</td></tr>
@@ -978,16 +982,16 @@
       </tr>
 <tr>
         <td class="n">27</td>
-        <td class="word">The lines are perpendicular to each other.</td>
-        <td class="cn">这些线彼此垂直。</td>
-        <td class="example">The lines are perpendicular to each other.</td>
+        <td class="word">... is to the east of ...</td>
+        <td class="cn">......位于......的东侧。</td>
+        <td class="example">The school is to the east of the park.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
         <td class="n">28</td>
-        <td class="word">... is to the east of ...</td>
-        <td class="cn">......位于......的东侧。</td>
-        <td class="example">The school is to the east of the park.</td>
+        <td class="word">... is to the south of ...</td>
+        <td class="cn">......位于......的南侧。</td>
+        <td class="example">The library is to the south of the shop.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
 <tr>
@@ -997,11 +1001,12 @@
         <td class="example">The bank is to the west of the school.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
+<tr class="category-row"><td colspan="5">plane shape 平面图形</td></tr>
 <tr>
         <td class="n">30</td>
-        <td class="word">... is to the north of ...</td>
-        <td class="cn">......位于......的北侧。</td>
-        <td class="example">The playground is to the north of the hall.</td>
+        <td class="word">trapezium</td>
+        <td class="cn">梯形（只有一组对边平行的四边形）</td>
+        <td class="example">A <strong>trapezium</strong> has exactly one pair of parallel sides.</td>
         <td class="check-col"><span class="box"></span></td>
       </tr>
     </tbody>
