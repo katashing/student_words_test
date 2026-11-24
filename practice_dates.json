@@ -2014,5 +2014,23 @@
       "html": "history/2026-11-24/passed_review_teacher.html?v=c2b84e6829b6",
       "pdf": "printables/passed_review_teacher_2026-11-24.pdf?v=4a6b8a00943a"
     }
+  },
+  "2026-11-25": {
+    "daily_practice_student": {
+      "html": "history/2026-11-25/daily_practice_student.html?v=5819d2130c69",
+      "pdf": "printables/daily_practice_student_2026-11-25.pdf?v=b45d513ab331"
+    },
+    "daily_practice_teacher": {
+      "html": "history/2026-11-25/daily_practice_teacher.html?v=4305733e5154",
+      "pdf": "printables/daily_practice_teacher_2026-11-25.pdf?v=348a0c9a24dd"
+    },
+    "passed_review_student": {
+      "html": "history/2026-11-25/passed_review_student.html?v=50a55ac83491",
+      "pdf": "printables/passed_review_student_2026-11-25.pdf?v=48964ec90f2d"
+    },
+    "passed_review_teacher": {
+      "html": "history/2026-11-25/passed_review_teacher.html?v=6af3b70fcd8d",
+      "pdf": "printables/passed_review_teacher_2026-11-25.pdf?v=7ecbb9da2622"
+    }
   }
 }
