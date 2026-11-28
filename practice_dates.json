@@ -2051,5 +2051,58 @@
       "pdf": "printables/passed_review_teacher_2026-11-26.pdf?v=cfa91faa6945"
     }
   },
-"2026-11-27":{"daily_practice_student":{"html":"history/2026-11-27/daily_practice_student.html?v=38860c50831c","pdf":"printables/daily_practice_student_2026-11-27.pdf?v=a8d1bda44a92"},"daily_practice_teacher":{"html":"history/2026-11-27/daily_practice_teacher.html?v=4123f092e2e5","pdf":"printables/daily_practice_teacher_2026-11-27.pdf?v=8679141b9d10"},"passed_review_student":{"html":"history/2026-11-27/passed_review_student.html?v=60aa4cee2155","pdf":"printables/passed_review_student_2026-11-27.pdf?v=31ca889e6015"},"passed_review_teacher":{"html":"history/2026-11-27/passed_review_teacher.html?v=2a4529af5069","pdf":"printables/passed_review_teacher_2026-11-27.pdf?v=8e95dea36595"}}
+  "2026-11-27": {
+    "daily_practice_student": {
+      "html": "history/2026-11-27/daily_practice_student.html?v=38860c50831c",
+      "pdf": "printables/daily_practice_student_2026-11-27.pdf?v=a8d1bda44a92"
+    },
+    "daily_practice_teacher": {
+      "html": "history/2026-11-27/daily_practice_teacher.html?v=4123f092e2e5",
+      "pdf": "printables/daily_practice_teacher_2026-11-27.pdf?v=8679141b9d10"
+    },
+    "passed_review_student": {
+      "html": "history/2026-11-27/passed_review_student.html?v=60aa4cee2155",
+      "pdf": "printables/passed_review_student_2026-11-27.pdf?v=31ca889e6015"
+    },
+    "passed_review_teacher": {
+      "html": "history/2026-11-27/passed_review_teacher.html?v=2a4529af5069",
+      "pdf": "printables/passed_review_teacher_2026-11-27.pdf?v=8e95dea36595"
+    }
+  },
+  "2026-11-28": {
+    "daily_practice_student": {
+      "html": "history/2026-11-28/daily_practice_student.html?v=e1b8c4d7e828",
+      "pdf": "printables/daily_practice_student_2026-11-28.pdf?v=67f02ec3ebd3"
+    },
+    "daily_practice_teacher": {
+      "html": "history/2026-11-28/daily_practice_teacher.html?v=f4203730a0ad",
+      "pdf": "printables/daily_practice_teacher_2026-11-28.pdf?v=b20e2304bca6"
+    },
+    "passed_review_student": {
+      "html": "history/2026-11-28/passed_review_student.html?v=4e0b86e3756a",
+      "pdf": "printables/passed_review_student_2026-11-28.pdf?v=0b0579c83b76"
+    },
+    "passed_review_teacher": {
+      "html": "history/2026-11-28/passed_review_teacher.html?v=a9baa54e08cc",
+      "pdf": "printables/passed_review_teacher_2026-11-28.pdf?v=42aabf79272a"
+    }
+  },
+  "2026-11-29": {
+    "daily_practice_student": {
+      "html": "history/2026-11-29/daily_practice_student.html?v=37469b6ec16d",
+      "pdf": "printables/daily_practice_student_2026-11-29.pdf?v=b763fa8ae13c"
+    },
+    "daily_practice_teacher": {
+      "html": "history/2026-11-29/daily_practice_teacher.html?v=1b5b0b3bd4fb",
+      "pdf": "printables/daily_practice_teacher_2026-11-29.pdf?v=34d3fc49a6c0"
+    },
+    "passed_review_student": {
+      "html": "history/2026-11-29/passed_review_student.html?v=75a32731c162",
+      "pdf": "printables/passed_review_student_2026-11-29.pdf?v=89dcdc0e67c3"
+    },
+    "passed_review_teacher": {
+      "html": "history/2026-11-29/passed_review_teacher.html?v=0b1be4731f5c",
+      "pdf": "printables/passed_review_teacher_2026-11-29.pdf?v=38ba9cfb5385"
+    }
+  }
 }
